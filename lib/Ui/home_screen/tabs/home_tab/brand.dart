@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-class CategoriesTab extends StatelessWidget {
-  CategoriesTab({super.key});
+class BrandScreen extends StatelessWidget {
+   BrandScreen({super.key});
 
   final List<Map<String, String>> categories = [
     {"name": "T-shirt", "image": "assets/images/t-shrit.jpg"},
@@ -26,11 +26,11 @@ class CategoriesTab extends StatelessWidget {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
-        title: Text(AppLocalizations.of(context)!.categories),
+        title: Text(AppLocalizations.of(context)!.brands),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_rounded, size: 30.w),
           onPressed: () {
-            context.read<HomeProvider>().changeIndex(0); 
+            Navigator.pushReplacementNamed(context, AppRoutes.homeRoute);
           },
         ),
       ),
@@ -38,22 +38,7 @@ class CategoriesTab extends StatelessWidget {
         padding: EdgeInsets.all(8.h),
         child: Column(
           children: [
-            CustomTextField(
-              hintText: AppLocalizations.of(context)!.search,
-              hintStyle: AppStyles.menuItemStyle,
-              borderColor: AppColors.gray300,
-              suffixIcon: Icon(
-                Icons.format_align_center_outlined,
-                color: AppColors.grayColor,
-                size: 30.sp,
-              ),
-              prefixIcon: Icon(
-                Icons.search,
-                color: AppColors.grayColor,
-                size: 30.sp,
-              ),
-              borderSize: 1.0,
-            ),
+           
             SizedBox(height: 16.h),
 
           
@@ -63,7 +48,7 @@ class CategoriesTab extends StatelessWidget {
               itemCount: categories.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: 2 / 2, // نسبة العرض/الارتفاع للعنصر
+                childAspectRatio: 2 / 2, 
                 crossAxisSpacing: 16.w,
                 mainAxisSpacing: 16.h,
               ),
@@ -97,7 +82,6 @@ class CategoriesTab extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 8.h),
-
                         Flexible(
                           child: Text(
                             category["name"] ?? "",

@@ -8,4 +8,7 @@ class AppRoutes {
   static const String registerVerafaicationRoute = 'verfaication';
   static const String orderHistory = '/orderHistory';
   static const String productDetails='product';
+  static const String notitcationsRoute = 'notitcations';
+  static const String searchRoute = 'search';
+  static const String allBrandsRoute = 'allBrands';
 }

@@ -1,9 +1,23 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ProductTabItem extends StatelessWidget {
-  const ProductTabItem({super.key});
+class ProductTabItem extends StatefulWidget {
+  String image ;
+  String title ;
+ProductTabItem({
+    super.key,
+    required this.image,
+    required this.title,
+  });
+
+  @override
+  State<ProductTabItem> createState() => _ProductTabItemState();
+}
+
+class _ProductTabItemState extends State<ProductTabItem> {
+   bool isFav = false;
 
   @override
   Widget build(BuildContext context) {
@@ -17,48 +31,46 @@ class ProductTabItem extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(20.r),
-                child: Image.network(
-                  "https://picsum.photos/800/400?random=2", // صورة وهمية
+                child: Image.asset(
+                 widget.image, 
                   width: 160.w,
                   height: 138.h,
                   fit: BoxFit.cover,
                 ),
               ),
-              // أيقونة favorite
               Positioned(
                 top: 8,
                 right: 8,
-                child: CircleAvatar(
-                  backgroundColor: AppColors.blackColor,
-                  radius: 14.r,
-                  child: Icon(
-                    Icons.favorite_border_rounded,
-                    color: AppColors.whiteColor,
+                child: InkWell(
+                  onTap: () => setState(() => isFav = !isFav),
+                  child: CircleAvatar(
+                    backgroundColor: AppColors.blackColor,
+                    radius: 14.r,
+                    child: Icon(
+                      isFav ? Icons.favorite : Icons.favorite_border_rounded,
+                      color: AppColors.whiteColor,
+                    ),
                   ),
                 ),
               ),
             ],
           ),
-
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                
-                const Text(
-                  "Product Title",
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                AutoSizeText(
+                  widget.title,
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                 ),
-
                 const SizedBox(height: 4),
-
                 Text("\$250", style: TextStyle(fontWeight: FontWeight.bold)),
                 SizedBox(width: 8),
                 Text(
                   "300",
                   style: TextStyle(
-                    fontSize: 11,
+                    fontSize: 14,
                     decoration: TextDecoration.lineThrough,
                     color: Colors.grey,
                   ),

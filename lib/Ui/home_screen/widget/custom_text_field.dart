@@ -21,9 +21,11 @@ class CustomTextField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final String? Function(String?)? validator;
   final bool readOnly;
+  final double? borderSize;
 
   const CustomTextField({
     super.key,
+    this.borderSize,
     this.readOnly = false,
     this.filledColor = AppColors.whiteColor,
     this.onChanged,
@@ -64,21 +66,21 @@ class CustomTextField extends StatelessWidget {
   labelStyle: labelStyle,
   hintStyle: hintStyle ?? AppStyles.hint12RegularJakarta,
   contentPadding: EdgeInsets.symmetric(
-    vertical: 18.h, // 👈 يكبر الهايت
+    vertical: 18.h, 
     horizontal: 16.w,
   ),
   enabledBorder: OutlineInputBorder(
     borderRadius: BorderRadius.circular(10.r),
     borderSide: BorderSide(
-      color:  AppColors.primaryColor,
-      width: 1.5, 
+      color: borderColor ?? AppColors.primaryColor,
+      width: borderSize ?? 1.5,
     ),
   ),
   focusedBorder: OutlineInputBorder(
     borderRadius: BorderRadius.circular(10.r),
     borderSide: BorderSide(
-      color: AppColors.primaryColor,
-      width: 2, 
+      color: borderColor ?? AppColors.primaryColor,
+      width: borderSize ?? 1.5,
     ),
   ),
   errorBorder: OutlineInputBorder(
