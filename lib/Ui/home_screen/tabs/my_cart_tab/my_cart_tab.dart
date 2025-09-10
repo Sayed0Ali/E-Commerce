@@ -1,10 +1,12 @@
 import 'package:ecommerce/Ui/home_screen/tabs/my_cart_tab/cart_item.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/languge_bottom_sheet/home_provider.dart';
 import 'package:ecommerce/Ui/home_screen/widget/custom_elevated_button.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
 import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 final List<Map<String, String>> categories = [
   {"name": "T-shirt", "image": "assets/images/t-shrit.jpg"},
@@ -29,11 +31,13 @@ class CartProduct {
     this.quantity = 1,
   });
 }
+
 class MyCartTab extends StatefulWidget {
   const MyCartTab({super.key});
   @override
   State<MyCartTab> createState() => _MyCartTabState();
 }
+
 class _MyCartTabState extends State<MyCartTab> {
   late List<CartProduct> products;
   static const double fixedPrice = 250.0;
@@ -82,6 +86,7 @@ class _MyCartTabState extends State<MyCartTab> {
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,14 +94,24 @@ class _MyCartTabState extends State<MyCartTab> {
         title: Text(AppLocalizations.of(context)!.my_cart),
         elevation: 0,
         backgroundColor: AppColors.whiteColor,
-        leading: Icon(Icons.arrow_back_rounded, size: 30.w),
-        actions: [TextButton(onPressed: () {}, child: Text(AppLocalizations.of(context)!.voucher_code,style: AppStyles.bold18Jakarta.copyWith(color: AppColors.primaryColor),))],
+        leading: IconButton(icon:Icon(Icons.arrow_back_rounded), iconSize: 30.sp,onPressed: (){   context.read<HomeProvider>().changeIndex(0); 
+}),
+        actions: [
+          TextButton(
+            onPressed: (){},
+            child: Text(
+              AppLocalizations.of(context)!.voucher_code,
+              style: AppStyles.bold18Jakarta.copyWith(
+                color: AppColors.primaryColor,
+              ),
+            ),
+          ),
+        ],
       ),
       backgroundColor: AppColors.whiteColor,
       body: SafeArea(
         child: Column(
           children: [
-            // List of items
             Expanded(
               child: products.isEmpty
                   ? const Center(child: Text('Your cart is empty'))
@@ -130,13 +145,17 @@ class _MyCartTabState extends State<MyCartTab> {
                 ),
                 child: Row(
                   children: [
-                    // Total texts
+                  
                     Expanded(
-                      child: CustomElevatedButton(
-                        text: 'Check out',
-                        onButtonClicked: _checkout,
-                        backGroundColor: AppColors.blackColor,
-                        textStyle: AppStyles.userNameWhite,
+                      child: Column(
+                        children: [
+                          CustomElevatedButton(
+                            text: 'Check out',
+                            onButtonClicked: _checkout,
+                            backGroundColor: AppColors.blackColor,
+                            textStyle: AppStyles.userNameWhite,
+                          ),
+                        ],
                       ),
                     ),
                   ],

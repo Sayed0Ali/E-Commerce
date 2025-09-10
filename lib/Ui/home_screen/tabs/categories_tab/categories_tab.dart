@@ -55,15 +55,13 @@ class CategoriesTab extends StatelessWidget {
               borderSize: 1.0,
             ),
             SizedBox(height: 16.h),
-
-          
             GridView.builder(
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true, 
               itemCount: categories.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: 2 / 2, // نسبة العرض/الارتفاع للعنصر
+                childAspectRatio: 2 / 2, 
                 crossAxisSpacing: 16.w,
                 mainAxisSpacing: 16.h,
               ),
@@ -97,7 +95,6 @@ class CategoriesTab extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 8.h),
-
                         Flexible(
                           child: Text(
                             category["name"] ?? "",

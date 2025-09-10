@@ -4,15 +4,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_styles.dart';
 
-class CustomTextField extends StatelessWidget {
+class CustomTextField extends StatefulWidget {
   final Color? filledColor;
   final Color? borderColor;
-  final bool obscureText;
+  final bool isPassword; // ✅ بدل obscureText نخليه يدعم show/hide
   final String hintText;
   final String? labelText;
   final TextStyle? hintStyle;
   final Widget? prefixIcon;
-  final Widget? suffixIcon;
+  final Widget? suffixIcon; // أيقونة ثابتة من بره
   final TextStyle? labelStyle;
   final int maxLines;
   final TextStyle? style;
@@ -40,59 +40,87 @@ class CustomTextField extends StatelessWidget {
     this.suffixIcon,
     this.labelStyle,
     this.style,
-    this.obscureText = false,
+    this.isPassword = false,
     this.maxLines = 1,
   });
 
   @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  bool _obscureText = true;
+
+  @override
   Widget build(BuildContext context) {
     return TextFormField(
-      readOnly: readOnly,
-      onChanged: onChanged,
-      controller: controller,
-      validator: validator,
+      readOnly: widget.readOnly,
+      onChanged: widget.onChanged,
+      controller: widget.controller,
+      validator: widget.validator,
       cursorColor: AppColors.blackColor,
-      style: style ?? AppStyles.semiBold14,
-      obscureText: obscureText,
-      keyboardType: keyBoardType,
-      maxLines: maxLines,
-    decoration: InputDecoration(
-  filled: true,
-  fillColor: filledColor,
-  prefixIcon: prefixIcon,
-  suffixIcon: suffixIcon,
-  hintText: hintText,
-  labelText: labelText,
-  labelStyle: labelStyle,
-  hintStyle: hintStyle ?? AppStyles.hint12RegularJakarta,
-  contentPadding: EdgeInsets.symmetric(
-    vertical: 18.h, 
-    horizontal: 16.w,
-  ),
-  enabledBorder: OutlineInputBorder(
-    borderRadius: BorderRadius.circular(10.r),
-    borderSide: BorderSide(
-      color: borderColor ?? AppColors.primaryColor,
-      width: borderSize ?? 1.5,
-    ),
-  ),
-  focusedBorder: OutlineInputBorder(
-    borderRadius: BorderRadius.circular(10.r),
-    borderSide: BorderSide(
-      color: borderColor ?? AppColors.primaryColor,
-      width: borderSize ?? 1.5,
-    ),
-  ),
-  errorBorder: OutlineInputBorder(
-    borderRadius: BorderRadius.circular(16.r),
-    borderSide: const BorderSide(color: AppColors.redColor, width: 1.5),
-  ),
-  focusedErrorBorder: OutlineInputBorder(
-    borderRadius: BorderRadius.circular(16.r),
-    borderSide: const BorderSide(color: AppColors.redColor, width: 2),
-  ),
-),
-
+      style: widget.style ?? AppStyles.semiBold14,
+      obscureText: widget.isPassword ? _obscureText : false,
+      keyboardType: widget.keyBoardType,
+      maxLines: widget.maxLines,
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: widget.filledColor,
+        prefixIcon: widget.prefixIcon,
+        suffixIcon: _buildSuffixIcon(),
+        hintText: widget.hintText,
+        labelText: widget.labelText,
+        labelStyle: widget.labelStyle,
+        hintStyle: widget.hintStyle ?? AppStyles.hint12RegularJakarta,
+        contentPadding: EdgeInsets.symmetric(
+          vertical: 18.h,
+          horizontal: 16.w,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide(
+            color: widget.borderColor ?? AppColors.primaryColor,
+            width: widget.borderSize ?? 1.5,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide(
+            color: widget.borderColor ?? AppColors.primaryColor,
+            width: widget.borderSize ?? 1.5,
+          ),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16.r),
+          borderSide: const BorderSide(color: AppColors.redColor, width: 1.5),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16.r),
+          borderSide: const BorderSide(color: AppColors.redColor, width: 2),
+        ),
+      ),
     );
+  }
+
+  Widget? _buildSuffixIcon() {
+    if (widget.isPassword) {
+      return IconButton(
+        icon: Icon(
+          _obscureText
+              ? Icons.visibility_off_sharp
+              : Icons.visibility_sharp,
+          color: AppColors.gray500,
+        ),
+        onPressed: () {
+          setState(() {
+            _obscureText = !_obscureText;
+          });
+        },
+      );
+    }
+    if (widget.suffixIcon != null) {
+      return widget.suffixIcon;
+    }
+    return null;
   }
 }

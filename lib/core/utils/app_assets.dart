@@ -34,4 +34,5 @@ class AppAssets {
 
   // Extra
   static const String iconImage = 'assets/images/image-icone.png';
+  static const String onLineShopImage='assets/images/online.png';
 }

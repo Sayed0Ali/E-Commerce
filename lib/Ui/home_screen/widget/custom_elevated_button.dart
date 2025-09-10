@@ -26,13 +26,13 @@ class CustomElevatedButton extends StatelessWidget {
         backgroundColor: backGroundColor ?? AppColors.whiteColor,
         padding: EdgeInsets.symmetric(horizontal: 1.w),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.r),
-          side: BorderSide(color: AppColors.whiteColor, width: 2),
+          borderRadius: BorderRadius.circular(10.r),
+          //side: BorderSide(color: AppColors.whiteColor, width: 2),
         ),
       ),
       onPressed: onButtonClicked,
       child: SizedBox(
-        height: 64.h,
+        height: 60.h,
         width: 398.w,
         child: Center(child: AutoSizeText(text, style: textStyle)),
       ),

@@ -1,5 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/Support&information/privacy_policy.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/Support&information/term_condition.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/account&mangment/change_password.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/languge_bottom_sheet/languge_bottom_sheet.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/Contact_Us.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/order/order_screen.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/payment_method.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/shopping_adderss.dart';
 import 'package:ecommerce/core/utils/app_assets.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_routs.dart';
@@ -81,21 +88,44 @@ class ProfaileTab extends StatelessWidget {
               buildRowItem(
                 title: AppLocalizations.of(context)!.shipping_address,
                 icon: Icons.local_shipping_outlined,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ShippingAdderss()),
+                  );
+                },
               ),
-
               buildRowItem(
                 title: AppLocalizations.of(context)!.payment_method,
                 icon: Icons.payment_outlined,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PaymentMethod()),
+                  );
+                },
               ),
 
               buildRowItem(
                 title: AppLocalizations.of(context)!.order_history,
                 icon: Icons.history_edu,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => OrdersScreen()),
+                  );
+                },
               ),
 
               buildRowItem(
                 title: AppLocalizations.of(context)!.contact_us,
                 icon: Icons.perm_contact_calendar_outlined,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ContactUs()),
+                  );
+                },
               ),
 
               SizedBox(height: 10.h),
@@ -108,11 +138,23 @@ class ProfaileTab extends StatelessWidget {
               buildRowItem(
                 title: AppLocalizations.of(context)!.privacy_policy,
                 icon: Icons.privacy_tip_outlined,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PrivacyPolicy()),
+                  );
+                },
               ),
 
               buildRowItem(
                 title: AppLocalizations.of(context)!.terms_conditions,
                 icon: Icons.note_alt,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TermCondition()),
+                  );
+                },
               ),
 
               SizedBox(height: 10.h),
@@ -125,6 +167,12 @@ class ProfaileTab extends StatelessWidget {
               buildRowItem(
                 title: AppLocalizations.of(context)!.change_password,
                 icon: Icons.lock_outline,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ChangePassword()),
+                  );
+                },
               ),
 
               buildRowItem(

@@ -50,7 +50,7 @@ class AppValidators {
     if (value == null) {
       return 'This field is required';
     } else if (int.tryParse(value.trim()) == null) {
-      return 'This field is required';
+      return 'Please enter a valid phone number';
     } else if (value.trim().length != 11) {
       return 'Phone number must be 11 digits long';
     }
@@ -64,4 +64,26 @@ class AppValidators {
       return null;
     }
   }
+
+  /// ✅ Address Validation
+  static String? validateAddress(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'This field is required';
+    } else if (value.trim().length < 3) {
+      return 'Address must be at least 3 characters long';
+    }
+    return null;
+  }
+
+  /// ✅ Postal Code Validation
+  static String? validatePostalCode(String? value) {
+    final postalRegex = RegExp(r'^[0-9]{4,10}$'); // 4-10 digits
+    if (value == null || value.trim().isEmpty) {
+      return 'This field is required';
+    } else if (!postalRegex.hasMatch(value.trim())) {
+      return 'Please enter a valid postal code (4–10 digits)';
+    }
+    return null;
+  }
 }
+

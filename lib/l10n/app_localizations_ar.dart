@@ -142,5 +142,5 @@ class AppLocalizationsAr extends AppLocalizations {
   String get search => 'بحث';
 
   @override
-  String get voucher_code => 'Voucher Code';
+  String get voucher_code => 'كود الخصم';
 }

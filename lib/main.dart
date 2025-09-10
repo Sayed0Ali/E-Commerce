@@ -10,6 +10,7 @@ import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/languge_bottom_sheet/a
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/languge_bottom_sheet/home_provider.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/profaile_tab.dart';
 import 'package:ecommerce/core/utils/app_routs.dart';
+import 'package:ecommerce/core/utils/app_thems.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -41,21 +42,22 @@ class MainApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: AppRoutes.homeRoute,
+
         routes: {
           AppRoutes.homeRoute: (context) => HomeScreen(),
           AppRoutes.homeTabRoute: (context) => HomeTab(),
           AppRoutes.categoryRoute: (context) => CategoriesTab(),
           AppRoutes.registerRoute: (context) => RegisterScreen(),
-            AppRoutes.searchRoute: (context) => SearchTab(),
-          AppRoutes.registerVerafaicationRoute: (context) =>
-              RegisterVerification(),
-              AppRoutes.profileRoute: (context) => ProfaileTab(),
-              AppRoutes.notitcationsRoute: (context) => NotificationsTab(),
-               AppRoutes.allBrandsRoute: (context) => BrandScreen(),
+          AppRoutes.searchRoute: (context) => SearchTab(),
+          AppRoutes.registerVerafaicationRoute: (context) =>RegisterVerification(),
+          AppRoutes.profileRoute: (context) => ProfaileTab(),
+          AppRoutes.notitcationsRoute: (context) => NotificationsTab(),
+          AppRoutes.allBrandsRoute: (context) => BrandScreen(),
         },
-          locale: Locale(LanguageProvider.appLanguage),
+        locale: Locale(LanguageProvider.appLanguage),
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
+        theme: AppThems.lightTheme,
       ),
     );
   }

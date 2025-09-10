@@ -22,8 +22,7 @@ class CartItemCard extends StatefulWidget {
 }
 
 class _CartItemCardState extends State<CartItemCard> {
- bool isChecked = false;
-
+  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -34,7 +33,6 @@ class _CartItemCardState extends State<CartItemCard> {
           color: AppColors.whiteColor,
           borderRadius: BorderRadius.circular(12.r),
         ),
-
         child: Row(
           children: [
             ClipRRect(
@@ -74,15 +72,17 @@ class _CartItemCardState extends State<CartItemCard> {
                         ),
                         GestureDetector(
                           onTap: () {
-                           setState(() {
+                            setState(() {
                               isChecked = !isChecked;
-                           });
+                            });
                           },
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 6.w),
                             child: Icon(
                               Icons.check_box,
-                              color: isChecked ?AppColors.primaryColor :AppColors.gray400,
+                              color: isChecked
+                                  ? AppColors.primaryColor
+                                  : AppColors.gray400,
 
                               size: 20.sp,
                             ),
@@ -91,7 +91,6 @@ class _CartItemCardState extends State<CartItemCard> {
                       ],
                     ),
                     SizedBox(height: 5.h),
-
                     Text(
                       'EGP ${widget.product.price.toStringAsFixed(0)}',
                       style: TextStyle(

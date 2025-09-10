@@ -62,6 +62,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Text('Full Name', style: AppStyles.body14MediumJakarta),
                 SizedBox(height: 10.h),
                 CustomTextField(
+                  borderColor: AppColors.primaryColor,
                   hintText: 'Enter your Full Name',
                   controller: nameController,
                   keyBoardType: TextInputType.name,
@@ -74,6 +75,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Text('E-mail address', style: AppStyles.body14MediumJakarta),
                 SizedBox(height: 10.h),
                 CustomTextField(
+                  borderColor: AppColors.primaryColor,
                   hintText: 'Enter your E-mail address',
                   style: AppStyles.hint12RegularJakarta,
                   filledColor: AppColors.whiteColor,
@@ -85,12 +87,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Text('Password', style: AppStyles.body14MediumJakarta),
                 SizedBox(height: 10.h),
                 CustomTextField(
+                  borderColor: AppColors.primaryColor,
                   keyBoardType: TextInputType.visiblePassword,
                   controller: passwordController,
                   hintText: 'Enter your password',
                   validator: AppValidators.validatePassword,
                   style: AppStyles.hint12RegularJakarta,
                   filledColor: AppColors.whiteColor,
+                  isPassword: true,
                   suffixIcon: Icon(
                     Icons.visibility_outlined,
                     color: AppColors.grayColor,
@@ -108,6 +112,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 SizedBox(height: 10.h),
                 CustomElevatedButton(
+                  backGroundColor: AppColors.primaryColor,
                   text: 'Sign Up with Google',
                   onButtonClicked: () {},
                   textStyle: AppStyles.body14MediumJakarta,
