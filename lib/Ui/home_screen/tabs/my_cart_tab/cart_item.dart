@@ -8,7 +8,6 @@ class CartItemCard extends StatefulWidget {
   final VoidCallback? onIncrement;
   final VoidCallback? onDecrement;
   final VoidCallback? onRemove;
-
   const CartItemCard({
     Key? key,
     required this.product,
@@ -16,11 +15,9 @@ class CartItemCard extends StatefulWidget {
     this.onDecrement,
     this.onRemove,
   }) : super(key: key);
-
   @override
   State<CartItemCard> createState() => _CartItemCardState();
 }
-
 class _CartItemCardState extends State<CartItemCard> {
   bool isChecked = false;
   @override
@@ -92,7 +89,7 @@ class _CartItemCardState extends State<CartItemCard> {
                     ),
                     SizedBox(height: 5.h),
                     Text(
-                      'EGP ${widget.product.price.toStringAsFixed(0)}',
+                      '\$${widget.product.price.toStringAsFixed(0)}',
                       style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w600,
@@ -100,7 +97,7 @@ class _CartItemCardState extends State<CartItemCard> {
                       ),
                     ),
                     Text(
-                      'EGP ${450}',
+                      '\$${450}',
                       style: TextStyle(
                         decoration: TextDecoration.lineThrough,
 

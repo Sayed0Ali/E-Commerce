@@ -4,20 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductTabItem extends StatefulWidget {
-  String image ;
-  String title ;
-ProductTabItem({
-    super.key,
-    required this.image,
-    required this.title,
-  });
+  String image;
+  String title;
+  ProductTabItem({super.key, required this.image, required this.title});
 
   @override
   State<ProductTabItem> createState() => _ProductTabItemState();
 }
 
 class _ProductTabItemState extends State<ProductTabItem> {
-   bool isFav = false;
+  bool isFav = false;
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +22,13 @@ class _ProductTabItemState extends State<ProductTabItem> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // صورة المنتج
+          
           Stack(
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(20.r),
                 child: Image.asset(
-                 widget.image, 
+                  widget.image,
                   width: 160.w,
                   height: 138.h,
                   fit: BoxFit.cover,

@@ -7,12 +7,12 @@ import '../../../core/utils/app_styles.dart';
 class CustomTextField extends StatefulWidget {
   final Color? filledColor;
   final Color? borderColor;
-  final bool isPassword; // ✅ بدل obscureText نخليه يدعم show/hide
+  final bool isPassword;
   final String hintText;
   final String? labelText;
   final TextStyle? hintStyle;
   final Widget? prefixIcon;
-  final Widget? suffixIcon; // أيقونة ثابتة من بره
+  final Widget? suffixIcon;
   final TextStyle? labelStyle;
   final int maxLines;
   final TextStyle? style;
@@ -72,10 +72,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         labelText: widget.labelText,
         labelStyle: widget.labelStyle,
         hintStyle: widget.hintStyle ?? AppStyles.hint12RegularJakarta,
-        contentPadding: EdgeInsets.symmetric(
-          vertical: 18.h,
-          horizontal: 16.w,
-        ),
+        contentPadding: EdgeInsets.symmetric(vertical: 18.h, horizontal: 16.w),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.r),
           borderSide: BorderSide(
@@ -106,9 +103,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     if (widget.isPassword) {
       return IconButton(
         icon: Icon(
-          _obscureText
-              ? Icons.visibility_off_sharp
-              : Icons.visibility_sharp,
+          _obscureText ? Icons.visibility_off_sharp : Icons.visibility_sharp,
           color: AppColors.gray500,
         ),
         onPressed: () {

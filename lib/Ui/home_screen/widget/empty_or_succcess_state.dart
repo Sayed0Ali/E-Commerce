@@ -19,7 +19,6 @@ class EmptyOrSuccessState extends StatelessWidget {
     required this.buttonText,
   });
 
-  
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,7 +29,11 @@ class EmptyOrSuccessState extends StatelessWidget {
           SizedBox(height: 25.h),
           Image.asset(imagePath),
           SizedBox(height: 25.h),
-          Text(title, style: AppStyles.headline24BoldJakarta, textAlign: TextAlign.center),
+          Text(
+            title,
+            style: AppStyles.headline24BoldJakarta,
+            textAlign: TextAlign.center,
+          ),
           SizedBox(height: 15.h),
           Text(
             subtitle,
@@ -40,7 +43,9 @@ class EmptyOrSuccessState extends StatelessWidget {
           SizedBox(height: 25.h),
           CustomElevatedButton(
             text: buttonText,
-            onButtonClicked: (){Navigator.pushReplacementNamed(context, AppRoutes.homeRoute);},
+            onButtonClicked: () {
+              Navigator.pushReplacementNamed(context, AppRoutes.homeRoute);
+            },
             backGroundColor: AppColors.blackColor,
             textStyle: AppStyles.userNameWhite,
           ),

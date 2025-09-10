@@ -19,8 +19,6 @@ class TermCondition extends StatelessWidget {
           },
           icon: Icon(Icons.arrow_back_rounded, size: 30.w),
         ),
-    
-       
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 5.h),

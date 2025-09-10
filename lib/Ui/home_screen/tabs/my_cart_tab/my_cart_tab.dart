@@ -143,20 +143,32 @@ class _MyCartTabState extends State<MyCartTab> {
                   color: AppColors.whiteColor,
                   borderRadius: BorderRadius.circular(14.r),
                 ),
-                child: Row(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                  
-                    Expanded(
-                      child: Column(
-                        children: [
-                          CustomElevatedButton(
-                            text: 'Check out',
-                            onButtonClicked: _checkout,
-                            backGroundColor: AppColors.blackColor,
-                            textStyle: AppStyles.userNameWhite,
+Text('Order Info'),
+Row(
+  children: [
+    Text('Sub Total'),
+    Text('Siping Cost')
+  ],
+),
+                    Row(
+                      children: [
+                      
+                        Expanded(
+                          child: Column(
+                            children: [
+                              CustomElevatedButton(
+                                text: 'Check out',
+                                onButtonClicked: _checkout,
+                                backGroundColor: AppColors.blackColor,
+                                textStyle: AppStyles.userNameWhite,
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

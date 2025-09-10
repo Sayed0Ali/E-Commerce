@@ -3,6 +3,7 @@ import 'package:ecommerce/Ui/home_screen/widget/custom_text_field.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
 import 'package:ecommerce/core/utils/validators.dart';
+import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -39,31 +40,38 @@ class _RegisterScreenState extends State<RegisterScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 60.h),
-                Text('Sign Up', style: AppStyles.headline24BoldJakarta),
+                Text(
+                  AppLocalizations.of(context)!.sign_up,
+                  style: AppStyles.headline24BoldJakarta,
+                ),
 
                 Row(
                   children: [
                     Text(
-                      'Already have an account?',
+                      AppLocalizations.of(context)!.already_have_account,
                       style: AppStyles.body14Regulargray,
                     ),
+
                     TextButton(
                       onPressed: () {
                         // Navigate to the login screen
                       },
                       child: Text(
-                        'Login',
+                        AppLocalizations.of(context)!.login,
                         style: AppStyles.body14RegularPrimary,
                       ),
                     ),
                   ],
                 ),
                 SizedBox(height: 20.h),
-                Text('Full Name', style: AppStyles.body14MediumJakarta),
+                Text(
+                  AppLocalizations.of(context)!.full_name,
+                  style: AppStyles.body14MediumJakarta,
+                ),
                 SizedBox(height: 10.h),
                 CustomTextField(
                   borderColor: AppColors.primaryColor,
-                  hintText: 'Enter your Full Name',
+                  hintText: AppLocalizations.of(context)!.enter_full_name,
                   controller: nameController,
                   keyBoardType: TextInputType.name,
                   style: AppStyles.body14Regulargray,
@@ -72,11 +80,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
 
                 SizedBox(height: 20.h),
-                Text('E-mail address', style: AppStyles.body14MediumJakarta),
+                Text(
+                  AppLocalizations.of(context)!.email_address,
+                  style: AppStyles.body14MediumJakarta,
+                ),
                 SizedBox(height: 10.h),
                 CustomTextField(
                   borderColor: AppColors.primaryColor,
-                  hintText: 'Enter your E-mail address',
+                  hintText: AppLocalizations.of(context)!.enter_email_address,
                   style: AppStyles.hint12RegularJakarta,
                   filledColor: AppColors.whiteColor,
                   controller: mailController,
@@ -84,13 +95,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   keyBoardType: TextInputType.emailAddress,
                 ),
                 SizedBox(height: 20.h),
-                Text('Password', style: AppStyles.body14MediumJakarta),
+                Text(
+                  AppLocalizations.of(context)!.password,
+                  style: AppStyles.body14MediumJakarta,
+                ),
                 SizedBox(height: 10.h),
                 CustomTextField(
                   borderColor: AppColors.primaryColor,
                   keyBoardType: TextInputType.visiblePassword,
                   controller: passwordController,
-                  hintText: 'Enter your password',
+                  hintText: AppLocalizations.of(context)!.enter_password,
                   validator: AppValidators.validatePassword,
                   style: AppStyles.hint12RegularJakarta,
                   filledColor: AppColors.whiteColor,
@@ -103,7 +117,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                 SizedBox(height: 20.h),
                 CustomElevatedButton(
-                  text: 'Create Account',
+                  text: AppLocalizations.of(context)!.create_account,
                   textStyle: AppStyles.semiBold14Jakarta,
                   backGroundColor: AppColors.blackColor,
                   onButtonClicked: () {
@@ -113,7 +127,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 SizedBox(height: 10.h),
                 CustomElevatedButton(
                   backGroundColor: AppColors.primaryColor,
-                  text: 'Sign Up with Google',
+                  text: AppLocalizations.of(context)!.sign_up_with_google,
                   onButtonClicked: () {},
                   textStyle: AppStyles.body14MediumJakarta,
                 ),

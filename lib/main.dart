@@ -21,7 +21,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AppLangugeProvider()),
-         ChangeNotifierProvider(create: (_) => HomeProvider()),
+        ChangeNotifierProvider(create: (_) => HomeProvider()),
       ],
       child: const MainApp(),
     ),
@@ -49,7 +49,8 @@ class MainApp extends StatelessWidget {
           AppRoutes.categoryRoute: (context) => CategoriesTab(),
           AppRoutes.registerRoute: (context) => RegisterScreen(),
           AppRoutes.searchRoute: (context) => SearchTab(),
-          AppRoutes.registerVerafaicationRoute: (context) =>RegisterVerification(),
+          AppRoutes.registerVerafaicationRoute: (context) =>
+              RegisterVerification(),
           AppRoutes.profileRoute: (context) => ProfaileTab(),
           AppRoutes.notitcationsRoute: (context) => NotificationsTab(),
           AppRoutes.allBrandsRoute: (context) => BrandScreen(),
@@ -62,4 +63,3 @@ class MainApp extends StatelessWidget {
     );
   }
 }
-

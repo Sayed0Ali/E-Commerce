@@ -1,6 +1,7 @@
 import 'package:ecommerce/Ui/home_screen/widget/custom_elevated_button.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
+import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,7 +17,6 @@ class _PaymentMethodState extends State<PaymentMethod> {
   final TextEditingController mailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController messageController = TextEditingController();
-
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   int selectedIndex = 0;
 
@@ -26,7 +26,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
-        title: Text('Payment Method.'),
+        title: Text(AppLocalizations.of(context)!.payment_method),
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(Icons.arrow_back_rounded, size: 30.w),
@@ -41,16 +41,16 @@ class _PaymentMethodState extends State<PaymentMethod> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 infoContainerRow(
-                  value: 'Cash on delivery',
+                  value: AppLocalizations.of(context)!.cash_on_delivery,
                   index: 0,
                 ),
                 infoContainerRow(
-                  value: 'Electronic wallet',
+                  value: AppLocalizations.of(context)!.electronic_wallet,
                   index: 1,
                 ),
                 SizedBox(height: 10.h),
                 CustomElevatedButton(
-                  text: 'Continue',
+                  text: AppLocalizations.of(context)!.s_continue,
                   onButtonClicked: register,
                   backGroundColor: AppColors.blackColor,
                   textStyle: AppStyles.userNameWhite,
@@ -68,11 +68,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
       // your logic
     }
   }
-
-  Widget infoContainerRow({
-    required String value,
-    required int index,
-  }) {
+  Widget infoContainerRow({required String value, required int index}) {
     final bool isActive = selectedIndex == index;
 
     return Padding(
@@ -105,10 +101,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: Colors.white,
-        border: Border.all(
-          color: AppColors.gray400,
-          width:  2.w,
-        ),
+        border: Border.all(color: AppColors.gray400, width: 2.w),
       ),
       child: Container(
         width: 14.w,
@@ -117,9 +110,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
           shape: BoxShape.circle,
           color: isActive ? AppColors.blackColor : Colors.white,
         ),
-      
       ),
-
     );
   }
 }

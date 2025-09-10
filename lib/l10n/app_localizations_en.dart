@@ -143,4 +143,90 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get voucher_code => 'Voucher Code';
+
+  @override
+  String get order_finished => 'Finished';
+
+  @override
+  String get order_estimated_time => 'Estimated time:';
+
+  @override
+  String get no_ongoing_order => 'No ongoing order.';
+
+  @override
+  String get no_ongoing_order_desc =>
+      'We currently don’t have any active orders in progress. Feel free to explore our products and place a new order.';
+
+  @override
+  String get explore_categories => 'Explore Categories';
+
+  @override
+  String get cart_empty => 'Your cart is empty';
+
+  @override
+  String get noCompletedOrderTitle => 'No Completed order.';
+
+  @override
+  String get noCompletedOrderSubtitle =>
+      'We don\'t have any past orders that have been completed. Start shopping now and create your first order with us.';
+
+  @override
+  String get phone_number => 'Phone Number';
+
+  @override
+  String get enter_phone_number => 'Enter Your Phone Number';
+
+  @override
+  String get street_address => 'Street Address';
+
+  @override
+  String get enter_address => 'Enter Your Address';
+
+  @override
+  String get postal_code => 'Postal Code';
+
+  @override
+  String get enter_postal_code => 'Enter Your Postal Code';
+
+  @override
+  String get send => 'Send';
+
+  @override
+  String get select_province => 'Select Province';
+
+  @override
+  String get select_city => 'Select City';
+
+  @override
+  String get message => 'Message';
+
+  @override
+  String get enter_message => 'Enter Your Message';
+
+  @override
+  String get cash_on_delivery => 'Cash on delivery';
+
+  @override
+  String get electronic_wallet => 'Electronic wallet';
+
+  @override
+  String get s_continue => 'Continue';
+
+  @override
+  String get new_password => 'New Password';
+
+  @override
+  String get enter_new_password => 'Enter New Password to change the password.';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get step_02_02 => '02/02';
+
+  @override
+  String get step_01_02 => '01/02';
+
+  @override
+  String get confirm_password => 'Confirm Password';
 }

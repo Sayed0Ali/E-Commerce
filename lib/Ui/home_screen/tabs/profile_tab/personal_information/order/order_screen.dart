@@ -4,10 +4,8 @@ import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/o
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 class OrdersScreen extends StatelessWidget {
   const OrdersScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -16,11 +14,11 @@ class OrdersScreen extends StatelessWidget {
         backgroundColor: AppColors.whiteColor,
         appBar: AppBar(
           backgroundColor: AppColors.whiteColor,
-          title: Text('Order History.'),
+          title: Text('Order History,'),
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
-            },
+              },
             icon: Icon(Icons.arrow_back_rounded, size: 30.w),
           ),
         ),

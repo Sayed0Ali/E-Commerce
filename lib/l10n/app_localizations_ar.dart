@@ -42,7 +42,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get contact_us => 'اتصل بنا';
 
   @override
-  String get support_information => 'الدعم والمعلومات';
+  String get support_information => 'الدعم والمساعدة';
 
   @override
   String get privacy_policy => 'سياسة الخصوصية';
@@ -66,7 +66,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get latest_products => 'أحدث المنتجات';
 
   @override
-  String get suggested_products => 'المنتجات المقترحة';
+  String get suggested_products => 'منتجات مقترحة';
 
   @override
   String get brands => 'العلامات التجارية';
@@ -75,16 +75,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get see_all => 'عرض الكل';
 
   @override
-  String get fashion => 'أزياء';
+  String get fashion => 'الأزياء';
 
   @override
   String get brand => 'العلامة التجارية';
 
   @override
-  String get sign_up => 'تسجيل جديد';
+  String get sign_up => 'إنشاء حساب';
 
   @override
-  String get already_have_account => 'هل لديك حساب؟';
+  String get already_have_account => 'هل لديك حساب بالفعل؟';
 
   @override
   String get login => 'تسجيل الدخول';
@@ -93,13 +93,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get full_name => 'الاسم الكامل';
 
   @override
-  String get enter_full_name => 'أدخل الاسم الكامل';
+  String get enter_full_name => 'أدخل اسمك الكامل';
 
   @override
   String get email_address => 'البريد الإلكتروني';
 
   @override
-  String get enter_email_address => 'أدخل البريد الإلكتروني';
+  String get enter_email_address => 'أدخل بريدك الإلكتروني';
 
   @override
   String get password => 'كلمة المرور';
@@ -111,7 +111,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get create_account => 'إنشاء حساب';
 
   @override
-  String get sign_up_with_google => 'تسجيل الدخول عبر جوجل';
+  String get sign_up_with_google => 'التسجيل عبر جوجل';
 
   @override
   String get verification_code => 'رمز التحقق';
@@ -121,7 +121,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get enter_verification_code =>
-      'أدخل رمز التحقق المكون من 6 أرقام المرسل إلى بريدك الإلكتروني.';
+      'أدخل رمز التحقق المكون من ٦ أرقام المرسل إلى بريدك الإلكتروني.';
 
   @override
   String get resend_code => 'إعادة إرسال الرمز';
@@ -130,10 +130,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get proceed => 'متابعة';
 
   @override
-  String get my_cart => 'سلة التسوق';
+  String get my_cart => 'سلة المشتريات';
 
   @override
-  String get wishlist => 'المفضلة';
+  String get wishlist => 'قائمة المفضلة';
 
   @override
   String get profile => 'الملف الشخصي';
@@ -143,4 +143,90 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get voucher_code => 'كود الخصم';
+
+  @override
+  String get order_finished => 'مكتمل';
+
+  @override
+  String get order_estimated_time => 'الوقت المتوقع:';
+
+  @override
+  String get no_ongoing_order => 'لا يوجد طلب جاري.';
+
+  @override
+  String get no_ongoing_order_desc =>
+      'حالياً لا توجد طلبات قيد التنفيذ. يمكنك تصفح منتجاتنا وتقديم طلب جديد.';
+
+  @override
+  String get explore_categories => 'استكشف التصنيفات';
+
+  @override
+  String get cart_empty => 'سلة المشتريات فارغة';
+
+  @override
+  String get noCompletedOrderTitle => 'لا يوجد طلب مكتمل.';
+
+  @override
+  String get noCompletedOrderSubtitle =>
+      'لا يوجد لدينا طلبات مكتملة سابقة. ابدأ التسوق الآن وقم بإنشاء أول طلب لك معنا.';
+
+  @override
+  String get phone_number => 'رقم الهاتف';
+
+  @override
+  String get enter_phone_number => 'أدخل رقم هاتفك';
+
+  @override
+  String get street_address => 'عنوان الشارع';
+
+  @override
+  String get enter_address => 'أدخل عنوانك';
+
+  @override
+  String get postal_code => 'الرمز البريدي';
+
+  @override
+  String get enter_postal_code => 'أدخل الرمز البريدي';
+
+  @override
+  String get send => 'إرسال';
+
+  @override
+  String get select_province => 'اختر المحافظة';
+
+  @override
+  String get select_city => 'اختر المدينة';
+
+  @override
+  String get message => 'رسالة';
+
+  @override
+  String get enter_message => 'أدخل رسالتك';
+
+  @override
+  String get cash_on_delivery => 'الدفع عند الاستلام';
+
+  @override
+  String get electronic_wallet => 'المحفظة الإلكترونية';
+
+  @override
+  String get s_continue => 'متابعة';
+
+  @override
+  String get new_password => 'كلمة مرور جديدة';
+
+  @override
+  String get enter_new_password => 'أدخل كلمة مرور جديدة لتغيير كلمة المرور.';
+
+  @override
+  String get save => 'حفظ';
+
+  @override
+  String get step_02_02 => '٠٢/٠٢';
+
+  @override
+  String get step_01_02 => '٠١/٠٢';
+
+  @override
+  String get confirm_password => 'تأكيد كلمة المرور';
 }

@@ -367,6 +367,174 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Voucher Code'**
   String get voucher_code;
+
+  /// No description provided for @order_finished.
+  ///
+  /// In en, this message translates to:
+  /// **'Finished'**
+  String get order_finished;
+
+  /// No description provided for @order_estimated_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Estimated time:'**
+  String get order_estimated_time;
+
+  /// No description provided for @no_ongoing_order.
+  ///
+  /// In en, this message translates to:
+  /// **'No ongoing order.'**
+  String get no_ongoing_order;
+
+  /// No description provided for @no_ongoing_order_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'We currently don’t have any active orders in progress. Feel free to explore our products and place a new order.'**
+  String get no_ongoing_order_desc;
+
+  /// No description provided for @explore_categories.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore Categories'**
+  String get explore_categories;
+
+  /// No description provided for @cart_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'Your cart is empty'**
+  String get cart_empty;
+
+  /// No description provided for @noCompletedOrderTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No Completed order.'**
+  String get noCompletedOrderTitle;
+
+  /// No description provided for @noCompletedOrderSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We don\'t have any past orders that have been completed. Start shopping now and create your first order with us.'**
+  String get noCompletedOrderSubtitle;
+
+  /// No description provided for @phone_number.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number'**
+  String get phone_number;
+
+  /// No description provided for @enter_phone_number.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Your Phone Number'**
+  String get enter_phone_number;
+
+  /// No description provided for @street_address.
+  ///
+  /// In en, this message translates to:
+  /// **'Street Address'**
+  String get street_address;
+
+  /// No description provided for @enter_address.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Your Address'**
+  String get enter_address;
+
+  /// No description provided for @postal_code.
+  ///
+  /// In en, this message translates to:
+  /// **'Postal Code'**
+  String get postal_code;
+
+  /// No description provided for @enter_postal_code.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Your Postal Code'**
+  String get enter_postal_code;
+
+  /// No description provided for @send.
+  ///
+  /// In en, this message translates to:
+  /// **'Send'**
+  String get send;
+
+  /// No description provided for @select_province.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Province'**
+  String get select_province;
+
+  /// No description provided for @select_city.
+  ///
+  /// In en, this message translates to:
+  /// **'Select City'**
+  String get select_city;
+
+  /// No description provided for @message.
+  ///
+  /// In en, this message translates to:
+  /// **'Message'**
+  String get message;
+
+  /// No description provided for @enter_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Your Message'**
+  String get enter_message;
+
+  /// No description provided for @cash_on_delivery.
+  ///
+  /// In en, this message translates to:
+  /// **'Cash on delivery'**
+  String get cash_on_delivery;
+
+  /// No description provided for @electronic_wallet.
+  ///
+  /// In en, this message translates to:
+  /// **'Electronic wallet'**
+  String get electronic_wallet;
+
+  /// No description provided for @s_continue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get s_continue;
+
+  /// No description provided for @new_password.
+  ///
+  /// In en, this message translates to:
+  /// **'New Password'**
+  String get new_password;
+
+  /// No description provided for @enter_new_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter New Password to change the password.'**
+  String get enter_new_password;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @step_02_02.
+  ///
+  /// In en, this message translates to:
+  /// **'02/02'**
+  String get step_02_02;
+
+  /// No description provided for @step_01_02.
+  ///
+  /// In en, this message translates to:
+  /// **'01/02'**
+  String get step_01_02;
+
+  /// No description provided for @confirm_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirm_password;
 }
 
 class _AppLocalizationsDelegate

@@ -4,6 +4,7 @@ import 'package:ecommerce/Ui/home_screen/widget/custom_text_field.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
 import 'package:ecommerce/core/utils/validators.dart';
+import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,7 +17,7 @@ class ChangePassword extends StatelessWidget {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
-        title: Text('Change PassWord'),
+        title:Text(AppLocalizations.of(context)!.change_password),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -37,20 +38,17 @@ class ChangePassword extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('Old Password', style: AppStyles.headline24BoldJakarta),
+Text(AppLocalizations.of(context)!.password, style: AppStyles.headline24BoldJakarta),
             SizedBox(height: 8.h),
-            Text(
-              'Enter Old Password to change the password.',
-              style: AppStyles.body14Regulargray,
-            ),
+Text(AppLocalizations.of(context)!.enter_password, style: AppStyles.body14Regulargray),
+
             SizedBox(height: 20.h),
-            Text('Password', style: AppStyles.body14MediumJakarta),
+Text(AppLocalizations.of(context)!.password, style: AppStyles.body14MediumJakarta),
             SizedBox(height: 10.h),
             CustomTextField(
               keyBoardType: TextInputType.visiblePassword,
 
-              hintText: 'Please Enter your password',
-              validator: AppValidators.validatePassword,
+hintText: AppLocalizations.of(context)!.enter_password,              validator: AppValidators.validatePassword,
               style: AppStyles.hint12RegularJakarta,
               filledColor: AppColors.whiteColor,
               borderColor: AppColors.gray300,

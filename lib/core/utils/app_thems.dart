@@ -9,10 +9,11 @@ class AppThems {
     
     appBarTheme: const AppBarTheme(
       elevation: 0,
+      
       backgroundColor: AppColors.whiteColor,
       iconTheme: IconThemeData(color: AppColors.blackColor),
       
-      centerTitle: true,
+    
     ),
 
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(

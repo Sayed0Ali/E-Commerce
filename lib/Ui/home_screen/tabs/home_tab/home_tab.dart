@@ -129,9 +129,10 @@ class _HomeTabState extends State<HomeTab> {
         height: 190,
         autoPlay: true,
         autoPlayInterval: const Duration(seconds: 3),
-        viewportFraction: 1,
-        enlargeCenterPage: false,
+        viewportFraction:  1,
+        enlargeCenterPage: true,
         enableInfiniteScroll: true,
+       
       ),
     );
   }

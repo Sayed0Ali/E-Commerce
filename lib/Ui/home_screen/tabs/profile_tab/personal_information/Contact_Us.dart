@@ -3,6 +3,7 @@ import 'package:ecommerce/Ui/home_screen/widget/custom_text_field.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
 import 'package:ecommerce/core/utils/validators.dart';
+import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,7 +20,7 @@ class ContactUs extends StatelessWidget {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
-        title: Text('Contact Us.'),
+        title: Text(AppLocalizations.of(context)!.contact_us),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -35,10 +36,14 @@ class ContactUs extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text('Full Name', style: AppStyles.body14MediumJakarta),
+                Text(
+                  AppLocalizations.of(context)!.full_name,
+                  style: AppStyles.body14MediumJakarta,
+                ),
+
                 SizedBox(height: 10.h),
                 CustomTextField(
-                  hintText: 'Full Name',
+                  hintText: AppLocalizations.of(context)!.enter_full_name,
                   controller: nameController,
                   borderColor: AppColors.gray300,
                   keyBoardType: TextInputType.name,
@@ -47,10 +52,13 @@ class ContactUs extends StatelessWidget {
                   validator: AppValidators.validateFullName,
                 ),
                 SizedBox(height: 20.h),
-                Text('Phone Number ', style: AppStyles.body14MediumJakarta),
+                Text(
+                  AppLocalizations.of(context)!.phone_number,
+                  style: AppStyles.body14MediumJakarta,
+                ),
                 SizedBox(height: 10.h),
                 CustomTextField(
-                  hintText: 'Enter Your Phone Number.',
+                  hintText: AppLocalizations.of(context)!.enter_phone_number,
                   controller: phoneController,
                   borderColor: AppColors.gray300,
                   keyBoardType: TextInputType.phone,
@@ -59,10 +67,13 @@ class ContactUs extends StatelessWidget {
                   validator: AppValidators.validatePhoneNumber,
                 ),
                 SizedBox(height: 20.h),
-                Text('E-mail address', style: AppStyles.body14MediumJakarta),
+                Text(
+                  AppLocalizations.of(context)!.email_address,
+                  style: AppStyles.body14MediumJakarta,
+                ),
                 SizedBox(height: 10.h),
                 CustomTextField(
-                  hintText: 'Enter your E-mail address',
+                  hintText: AppLocalizations.of(context)!.enter_email_address,
                   style: AppStyles.hint12RegularJakarta,
                   borderColor: AppColors.gray300,
                   filledColor: AppColors.whiteColor,
@@ -71,10 +82,13 @@ class ContactUs extends StatelessWidget {
                   keyBoardType: TextInputType.emailAddress,
                 ),
                 SizedBox(height: 20.h),
-                Text('Message', style: AppStyles.body14MediumJakarta),
+                Text(
+                  AppLocalizations.of(context)!.message,
+                  style: AppStyles.body14MediumJakarta,
+                ),
                 SizedBox(height: 10.h),
                 CustomTextField(
-                  hintText: 'Enter Your Message',
+                  hintText: AppLocalizations.of(context)!.enter_message,
                   style: AppStyles.hint12RegularJakarta,
                   borderColor: AppColors.gray300,
                   filledColor: AppColors.whiteColor,
@@ -85,7 +99,7 @@ class ContactUs extends StatelessWidget {
                 ),
                 SizedBox(height: 20.h),
                 CustomElevatedButton(
-                  text: 'Send',
+                  text: AppLocalizations.of(context)!.send,
                   onButtonClicked: register,
                   backGroundColor: AppColors.blackColor,
                   textStyle: AppStyles.userNameWhite,

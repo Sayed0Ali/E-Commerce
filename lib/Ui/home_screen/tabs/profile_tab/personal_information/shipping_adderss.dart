@@ -3,6 +3,7 @@ import 'package:ecommerce/Ui/home_screen/widget/custom_text_field.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
 import 'package:ecommerce/core/utils/validators.dart';
+import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,12 +20,12 @@ class ShippingAdderss extends StatelessWidget {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
-        title: Text('Shipping Adderss.'),
+        title: Text(AppLocalizations.of(context)!.shipping_address),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_rounded, size: 30.w),
+          icon: Icon(Icons.arrow_back_rounded, size: 30.sp),
         ),
       ),
       body: Padding(
@@ -35,10 +36,13 @@ class ShippingAdderss extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text('Full Name', style: AppStyles.body14MediumJakarta),
+                Text(
+                  AppLocalizations.of(context)!.full_name,
+                  style: AppStyles.body14MediumJakarta,
+                ),
                 SizedBox(height: 10.h),
                 CustomTextField(
-                  hintText: 'Full Name',
+                  hintText: AppLocalizations.of(context)!.enter_full_name,
                   controller: nameController,
                   borderColor: AppColors.gray300,
                   keyBoardType: TextInputType.name,
@@ -48,10 +52,13 @@ class ShippingAdderss extends StatelessWidget {
                 ),
 
                 SizedBox(height: 20.h),
-                Text('Phone Number ', style: AppStyles.body14MediumJakarta),
+                Text(
+                  AppLocalizations.of(context)!.phone_number,
+                  style: AppStyles.body14MediumJakarta,
+                ),
                 SizedBox(height: 10.h),
                 CustomTextField(
-                  hintText: 'Enter Your Phone Number.',
+                  hintText: AppLocalizations.of(context)!.enter_phone_number,
                   controller: phoneController,
                   borderColor: AppColors.gray300,
                   keyBoardType: TextInputType.phone,
@@ -60,13 +67,18 @@ class ShippingAdderss extends StatelessWidget {
                   validator: AppValidators.validatePhoneNumber,
                 ),
                 SizedBox(height: 20.h),
-                buildInfoContainer('Slect Providance'),
-                buildInfoContainer('Slect City'),
+                buildInfoContainer(
+                  AppLocalizations.of(context)!.select_province,
+                ),
+                buildInfoContainer(AppLocalizations.of(context)!.select_city),
 
-                Text('Street Address', style: AppStyles.body14MediumJakarta),
+                Text(
+                  AppLocalizations.of(context)!.street_address,
+                  style: AppStyles.body14MediumJakarta,
+                ),
                 SizedBox(height: 10.h),
                 CustomTextField(
-                  hintText: 'Enter Your Adderss ',
+                  hintText: AppLocalizations.of(context)!.enter_address,
                   style: AppStyles.hint12RegularJakarta,
                   borderColor: AppColors.gray300,
                   filledColor: AppColors.whiteColor,
@@ -76,10 +88,13 @@ class ShippingAdderss extends StatelessWidget {
                   keyBoardType: TextInputType.text,
                 ),
                 SizedBox(height: 20.h),
-                Text('Postal Code', style: AppStyles.body14MediumJakarta),
+                Text(
+                  AppLocalizations.of(context)!.postal_code,
+                  style: AppStyles.body14MediumJakarta,
+                ),
                 SizedBox(height: 10.h),
                 CustomTextField(
-                  hintText: 'Enter Your Postal Code ',
+                  hintText: AppLocalizations.of(context)!.enter_postal_code,
                   style: AppStyles.hint12RegularJakarta,
                   borderColor: AppColors.gray300,
                   filledColor: AppColors.whiteColor,
@@ -91,7 +106,7 @@ class ShippingAdderss extends StatelessWidget {
                 SizedBox(height: 20.h),
 
                 CustomElevatedButton(
-                  text: 'Send',
+                  text: AppLocalizations.of(context)!.send,
                   onButtonClicked: register,
                   backGroundColor: AppColors.blackColor,
                   textStyle: AppStyles.userNameWhite,
@@ -121,7 +136,11 @@ class ShippingAdderss extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Expanded(child: Text(value, style: AppStyles.body14MediumJakarta)),
-            Icon(Icons.arrow_drop_down_rounded, color: AppColors.gray400,size: 25.sp,),
+            Icon(
+              Icons.arrow_drop_down_rounded,
+              color: AppColors.gray400,
+              size: 25.sp,
+            ),
           ],
         ),
       ),

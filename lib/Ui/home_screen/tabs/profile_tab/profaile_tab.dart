@@ -6,7 +6,7 @@ import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/languge_bottom_sheet/l
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/Contact_Us.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/order/order_screen.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/payment_method.dart';
-import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/shopping_adderss.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/shipping_adderss.dart';
 import 'package:ecommerce/core/utils/app_assets.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_routs.dart';

@@ -3,6 +3,7 @@ import 'package:ecommerce/Ui/home_screen/widget/custom_text_field.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
 import 'package:ecommerce/core/utils/validators.dart';
+import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,7 +18,7 @@ class NewChangePassword extends StatelessWidget {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
-        title: Text('Change PassWord'),
+        title: Text(AppLocalizations.of(context)!.change_password),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -36,19 +37,19 @@ class NewChangePassword extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text('New Password', style: AppStyles.headline24BoldJakarta),
+              Text(AppLocalizations.of(context)!.new_password, style: AppStyles.headline24BoldJakarta),
               SizedBox(height: 8.h),
               Text(
-                'Enter New Password to change the password.',
+                AppLocalizations.of(context)!.enter_new_password,
                 style: AppStyles.body14Regulargray,
               ),
               SizedBox(height: 20.h),
-              Text('Password', style: AppStyles.body14MediumJakarta),
+              Text(AppLocalizations.of(context)!.password, style: AppStyles.body14MediumJakarta),
               SizedBox(height: 10.h),
               CustomTextField(
                 keyBoardType: TextInputType.visiblePassword,
           
-                hintText: 'Please Enter your password',
+                hintText:AppLocalizations.of(context)!.enter_password,
                 validator: AppValidators.validatePassword,
                 style: AppStyles.hint12RegularJakarta,
                 filledColor: AppColors.whiteColor,
@@ -56,21 +57,22 @@ class NewChangePassword extends StatelessWidget {
                isPassword: true,
               ),
               SizedBox(height: 20.h),
-              Text('Confirm Password', style: AppStyles.body14MediumJakarta),
+              Text(AppLocalizations.of(context)!.confirm_password, style: AppStyles.body14MediumJakarta),
               SizedBox(height: 10.h),
               CustomTextField(
                 keyBoardType: TextInputType.visiblePassword,
           
-                hintText: 'Please Enter your password',
+                hintText: AppLocalizations.of(context)!.enter_password,
                 validator: AppValidators.validatePassword,
                 style: AppStyles.hint12RegularJakarta,
                 filledColor: AppColors.whiteColor,
                 borderColor: AppColors.gray300,
                 isPassword: true,
               ),
+              
               SizedBox(height: 20.h),
              CustomElevatedButton(
-                            text: 'Save',
+                            text: AppLocalizations.of(context)!.save,
                             onButtonClicked: register,
                             backGroundColor: AppColors.blackColor,
                             textStyle: AppStyles.userNameWhite,

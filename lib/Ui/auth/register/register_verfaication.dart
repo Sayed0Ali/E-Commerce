@@ -2,6 +2,7 @@ import 'package:ecommerce/Ui/home_screen/widget/custom_elevated_button.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_routs.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
+import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
@@ -53,7 +54,7 @@ class _RegisterVerificationState extends State<RegisterVerification> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Verification Code'),
+        title: Text(AppLocalizations.of(context)!.verification_code),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_rounded, size: 30.w),
           onPressed: () {
@@ -66,33 +67,34 @@ class _RegisterVerificationState extends State<RegisterVerification> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('Email Verification', style: AppStyles.headline24BoldJakarta),
+            Text(
+              AppLocalizations.of(context)!.email_verification,
+              style: AppStyles.headline24BoldJakarta,
+            ),
             SizedBox(height: 10.h),
             Text(
-              'Enter the 6-digit verification code send to your \n email address.',
+              AppLocalizations.of(context)!.enter_verification_code,
               style: AppStyles.body14Regulargray,
             ),
             SizedBox(height: 20.h),
-
-            /// Pinput
             Pinput(
               controller: pinController,
               length: pinLength,
               readOnly: true,
               defaultPinTheme: defaultPinTheme,
             ),
-
             SizedBox(height: 10.h),
-
-            /// Resend Code
             TextButton(
               onPressed: () {},
-              child: Text("Resend Code", style: AppStyles.semiBold14),
+              child: Text(
+                AppLocalizations.of(context)!.resend_code,
+                style: AppStyles.semiBold14,
+              ),
             ),
 
             SizedBox(height: 10.h),
             CustomElevatedButton(
-              text: 'Proceed',
+              text: AppLocalizations.of(context)!.proceed,
               onButtonClicked: () {},
               backGroundColor: AppColors.blackColor,
               textStyle: AppStyles.semiBold14Jakarta,
@@ -134,8 +136,6 @@ class _RegisterVerificationState extends State<RegisterVerification> {
                 },
               ),
             ),
-
-            /// Proceed Button
           ],
         ),
       ),

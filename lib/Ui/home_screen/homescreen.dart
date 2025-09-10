@@ -20,11 +20,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> bodyList = [
-    HomeTab(),
+   const HomeTab(),
     CategoriesTab(),
-    MyCartTab(),
-    FavoriteTab(),
-    ProfaileTab(),
+   const MyCartTab(),
+   const FavoriteTab(),
+   const  ProfaileTab(),
   ];
 
   @override
@@ -102,6 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
             fit: BoxFit.contain,
           ),
         ),
+        
       ),
       label: labelName,
     );
