@@ -68,7 +68,7 @@
   "s_continue": "Continue",
   "new_password": "New Password",
   "enter_new_password": "Enter New Password to change the password.",
-  "save": "Save",
+"save": "Save",
 "step_02_02": "02/02",
 "step_01_02": "01/02",
 "confirm_password": "Confirm Password",
@@ -80,8 +80,8 @@
 "new_password_set": "New password set successfully",
 "new_password_success_message": "Congratulations! Your password has been set successfully. Please proceed to the login screen to verify your account.",
 "step_02_03": "02/03",
-"step_01_03": "01/03"
-,"create_password": "Create Password"
+"step_01_03": "01/03",
+"create_password": "Create Password"
 
 
 }

@@ -55,7 +55,9 @@ class _EmailVerfaicationState extends State<EmailVerfaication> {
         title: Text('Verfication Email', style: AppStyles.body14MediumBlack),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_rounded, size: 30.w),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       body: Padding(
