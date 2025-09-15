@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
+import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -12,7 +13,7 @@ class TermCondition extends StatelessWidget {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
-        title: Text('Terms & Conditions.'),
+        title: Text(AppLocalizations.of(context)!.terms_conditions,style:AppStyles.body14MediumBlack),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -25,12 +26,12 @@ class TermCondition extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-                        Text('1-Terms & Conditions', style: AppStyles.headline24BoldJakarta),
+                        Text('1-Terms & Conditions', style: AppStyles.heading24BoldBlack),
 
             SizedBox(height: 8.h),
             Text(
               'Welcome to QuickMart! These Terms and Conditions ("Terms") govern your use of our e-commerce app. By accessing or using QuickMart, you agree to be bound by these Terms. Please read them carefully before proceeding.',
-              style: AppStyles.body14Regulargray,
+              style: AppStyles.reguler14Gray,
             ),
           ],
         ),

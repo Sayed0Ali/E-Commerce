@@ -28,7 +28,7 @@
   "login": "Login",
   "full_name": "Full Name",
   "enter_full_name": "Enter your Full Name",
-  "email_address": "E-mail address",
+  "email_address": "Email",
   "enter_email_address": "Enter your E-mail address",
   "password": "Password",
   "enter_password": "Enter your password",
@@ -71,5 +71,17 @@
   "save": "Save",
 "step_02_02": "02/02",
 "step_01_02": "01/02",
-"confirm_password": "Confirm Password"
+"confirm_password": "Confirm Password",
+"login_with_google": "Login with Google",
+"confirmation_email": "Confirmation Email",
+"dont_have_account": "Don’t have an account?",
+"forgot_password": "Forgot password?",
+"step_03_03": "03/03",
+"new_password_set": "New password set successfully",
+"new_password_success_message": "Congratulations! Your password has been set successfully. Please proceed to the login screen to verify your account.",
+"step_02_03": "02/03",
+"step_01_03": "01/03"
+,"create_password": "Create Password"
+
+
 }

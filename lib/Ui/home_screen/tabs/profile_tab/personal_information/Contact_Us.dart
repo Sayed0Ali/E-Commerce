@@ -20,7 +20,7 @@ class ContactUs extends StatelessWidget {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
-        title: Text(AppLocalizations.of(context)!.contact_us),
+        title: Text(AppLocalizations.of(context)!.contact_us,style:AppStyles.body14MediumBlack),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -38,7 +38,7 @@ class ContactUs extends StatelessWidget {
               children: [
                 Text(
                   AppLocalizations.of(context)!.full_name,
-                  style: AppStyles.body14MediumJakarta,
+                  style: AppStyles.body14MediumBlack,
                 ),
 
                 SizedBox(height: 10.h),
@@ -47,14 +47,14 @@ class ContactUs extends StatelessWidget {
                   controller: nameController,
                   borderColor: AppColors.gray300,
                   keyBoardType: TextInputType.name,
-                  style: AppStyles.body14Regulargray,
+                  style: AppStyles.reguler14Gray,
                   filledColor: AppColors.whiteColor,
                   validator: AppValidators.validateFullName,
                 ),
                 SizedBox(height: 20.h),
                 Text(
                   AppLocalizations.of(context)!.phone_number,
-                  style: AppStyles.body14MediumJakarta,
+                  style: AppStyles.body14MediumBlack,
                 ),
                 SizedBox(height: 10.h),
                 CustomTextField(
@@ -62,19 +62,19 @@ class ContactUs extends StatelessWidget {
                   controller: phoneController,
                   borderColor: AppColors.gray300,
                   keyBoardType: TextInputType.phone,
-                  style: AppStyles.body14Regulargray,
+                  style: AppStyles.reguler14Gray,
                   filledColor: AppColors.whiteColor,
                   validator: AppValidators.validatePhoneNumber,
                 ),
                 SizedBox(height: 20.h),
                 Text(
                   AppLocalizations.of(context)!.email_address,
-                  style: AppStyles.body14MediumJakarta,
+                  style: AppStyles.body14MediumBlack,
                 ),
                 SizedBox(height: 10.h),
                 CustomTextField(
                   hintText: AppLocalizations.of(context)!.enter_email_address,
-                  style: AppStyles.hint12RegularJakarta,
+                  style: AppStyles.hint12RegularText,
                   borderColor: AppColors.gray300,
                   filledColor: AppColors.whiteColor,
                   controller: mailController,
@@ -84,12 +84,12 @@ class ContactUs extends StatelessWidget {
                 SizedBox(height: 20.h),
                 Text(
                   AppLocalizations.of(context)!.message,
-                  style: AppStyles.body14MediumJakarta,
+                  style: AppStyles.body14MediumBlack,
                 ),
                 SizedBox(height: 10.h),
                 CustomTextField(
                   hintText: AppLocalizations.of(context)!.enter_message,
-                  style: AppStyles.hint12RegularJakarta,
+                  style: AppStyles.hint12RegularText,
                   borderColor: AppColors.gray300,
                   filledColor: AppColors.whiteColor,
                   controller: messageController,

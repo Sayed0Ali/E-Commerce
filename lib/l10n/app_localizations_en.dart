@@ -96,7 +96,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enter_full_name => 'Enter your Full Name';
 
   @override
-  String get email_address => 'E-mail address';
+  String get email_address => 'Email';
 
   @override
   String get enter_email_address => 'Enter your E-mail address';
@@ -229,4 +229,35 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get confirm_password => 'Confirm Password';
+
+  @override
+  String get login_with_google => 'Login with Google';
+
+  @override
+  String get confirmation_email => 'Confirmation Email';
+
+  @override
+  String get dont_have_account => 'Don’t have an account?';
+
+  @override
+  String get forgot_password => 'Forgot password?';
+
+  @override
+  String get step_03_03 => '03/03';
+
+  @override
+  String get new_password_set => 'New password set successfully';
+
+  @override
+  String get new_password_success_message =>
+      'Congratulations! Your password has been set successfully. Please proceed to the login screen to verify your account.';
+
+  @override
+  String get step_02_03 => '02/03';
+
+  @override
+  String get step_01_03 => '01/03';
+
+  @override
+  String get create_password => 'Create Password';
 }

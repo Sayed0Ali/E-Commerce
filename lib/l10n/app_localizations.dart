@@ -275,7 +275,7 @@ abstract class AppLocalizations {
   /// No description provided for @email_address.
   ///
   /// In en, this message translates to:
-  /// **'E-mail address'**
+  /// **'Email'**
   String get email_address;
 
   /// No description provided for @enter_email_address.
@@ -535,6 +535,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Confirm Password'**
   String get confirm_password;
+
+  /// No description provided for @login_with_google.
+  ///
+  /// In en, this message translates to:
+  /// **'Login with Google'**
+  String get login_with_google;
+
+  /// No description provided for @confirmation_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirmation Email'**
+  String get confirmation_email;
+
+  /// No description provided for @dont_have_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Don’t have an account?'**
+  String get dont_have_account;
+
+  /// No description provided for @forgot_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get forgot_password;
+
+  /// No description provided for @step_03_03.
+  ///
+  /// In en, this message translates to:
+  /// **'03/03'**
+  String get step_03_03;
+
+  /// No description provided for @new_password_set.
+  ///
+  /// In en, this message translates to:
+  /// **'New password set successfully'**
+  String get new_password_set;
+
+  /// No description provided for @new_password_success_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Congratulations! Your password has been set successfully. Please proceed to the login screen to verify your account.'**
+  String get new_password_success_message;
+
+  /// No description provided for @step_02_03.
+  ///
+  /// In en, this message translates to:
+  /// **'02/03'**
+  String get step_02_03;
+
+  /// No description provided for @step_01_03.
+  ///
+  /// In en, this message translates to:
+  /// **'01/03'**
+  String get step_01_03;
+
+  /// No description provided for @create_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Password'**
+  String get create_password;
 }
 
 class _AppLocalizationsDelegate

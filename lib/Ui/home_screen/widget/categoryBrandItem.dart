@@ -16,8 +16,8 @@ class CategoryBrandItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(8.w),
-      width: 100.w, 
-      
+      width: 100.w,
+
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.r),
@@ -26,10 +26,8 @@ class CategoryBrandItem extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 6.w),
         child: Column(
-    
           mainAxisSize: MainAxisSize.max,
           children: [
-            
             Expanded(
               flex: 3,
               child: ClipRRect(
@@ -40,7 +38,11 @@ class CategoryBrandItem extends StatelessWidget {
                   width: double.infinity,
                   errorBuilder: (context, error, stackTrace) => Container(
                     color: AppColors.gray300,
-                    child: Icon(Icons.image_not_supported, size: 24.sp, color: Colors.grey),
+                    child: Icon(
+                      Icons.image_not_supported,
+                      size: 24.sp,
+                      color: Colors.grey,
+                    ),
                   ),
                 ),
               ),
@@ -58,8 +60,6 @@ class CategoryBrandItem extends StatelessWidget {
                   color: Colors.black87,
                 ),
               ),
-
-
             ),
           ],
         ),

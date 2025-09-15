@@ -17,7 +17,7 @@ class ChangePassword extends StatelessWidget {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
-        title:Text(AppLocalizations.of(context)!.change_password),
+        title:Text(AppLocalizations.of(context)!.change_password,style:AppStyles.body14MediumBlack),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -27,8 +27,8 @@ class ChangePassword extends StatelessWidget {
         actions: [
           SizedBox(width: 10.w),
           Text(
-            '01/02',
-            style: TextStyle(fontSize: 15.sp, color: AppColors.blackColor),
+            AppLocalizations.of(context)!.step_01_02
+           , style: TextStyle(fontSize: 15.sp, color: AppColors.blackColor),
           ),
           SizedBox(width: 10.w),
         ],
@@ -38,18 +38,18 @@ class ChangePassword extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-Text(AppLocalizations.of(context)!.password, style: AppStyles.headline24BoldJakarta),
+Text(AppLocalizations.of(context)!.password, style: AppStyles.heading24BoldBlack),
             SizedBox(height: 8.h),
-Text(AppLocalizations.of(context)!.enter_password, style: AppStyles.body14Regulargray),
+Text(AppLocalizations.of(context)!.enter_password, style: AppStyles.reguler14Gray),
 
             SizedBox(height: 20.h),
-Text(AppLocalizations.of(context)!.password, style: AppStyles.body14MediumJakarta),
+Text(AppLocalizations.of(context)!.password, style: AppStyles.body14MediumBlack),
             SizedBox(height: 10.h),
             CustomTextField(
               keyBoardType: TextInputType.visiblePassword,
 
 hintText: AppLocalizations.of(context)!.enter_password,              validator: AppValidators.validatePassword,
-              style: AppStyles.hint12RegularJakarta,
+              style: AppStyles.hint12RegularText,
               filledColor: AppColors.whiteColor,
               borderColor: AppColors.gray300,
               isPassword: true,

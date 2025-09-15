@@ -91,7 +91,7 @@ class _MyCartTabState extends State<MyCartTab> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.my_cart),
+        title: Text(AppLocalizations.of(context)!.my_cart,style:AppStyles.body14MediumBlack),
         elevation: 0,
         backgroundColor: AppColors.whiteColor,
         leading: IconButton(icon:Icon(Icons.arrow_back_rounded), iconSize: 30.sp,onPressed: (){   context.read<HomeProvider>().changeIndex(0); 
@@ -143,32 +143,20 @@ class _MyCartTabState extends State<MyCartTab> {
                   color: AppColors.whiteColor,
                   borderRadius: BorderRadius.circular(14.r),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Row(
                   children: [
-Text('Order Info'),
-Row(
-  children: [
-    Text('Sub Total'),
-    Text('Siping Cost')
-  ],
-),
-                    Row(
-                      children: [
-                      
-                        Expanded(
-                          child: Column(
-                            children: [
-                              CustomElevatedButton(
-                                text: 'Check out',
-                                onButtonClicked: _checkout,
-                                backGroundColor: AppColors.blackColor,
-                                textStyle: AppStyles.userNameWhite,
-                              ),
-                            ],
+                  
+                    Expanded(
+                      child: Column(
+                        children: [
+                          CustomElevatedButton(
+                            text: 'Check out',
+                            onButtonClicked: _checkout,
+                            backGroundColor: AppColors.blackColor,
+                            textStyle: AppStyles.userNameWhite,
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),

@@ -20,7 +20,7 @@ class ShippingAdderss extends StatelessWidget {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
-        title: Text(AppLocalizations.of(context)!.shipping_address),
+        title: Text(AppLocalizations.of(context)!.shipping_address,style:AppStyles.body14MediumBlack),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -38,7 +38,7 @@ class ShippingAdderss extends StatelessWidget {
               children: [
                 Text(
                   AppLocalizations.of(context)!.full_name,
-                  style: AppStyles.body14MediumJakarta,
+                  style: AppStyles.body14MediumBlack,
                 ),
                 SizedBox(height: 10.h),
                 CustomTextField(
@@ -46,7 +46,7 @@ class ShippingAdderss extends StatelessWidget {
                   controller: nameController,
                   borderColor: AppColors.gray300,
                   keyBoardType: TextInputType.name,
-                  style: AppStyles.body14Regulargray,
+                  style: AppStyles.reguler14Gray,
                   filledColor: AppColors.whiteColor,
                   validator: AppValidators.validateFullName,
                 ),
@@ -54,7 +54,7 @@ class ShippingAdderss extends StatelessWidget {
                 SizedBox(height: 20.h),
                 Text(
                   AppLocalizations.of(context)!.phone_number,
-                  style: AppStyles.body14MediumJakarta,
+                  style: AppStyles.body14MediumBlack,
                 ),
                 SizedBox(height: 10.h),
                 CustomTextField(
@@ -62,7 +62,7 @@ class ShippingAdderss extends StatelessWidget {
                   controller: phoneController,
                   borderColor: AppColors.gray300,
                   keyBoardType: TextInputType.phone,
-                  style: AppStyles.body14Regulargray,
+                  style: AppStyles.reguler14Gray,
                   filledColor: AppColors.whiteColor,
                   validator: AppValidators.validatePhoneNumber,
                 ),
@@ -74,12 +74,12 @@ class ShippingAdderss extends StatelessWidget {
 
                 Text(
                   AppLocalizations.of(context)!.street_address,
-                  style: AppStyles.body14MediumJakarta,
+                  style: AppStyles.body14MediumBlack,
                 ),
                 SizedBox(height: 10.h),
                 CustomTextField(
                   hintText: AppLocalizations.of(context)!.enter_address,
-                  style: AppStyles.hint12RegularJakarta,
+                  style: AppStyles.hint12RegularText,
                   borderColor: AppColors.gray300,
                   filledColor: AppColors.whiteColor,
                   controller: messageController,
@@ -90,12 +90,12 @@ class ShippingAdderss extends StatelessWidget {
                 SizedBox(height: 20.h),
                 Text(
                   AppLocalizations.of(context)!.postal_code,
-                  style: AppStyles.body14MediumJakarta,
+                  style: AppStyles.body14MediumBlack,
                 ),
                 SizedBox(height: 10.h),
                 CustomTextField(
                   hintText: AppLocalizations.of(context)!.enter_postal_code,
-                  style: AppStyles.hint12RegularJakarta,
+                  style: AppStyles.hint12RegularText,
                   borderColor: AppColors.gray300,
                   filledColor: AppColors.whiteColor,
                   controller: messageController,
@@ -135,7 +135,7 @@ class ShippingAdderss extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(child: Text(value, style: AppStyles.body14MediumJakarta)),
+            Expanded(child: Text(value, style: AppStyles.body14MediumBlack)),
             Icon(
               Icons.arrow_drop_down_rounded,
               color: AppColors.gray400,

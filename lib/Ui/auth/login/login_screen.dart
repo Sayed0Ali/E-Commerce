@@ -1,4 +1,6 @@
+import 'package:ecommerce/Ui/auth/login/forget_password/confirmation_email.dart';
 import 'package:ecommerce/Ui/auth/register/email_verfaication.dart';
+import 'package:ecommerce/Ui/home_screen/homescreen.dart';
 import 'package:ecommerce/Ui/home_screen/widget/custom_elevated_button.dart';
 import 'package:ecommerce/Ui/home_screen/widget/custom_text_field.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
@@ -9,14 +11,14 @@ import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<LoginScreen> createState() => _RegisterScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _RegisterScreenState extends State<LoginScreen> {
   final TextEditingController nameController = TextEditingController(
     text: 'sayed',
   );
@@ -50,45 +52,30 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 children: [
                   SizedBox(height: 60.h),
                   Text(
-                    AppLocalizations.of(context)!.sign_up,
+                    AppLocalizations.of(context)!.login,
                     style: AppStyles.heading24BoldBlack,
                   ),
 
                   Row(
                     children: [
                       Text(
-                        AppLocalizations.of(context)!.already_have_account,
+                        AppLocalizations.of(context)!.dont_have_account,
                         style: AppStyles.reguler14Gray,
                       ),
-                      SizedBox(width: 0.w),
+
                       TextButton(
                         onPressed: () {
                           Navigator.pushReplacementNamed(
                             context,
-                            AppRoutes.loginRoute,
+                            AppRoutes.registerRoute,
                           );
                         },
                         child: Text(
-                          AppLocalizations.of(context)!.login,
+                          AppLocalizations.of(context)!.sign_up,
                           style: AppStyles.medium14Praimary,
                         ),
                       ),
                     ],
-                  ),
-                  SizedBox(height: 20.h),
-                  Text(
-                    AppLocalizations.of(context)!.full_name,
-                    style: AppStyles.body14MediumBlack,
-                  ),
-                  SizedBox(height: 10.h),
-                  CustomTextField(
-                    borderColor: AppColors.primaryColor,
-                    hintText: AppLocalizations.of(context)!.enter_full_name,
-                    controller: nameController,
-                    keyBoardType: TextInputType.name,
-                    style: AppStyles.reguler14Gray,
-                    filledColor: AppColors.whiteColor,
-                    validator: AppValidators.validateFullName,
                   ),
 
                   SizedBox(height: 20.h),
@@ -126,18 +113,40 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       color: AppColors.grayColor,
                     ),
                   ),
-
+                  SizedBox(height: 20.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(onPressed: (){
+                        Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ConfirmationEmail()),
+                      );
+                      }, child:  Text(
+                        AppLocalizations.of(context)!.forgot_password,
+                        style: AppStyles.medium14Praimary,
+                      ),)                     
+                    ],
+                  ),
                   SizedBox(height: 20.h),
                   CustomElevatedButton(
-                    text: AppLocalizations.of(context)!.create_account,
+                    text: AppLocalizations.of(context)!.login,
                     textStyle: AppStyles.body14SemiBoldWhite,
                     backGroundColor: AppColors.blackColor,
-                    onButtonClicked: register,
+                    onButtonClicked: () {
+                      if (formKey.currentState?.validate() == true) {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                          (route) => false, // Remove all previous routes
+                        );
+                      }
+                    },
                   ),
                   SizedBox(height: 10.h),
                   CustomElevatedButton(
                     backGroundColor: AppColors.whiteColor,
-                    text: AppLocalizations.of(context)!.sign_up_with_google,
+                    text: AppLocalizations.of(context)!.login_with_google,
                     onButtonClicked: () {},
                     textStyle: AppStyles.body14SemiBoldBlack,
                   ),
@@ -150,12 +159,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
-  void register() {
-    if (formKey.currentState?.validate() == true) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => EmailVerfaication()),
-      );
-    }
+  void login() {
+    if (formKey.currentState?.validate() == true) {}
   }
 }

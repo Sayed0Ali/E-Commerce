@@ -24,7 +24,7 @@ class BrandScreen extends StatelessWidget {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
-        title: Text(AppLocalizations.of(context)!.brands),
+        title: Text(AppLocalizations.of(context)!.brands,style:AppStyles.body14MediumBlack),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_rounded, size: 30.w),
           onPressed: () {

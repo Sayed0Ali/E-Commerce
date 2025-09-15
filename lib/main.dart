@@ -1,5 +1,6 @@
+import 'package:ecommerce/Ui/auth/login/login_screen.dart';
 import 'package:ecommerce/Ui/auth/register/register_screen.dart';
-import 'package:ecommerce/Ui/auth/register/register_verfaication.dart';
+import 'package:ecommerce/Ui/auth/register/email_verfaication.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/categories_tab/categories_tab.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/home_tab/brand.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/home_tab/home_tab.dart';
@@ -27,7 +28,6 @@ void main() {
     ),
   );
 }
-
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
@@ -41,7 +41,7 @@ class MainApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.homeRoute,
+        initialRoute: AppRoutes.registerRoute,
 
         routes: {
           AppRoutes.homeRoute: (context) => HomeScreen(),
@@ -50,10 +50,11 @@ class MainApp extends StatelessWidget {
           AppRoutes.registerRoute: (context) => RegisterScreen(),
           AppRoutes.searchRoute: (context) => SearchTab(),
           AppRoutes.registerVerafaicationRoute: (context) =>
-              RegisterVerification(),
+              EmailVerfaication(),
           AppRoutes.profileRoute: (context) => ProfaileTab(),
           AppRoutes.notitcationsRoute: (context) => NotificationsTab(),
           AppRoutes.allBrandsRoute: (context) => BrandScreen(),
+          AppRoutes.loginRoute: (context) => LoginScreen(),
         },
         locale: Locale(LanguageProvider.appLanguage),
         localizationsDelegates: AppLocalizations.localizationsDelegates,

@@ -229,4 +229,35 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get confirm_password => 'تأكيد كلمة المرور';
+
+  @override
+  String get login_with_google => 'تسجيل الدخول باستخدام جوجل';
+
+  @override
+  String get confirmation_email => 'تأكيد البريد الإلكتروني';
+
+  @override
+  String get dont_have_account => 'ليس لديك حساب؟';
+
+  @override
+  String get forgot_password => 'هل نسيت كلمة المرور؟';
+
+  @override
+  String get step_03_03 => '٠٣/٠٣';
+
+  @override
+  String get new_password_set => 'تم تعيين كلمة المرور الجديدة بنجاح';
+
+  @override
+  String get new_password_success_message =>
+      'تهانينا! تم تعيين كلمة المرور الخاصة بك بنجاح. يرجى الانتقال إلى شاشة تسجيل الدخول للتحقق من حسابك.';
+
+  @override
+  String get step_02_03 => '٠٢/٠٣';
+
+  @override
+  String get step_01_03 => '٠١/٠٣';
+
+  @override
+  String get create_password => 'إنشاء كلمة مرور';
 }

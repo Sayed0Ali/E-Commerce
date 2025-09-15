@@ -26,7 +26,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
-        title: Text(AppLocalizations.of(context)!.payment_method),
+        title: Text(AppLocalizations.of(context)!.payment_method,style:AppStyles.body14MediumBlack),
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(Icons.arrow_back_rounded, size: 30.w),
@@ -81,7 +81,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
         ),
         child: Row(
           children: [
-            Expanded(child: Text(value, style: AppStyles.body14MediumJakarta)),
+            Expanded(child: Text(value, style: AppStyles.body14MediumBlack)),
             InkWell(
               onTap: () => setState(() => selectedIndex = index),
               borderRadius: BorderRadius.circular(20.r),
