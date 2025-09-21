@@ -1,9 +1,9 @@
 import 'package:ecommerce/Ui/auth/login/forget_password/confirmation_email.dart';
-import 'package:ecommerce/Ui/auth/register/email_verfaication.dart';
 import 'package:ecommerce/Ui/auth/register/register_screen.dart';
 import 'package:ecommerce/Ui/home_screen/homescreen.dart';
 import 'package:ecommerce/Ui/home_screen/widget/custom_elevated_button.dart';
 import 'package:ecommerce/Ui/home_screen/widget/custom_text_field.dart';
+import 'package:ecommerce/Ui/home_screen/widget/custom_label.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
 import 'package:ecommerce/core/utils/validators.dart';
@@ -15,10 +15,10 @@ class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _RegisterScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _RegisterScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController nameController = TextEditingController(
     text: 'sayed',
   );
@@ -67,7 +67,9 @@ class _RegisterScreenState extends State<LoginScreen> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => RegisterScreen()),
+                            MaterialPageRoute(
+                              builder: (context) => RegisterScreen(),
+                            ),
                           );
                         },
                         child: Text(
@@ -79,9 +81,9 @@ class _RegisterScreenState extends State<LoginScreen> {
                   ),
 
                   SizedBox(height: 20.h),
-                  Text(
-                    AppLocalizations.of(context)!.email_address,
-                    style: AppStyles.body14MediumBlack,
+                  CustomLabel(
+                    text: AppLocalizations.of(context)!.email_address,
+                    isRequired: true,
                   ),
                   SizedBox(height: 10.h),
                   CustomTextField(
@@ -94,9 +96,9 @@ class _RegisterScreenState extends State<LoginScreen> {
                     keyBoardType: TextInputType.emailAddress,
                   ),
                   SizedBox(height: 20.h),
-                  Text(
-                    AppLocalizations.of(context)!.password,
-                    style: AppStyles.body14MediumBlack,
+                  CustomLabel(
+                    text: AppLocalizations.of(context)!.password,
+                    isRequired: true,
                   ),
                   SizedBox(height: 10.h),
                   CustomTextField(
@@ -117,15 +119,20 @@ class _RegisterScreenState extends State<LoginScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      TextButton(onPressed: (){
-                        Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => ConfirmationEmail()),
-                      );
-                      }, child:  Text(
-                        AppLocalizations.of(context)!.forgot_password,
-                        style: AppStyles.medium14Praimary,
-                      ),)                     
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ConfirmationEmail(),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          AppLocalizations.of(context)!.forgot_password,
+                          style: AppStyles.medium14Praimary,
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(height: 20.h),

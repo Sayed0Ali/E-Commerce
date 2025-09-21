@@ -26,7 +26,10 @@ class _PaymentMethodState extends State<PaymentMethod> {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
-        title: Text(AppLocalizations.of(context)!.payment_method,style:AppStyles.body14MediumBlack),
+        title: Text(
+          AppLocalizations.of(context)!.payment_method,
+          style: AppStyles.body14MediumBlack,
+        ),
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(Icons.arrow_back_rounded, size: 30.w),
@@ -68,6 +71,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
       // your logic
     }
   }
+
   Widget infoContainerRow({required String value, required int index}) {
     final bool isActive = selectedIndex == index;
 

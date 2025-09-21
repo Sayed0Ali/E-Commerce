@@ -595,6 +595,426 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Create Password'**
   String get create_password;
+
+  /// No description provided for @your_cart_is_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'Your cart is empty'**
+  String get your_cart_is_empty;
+
+  /// No description provided for @order_info.
+  ///
+  /// In en, this message translates to:
+  /// **'Order Info'**
+  String get order_info;
+
+  /// No description provided for @subtotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Subtotal'**
+  String get subtotal;
+
+  /// No description provided for @shipping_cost.
+  ///
+  /// In en, this message translates to:
+  /// **'Shipping Cost'**
+  String get shipping_cost;
+
+  /// No description provided for @total.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get total;
+
+  /// No description provided for @checkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Checkout'**
+  String get checkout;
+
+  /// No description provided for @filter.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter'**
+  String get filter;
+
+  /// No description provided for @price_low_to_high.
+  ///
+  /// In en, this message translates to:
+  /// **'Price (Low to High)'**
+  String get price_low_to_high;
+
+  /// No description provided for @price_high_to_low.
+  ///
+  /// In en, this message translates to:
+  /// **'Price (High to Low)'**
+  String get price_high_to_low;
+
+  /// No description provided for @a_to_z.
+  ///
+  /// In en, this message translates to:
+  /// **'A-Z'**
+  String get a_to_z;
+
+  /// No description provided for @z_to_a.
+  ///
+  /// In en, this message translates to:
+  /// **'Z-A'**
+  String get z_to_a;
+
+  /// No description provided for @apply.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply'**
+  String get apply;
+
+  /// No description provided for @all_colors.
+  ///
+  /// In en, this message translates to:
+  /// **'All 4 Colors'**
+  String get all_colors;
+
+  /// No description provided for @verification_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification Email'**
+  String get verification_email;
+
+  /// No description provided for @enter_verification_code_sent.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the verification code sent to your email'**
+  String get enter_verification_code_sent;
+
+  /// No description provided for @route_not_found.
+  ///
+  /// In en, this message translates to:
+  /// **'Route not found!'**
+  String get route_not_found;
+
+  /// No description provided for @no_new_notifications.
+  ///
+  /// In en, this message translates to:
+  /// **'No new notifications'**
+  String get no_new_notifications;
+
+  /// No description provided for @our_policy.
+  ///
+  /// In en, this message translates to:
+  /// **'1 - Our Policy.'**
+  String get our_policy;
+
+  /// No description provided for @privacy_policy_content.
+  ///
+  /// In en, this message translates to:
+  /// **'At QuickMart, we are committed to protecting the privacy and security of our users personal information. This Privacy Policy outlines how we collect, use, disclose, and safeguard the information obtained through our e-commerce app. By using QuickMart, you consent to the practices described in this policy.'**
+  String get privacy_policy_content;
+
+  /// No description provided for @terms_conditions_title.
+  ///
+  /// In en, this message translates to:
+  /// **'1-Terms & Conditions'**
+  String get terms_conditions_title;
+
+  /// No description provided for @terms_conditions_content.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to QuickMart! These Terms and Conditions (\"Terms\") govern your use of our e-commerce app. By accessing or using QuickMart, you agree to be bound by these Terms. Please read them carefully before proceeding.'**
+  String get terms_conditions_content;
+
+  /// No description provided for @voucher_code_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Voucher Code'**
+  String get voucher_code_hint;
+
+  /// No description provided for @t_shirt.
+  ///
+  /// In en, this message translates to:
+  /// **'T-shirt'**
+  String get t_shirt;
+
+  /// No description provided for @shirt.
+  ///
+  /// In en, this message translates to:
+  /// **'Shirt'**
+  String get shirt;
+
+  /// No description provided for @pants.
+  ///
+  /// In en, this message translates to:
+  /// **'Pants'**
+  String get pants;
+
+  /// No description provided for @jacket.
+  ///
+  /// In en, this message translates to:
+  /// **'Jacket'**
+  String get jacket;
+
+  /// No description provided for @outfit.
+  ///
+  /// In en, this message translates to:
+  /// **'Outfit'**
+  String get outfit;
+
+  /// No description provided for @shoes.
+  ///
+  /// In en, this message translates to:
+  /// **'Shoes'**
+  String get shoes;
+
+  /// No description provided for @cool_t_shirt.
+  ///
+  /// In en, this message translates to:
+  /// **'Cool T-shirt'**
+  String get cool_t_shirt;
+
+  /// No description provided for @denim_jacket.
+  ///
+  /// In en, this message translates to:
+  /// **'Denim Jacket'**
+  String get denim_jacket;
+
+  /// No description provided for @sport_shoes.
+  ///
+  /// In en, this message translates to:
+  /// **'Sport Shoes'**
+  String get sport_shoes;
+
+  /// No description provided for @classic_pants.
+  ///
+  /// In en, this message translates to:
+  /// **'Classic Pants'**
+  String get classic_pants;
+
+  /// No description provided for @cotton_t_shirt.
+  ///
+  /// In en, this message translates to:
+  /// **'Cotton T-shirt'**
+  String get cotton_t_shirt;
+
+  /// No description provided for @sport_t_shirt.
+  ///
+  /// In en, this message translates to:
+  /// **'Sport T-shirt'**
+  String get sport_t_shirt;
+
+  /// No description provided for @casual_t_shirt.
+  ///
+  /// In en, this message translates to:
+  /// **'Casual T-shirt'**
+  String get casual_t_shirt;
+
+  /// No description provided for @formal_shirt.
+  ///
+  /// In en, this message translates to:
+  /// **'Formal Shirt'**
+  String get formal_shirt;
+
+  /// No description provided for @casual_shirt.
+  ///
+  /// In en, this message translates to:
+  /// **'Casual Shirt'**
+  String get casual_shirt;
+
+  /// No description provided for @office_shirt.
+  ///
+  /// In en, this message translates to:
+  /// **'Office Shirt'**
+  String get office_shirt;
+
+  /// No description provided for @jeans.
+  ///
+  /// In en, this message translates to:
+  /// **'Jeans'**
+  String get jeans;
+
+  /// No description provided for @cargo_pants.
+  ///
+  /// In en, this message translates to:
+  /// **'Cargo Pants'**
+  String get cargo_pants;
+
+  /// No description provided for @formal_pants.
+  ///
+  /// In en, this message translates to:
+  /// **'Formal Pants'**
+  String get formal_pants;
+
+  /// No description provided for @winter_jacket.
+  ///
+  /// In en, this message translates to:
+  /// **'Winter Jacket'**
+  String get winter_jacket;
+
+  /// No description provided for @leather_jacket.
+  ///
+  /// In en, this message translates to:
+  /// **'Leather Jacket'**
+  String get leather_jacket;
+
+  /// No description provided for @sport_jacket.
+  ///
+  /// In en, this message translates to:
+  /// **'Sport Jacket'**
+  String get sport_jacket;
+
+  /// No description provided for @casual_outfit.
+  ///
+  /// In en, this message translates to:
+  /// **'Casual Outfit'**
+  String get casual_outfit;
+
+  /// No description provided for @sport_outfit.
+  ///
+  /// In en, this message translates to:
+  /// **'Sport Outfit'**
+  String get sport_outfit;
+
+  /// No description provided for @summer_outfit.
+  ///
+  /// In en, this message translates to:
+  /// **'Summer Outfit'**
+  String get summer_outfit;
+
+  /// No description provided for @casual_shoes.
+  ///
+  /// In en, this message translates to:
+  /// **'Casual Shoes'**
+  String get casual_shoes;
+
+  /// No description provided for @formal_shoes.
+  ///
+  /// In en, this message translates to:
+  /// **'Formal Shoes'**
+  String get formal_shoes;
+
+  /// No description provided for @egp_currency.
+  ///
+  /// In en, this message translates to:
+  /// **'EGP'**
+  String get egp_currency;
+
+  /// No description provided for @usd_currency.
+  ///
+  /// In en, this message translates to:
+  /// **'\\\$'**
+  String get usd_currency;
+
+  /// No description provided for @product.
+  ///
+  /// In en, this message translates to:
+  /// **'Product'**
+  String get product;
+
+  /// No description provided for @cart.
+  ///
+  /// In en, this message translates to:
+  /// **'cart'**
+  String get cart;
+
+  /// No description provided for @shehab.
+  ///
+  /// In en, this message translates to:
+  /// **'shehab'**
+  String get shehab;
+
+  /// No description provided for @sayed_gmail.
+  ///
+  /// In en, this message translates to:
+  /// **'sayed@gmail.com'**
+  String get sayed_gmail;
+
+  /// No description provided for @shipping.
+  ///
+  /// In en, this message translates to:
+  /// **'Shipping'**
+  String get shipping;
+
+  /// No description provided for @payment.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment'**
+  String get payment;
+
+  /// No description provided for @review.
+  ///
+  /// In en, this message translates to:
+  /// **'Review'**
+  String get review;
+
+  /// No description provided for @select_payment_method.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Payment Method'**
+  String get select_payment_method;
+
+  /// No description provided for @pay_when_receive.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay when you receive your order'**
+  String get pay_when_receive;
+
+  /// No description provided for @pay_with_wallet.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay with your electronic wallet'**
+  String get pay_with_wallet;
+
+  /// No description provided for @continue_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continue_text;
+
+  /// No description provided for @items.
+  ///
+  /// In en, this message translates to:
+  /// **'Items'**
+  String get items;
+
+  /// No description provided for @mobile_number.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile Number'**
+  String get mobile_number;
+
+  /// No description provided for @city.
+  ///
+  /// In en, this message translates to:
+  /// **'City'**
+  String get city;
+
+  /// No description provided for @place_order.
+  ///
+  /// In en, this message translates to:
+  /// **'Place Order'**
+  String get place_order;
+
+  /// No description provided for @order_placed_successfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Your order has been placed successfully'**
+  String get order_placed_successfully;
+
+  /// No description provided for @thank_you_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank you for choosing us! Feel free to continue shopping and explore our wide range of products. Happy Shopping!'**
+  String get thank_you_message;
+
+  /// No description provided for @continue_shopping.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue Shopping'**
+  String get continue_shopping;
+
+  /// No description provided for @product_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Constructed with high-quality materials, this product ensures a comfortable and secure fit. The soft and flexible material is gentle on the skin, making it ideal for everyday use. Features include adjustable settings, durable construction, and a sleek modern design that complements any style.'**
+  String get product_description;
 }
 
 class _AppLocalizationsDelegate

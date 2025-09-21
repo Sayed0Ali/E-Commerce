@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/languge_bottom_sheet/home_provider.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/categories_tab/Products_screen.dart';
+import 'package:ecommerce/core/providers/home_provider.dart';
 import 'package:ecommerce/Ui/home_screen/widget/categoryBrandItem.dart';
 import 'package:ecommerce/Ui/home_screen/widget/product_item.dart';
 import 'package:ecommerce/core/utils/app_assets.dart';
@@ -45,19 +46,27 @@ class _HomeTabState extends State<HomeTab> {
           appBar: AppBar(
             backgroundColor: AppColors.whiteColor,
             elevation: 0,
+            scrolledUnderElevation: 0,
+
+            surfaceTintColor: Colors.transparent,
             actions: [
               IconButton(
                 onPressed: () {
-                                    Navigator.pushReplacementNamed(context, AppRoutes.searchRoute);
-
+                  Navigator.pushReplacementNamed(
+                    context,
+                    AppRoutes.searchRoute,
+                  );
                 },
                 icon: Icon(Icons.search, size: 30.sp),
               ),
               IconButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, AppRoutes.notitcationsRoute);
+                  Navigator.pushReplacementNamed(
+                    context,
+                    AppRoutes.notitcationsRoute,
+                  );
                 },
-                icon: Icon(Icons.notifications_outlined, size: 30.sp,),
+                icon: Icon(Icons.notifications_outlined, size: 30.sp),
               ),
               IconButton(
                 onPressed: () {},
@@ -89,8 +98,7 @@ class _HomeTabState extends State<HomeTab> {
 
                 _lineBreak(
                   name: AppLocalizations.of(context)!.latest_products,
-                  targetIndex:
-                      1, 
+                  targetIndex: 1,
                 ),
                 buildProducts(allProducts.sublist(0, 2)),
 
@@ -103,7 +111,10 @@ class _HomeTabState extends State<HomeTab> {
                 _lineBreak(
                   name: AppLocalizations.of(context)!.brands,
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context, AppRoutes.allBrandsRoute);
+                    Navigator.pushReplacementNamed(
+                      context,
+                      AppRoutes.allBrandsRoute,
+                    );
                   },
                 ),
                 buildCategories(),
@@ -129,38 +140,36 @@ class _HomeTabState extends State<HomeTab> {
         height: 190,
         autoPlay: true,
         autoPlayInterval: const Duration(seconds: 3),
-        viewportFraction:  1,
+        viewportFraction: 1,
         enlargeCenterPage: true,
         enableInfiniteScroll: true,
-       
       ),
     );
   }
 
-Widget _lineBreak({
-  required String name,
-  int? targetIndex,
-  VoidCallback? onPressed, 
-}) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      Text(name, style: AppStyles.bold18Jakarta),
-      TextButton(
-        onPressed: onPressed ??
-            () {
-              
-              context.read<HomeProvider>().changeIndex(targetIndex ?? 0);
-            },
-        child: Text(
-          AppLocalizations.of(context)!.see_all,
-          style: AppStyles.semiBold14,
+  Widget _lineBreak({
+    required String name,
+    int? targetIndex,
+    VoidCallback? onPressed,
+  }) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(name, style: AppStyles.bold18Jakarta),
+        TextButton(
+          onPressed:
+              onPressed ??
+              () {
+                context.read<HomeProvider>().changeIndex(targetIndex ?? 0);
+              },
+          child: Text(
+            AppLocalizations.of(context)!.see_all,
+            style: AppStyles.semiBold14,
+          ),
         ),
-      ),
-    ],
-  );
-}
-
+      ],
+    );
+  }
 
   SizedBox buildCategories() {
     return SizedBox(
@@ -175,9 +184,20 @@ Widget _lineBreak({
         itemCount: categories.length,
         itemBuilder: (context, index) {
           final category = categories[index];
-          return CategoryBrandItem(
-            title: category['name'] ?? "",
-            imageUrl: category['image'] ?? "",
+          return InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      ProductsScreen(categoryName: category["name"] ?? ""),
+                ),
+              );
+            },
+            child: CategoryBrandItem(
+              title: category['name'] ?? "",
+              imageUrl: category['image'] ?? "",
+            ),
           );
         },
       ),
@@ -196,6 +216,10 @@ Widget _lineBreak({
           return ProductTabItem(
             image: product['image']!,
             title: product['title']!,
+            price: "\$15.25",
+            oldPrice: "\$20.00",
+            colors: [Colors.black, Colors.grey, Colors.blue],
+            colorsCount: "All 4 Colors",
           );
         },
       ),

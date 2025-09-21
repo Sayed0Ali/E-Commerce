@@ -1,4 +1,4 @@
-import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/languge_bottom_sheet/app_languge_provider.dart';
+import 'package:ecommerce/core/providers/app_languge_provider.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
 import 'package:ecommerce/l10n/app_localizations.dart';

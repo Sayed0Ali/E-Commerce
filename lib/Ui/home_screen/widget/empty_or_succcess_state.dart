@@ -1,9 +1,12 @@
+import 'package:ecommerce/core/providers/home_provider.dart';
 import 'package:ecommerce/Ui/home_screen/widget/custom_elevated_button.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_routs.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 
 class EmptyOrSuccessState extends StatelessWidget {
   final String imagePath;
@@ -23,7 +26,9 @@ class EmptyOrSuccessState extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
+        automaticallyImplyLeading: false, // هذا يخفي السهم
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 5.h),
@@ -32,6 +37,7 @@ class EmptyOrSuccessState extends StatelessWidget {
           children: [
             SizedBox(height: 25.h),
             Image.asset(imagePath),
+
             SizedBox(height: 25.h),
             Text(
               title,
@@ -48,7 +54,9 @@ class EmptyOrSuccessState extends StatelessWidget {
             CustomElevatedButton(
               text: buttonText,
               onButtonClicked: () {
-                Navigator.pushReplacementNamed(context, AppRoutes.homeRoute);
+                // Ensure we land on Home tab and clear any intermediate routes
+                context.read<HomeProvider>().changeIndex(0);
+                Navigator.of(context).popUntil((route) => route.isFirst);
               },
               backGroundColor: AppColors.blackColor,
               textStyle: AppStyles.userNameWhite,

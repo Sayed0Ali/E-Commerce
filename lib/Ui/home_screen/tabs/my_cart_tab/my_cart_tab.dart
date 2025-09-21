@@ -1,8 +1,12 @@
 import 'package:ecommerce/Ui/home_screen/tabs/my_cart_tab/cart_item.dart';
-import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/languge_bottom_sheet/home_provider.dart';
-import 'package:ecommerce/Ui/home_screen/widget/custom_elevated_button.dart';
+import 'package:ecommerce/core/providers/home_provider.dart';
+import 'package:ecommerce/core/widgets/delete_bottom_sheet.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
+import 'package:ecommerce/core/widgets/voucher_code_bottom_sheet.dart';
+import 'package:ecommerce/core/models/checkout_models.dart';
+import 'package:ecommerce/Ui/checkout/checkout_screen.dart';
+import 'package:ecommerce/Ui/home_screen/widget/custom_elevated_button.dart';
 import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -56,6 +60,152 @@ class _MyCartTabState extends State<MyCartTab> {
       );
     });
   }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          AppLocalizations.of(context)!.my_cart,
+          style: AppStyles.body14MediumBlack,
+        ),
+        elevation: 0,
+        backgroundColor: AppColors.whiteColor,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_rounded),
+          iconSize: 30.sp,
+          onPressed: () {
+            context.read<HomeProvider>().changeIndex(0);
+          },
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+               showModalBottomSheet(
+                              context: context,
+                              backgroundColor: Colors.transparent,
+                              builder: (context) => VoucherCodeBottomSheet(
+                              
+                              ),
+                            );
+            },
+            child: Text(
+              AppLocalizations.of(context)!.voucher_code,
+              style: AppStyles.bold18Jakarta.copyWith(
+                color: AppColors.primaryColor,
+              ),
+            ),
+          ),
+        ],
+      ),
+      backgroundColor: AppColors.whiteColor,
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: products.isEmpty
+                  ? Center(child: Text(AppLocalizations.of(context)!.your_cart_is_empty))
+                  : ListView.separated(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 12.w,
+                        vertical: 8.h,
+                      ),
+                      itemBuilder: (context, index) {
+                        final item = products[index];
+                        return CartItemCard(
+                          product: item,
+                          onIncrement: () => _increment(index),
+                          onDecrement: () => _decrement(index),
+                          onRemove: () {
+                            showModalBottomSheet(
+                              context: context,
+                              backgroundColor: Colors.transparent,
+                              builder: (context) => DeleteBottomSheet(
+                                sourceName: AppLocalizations.of(context)!.cart,
+                                itemCount: 1,
+                                onDelete: () => _remove(index),
+                              ),
+                            );
+                          },
+                        );
+                      },
+                      separatorBuilder: (context, index) =>
+                          SizedBox(height: 8.h),
+                      itemCount: products.length,
+                    ),
+            ),
+            // Order Info
+            Container(
+              padding: EdgeInsets.all(16.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(AppLocalizations.of(context)!.order_info, style: AppStyles.body16black),
+                  SizedBox(height: 16.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        AppLocalizations.of(context)!.subtotal,
+                        style: AppStyles.body16black.copyWith(
+                          color: AppColors.gray500,
+                        ),
+                      ),
+                      Text(
+                        '\$${totalPrice.toStringAsFixed(2)}',
+                        style: AppStyles.body16black,
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 8.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        AppLocalizations.of(context)!.shipping_cost,
+                        style: AppStyles.medium14Praimary.copyWith(
+                          color: AppColors.gray500,
+                        ),
+                      ),
+                      Text('\$0.00', style: AppStyles.body14SemiBoldBlack),
+                    ],
+                  ),
+                  SizedBox(height: 16.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(AppLocalizations.of(context)!.total, style: AppStyles.body14SemiBoldBlack),
+                      Text(
+                        '\$${totalPrice.toStringAsFixed(2)}',
+                        style: AppStyles.body14SemiBoldBlack,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            // Checkout Button
+            Padding(
+              padding: EdgeInsets.fromLTRB(16.w, 0, 16.w, 16.h),
+              child: CustomElevatedButton(
+                text: '${AppLocalizations.of(context)!.checkout} (${products.length})',
+                backGroundColor: products.isNotEmpty 
+                    ? AppColors.blackColor 
+                    : AppColors.gray300,
+                textStyle: AppStyles.body14SemiBoldWhite.copyWith(
+                  color: products.isNotEmpty 
+                      ? Colors.white 
+                      : AppColors.gray500,
+                ),
+                onButtonClicked: products.isNotEmpty ? _navigateToCheckout : null,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   double get totalPrice =>
       products.fold(0.0, (sum, p) => sum + p.price * p.quantity);
 
@@ -77,93 +227,18 @@ class _MyCartTabState extends State<MyCartTab> {
     });
   }
 
-  void _checkout() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          'Checkout tapped — Total: EGP ${totalPrice.toStringAsFixed(2)}',
-        ),
-      ),
+  void _navigateToCheckout() {
+    final orderInfo = OrderInfo(
+      subtotal: totalPrice,
+      shippingCost: 0.0,
+      total: totalPrice,
+      itemCount: products.length,
     );
-  }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.my_cart,style:AppStyles.body14MediumBlack),
-        elevation: 0,
-        backgroundColor: AppColors.whiteColor,
-        leading: IconButton(icon:Icon(Icons.arrow_back_rounded), iconSize: 30.sp,onPressed: (){   context.read<HomeProvider>().changeIndex(0); 
-}),
-        actions: [
-          TextButton(
-            onPressed: (){},
-            child: Text(
-              AppLocalizations.of(context)!.voucher_code,
-              style: AppStyles.bold18Jakarta.copyWith(
-                color: AppColors.primaryColor,
-              ),
-            ),
-          ),
-        ],
-      ),
-      backgroundColor: AppColors.whiteColor,
-      body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: products.isEmpty
-                  ? const Center(child: Text('Your cart is empty'))
-                  : ListView.separated(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 12.w,
-                        vertical: 8.h,
-                      ),
-                      itemBuilder: (context, index) {
-                        final item = products[index];
-                        return CartItemCard(
-                          product: item,
-                          onIncrement: () => _increment(index),
-                          onDecrement: () => _decrement(index),
-                          onRemove: () => _remove(index),
-                        );
-                      },
-                      separatorBuilder: (context, index) =>
-                          SizedBox(height: 8.h),
-                      itemCount: products.length,
-                    ),
-            ),
-            // Total + Checkout
-            Padding(
-              padding: EdgeInsets.fromLTRB(8.w, 8.h, 8.w, 8.h),
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
-                decoration: BoxDecoration(
-                  color: AppColors.whiteColor,
-                  borderRadius: BorderRadius.circular(14.r),
-                ),
-                child: Row(
-                  children: [
-                  
-                    Expanded(
-                      child: Column(
-                        children: [
-                          CustomElevatedButton(
-                            text: 'Check out',
-                            onButtonClicked: _checkout,
-                            backGroundColor: AppColors.blackColor,
-                            textStyle: AppStyles.userNameWhite,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => CheckoutScreen(orderInfo: orderInfo),
       ),
     );
   }

@@ -28,11 +28,11 @@ class PrivacyPolicy extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-                        Text('1 - Our Policy.', style: AppStyles.heading24BoldBlack),
+                        Text(AppLocalizations.of(context)!.our_policy, style: AppStyles.heading24BoldBlack),
 
             SizedBox(height: 8.h),
             Text(
-              'At QuickMart, we are committed to protecting the privacy and security of our users personal information. This Privacy Policy outlines how we collect, use, disclose, and safeguard the information obtained through our e-commerce app. By using QuickMart, you consent to the practices described in this policy.',
+              AppLocalizations.of(context)!.privacy_policy_content,
               style: AppStyles.reguler14Gray,
             ),
           ],

@@ -42,8 +42,6 @@ class AppStyles {
   );
   //==========================================================
 
-
- 
   static TextStyle body14MediumBlack = GoogleFonts.plusJakartaSans(
     fontSize: 14.sp,
     fontWeight: FontWeight.w500,
@@ -95,9 +93,9 @@ class AppStyles {
     fontWeight: FontWeight.bold,
     color: AppColors.blackColor,
   );
-   static TextStyle medium14Praimary = GoogleFonts.plusJakartaSans(
+  static TextStyle medium14Praimary = GoogleFonts.plusJakartaSans(
     fontSize: 14,
-    fontWeight: FontWeight.w500, 
+    fontWeight: FontWeight.w500,
     color: AppColors.primaryColor,
   );
 
@@ -110,7 +108,7 @@ class AppStyles {
   static final TextStyle reguler14Gray = GoogleFonts.plusJakartaSans(
     fontSize: 14.sp,
     color: AppColors.gray500,
-    fontWeight: FontWeight.w400
+    fontWeight: FontWeight.w400,
   );
 
   static final TextStyle body14SemiBoldBlack = GoogleFonts.plusJakartaSans(
@@ -123,5 +121,17 @@ class AppStyles {
     fontSize: 14.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.whiteColor,
+  );
+
+  static final TextStyle bold24Jakarta = GoogleFonts.plusJakartaSans(
+    fontSize: 24.sp,
+    fontWeight: FontWeight.w700,
+    color: AppColors.blackColor,
+  );
+
+  static final TextStyle body16MediumBlack = GoogleFonts.plusJakartaSans(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w500,
+    color: AppColors.blackColor,
   );
 }

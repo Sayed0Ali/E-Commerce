@@ -1,4 +1,5 @@
-import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/languge_bottom_sheet/home_provider.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/categories_tab/Products_screen.dart';
+import 'package:ecommerce/core/providers/home_provider.dart';
 import 'package:ecommerce/Ui/home_screen/widget/custom_text_field.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
@@ -11,12 +12,12 @@ class CategoriesTab extends StatelessWidget {
   CategoriesTab({super.key});
 
   final List<Map<String, String>> categories = [
-    {"name": "T-shirt", "image": "assets/images/t-shrit.jpg"},
-    {"name": "Shirt", "image": "assets/images/shirt.jpg"},
-    {"name": "Pants", "image": "assets/images/pants.jpg"},
-    {"name": "Jacket", "image": "assets/images/jacket.jpg"},
-    {"name": "Outfit", "image": "assets/images/outfit.jpg"},
-    {"name": "Shoes", "image": "assets/images/shoes.jpg"},
+    {"name": "t_shirt", "image": "assets/images/t-shrit.jpg"},
+    {"name": "shirt", "image": "assets/images/shirt.jpg"},
+    {"name": "pants", "image": "assets/images/pants.jpg"},
+    {"name": "jacket", "image": "assets/images/jacket.jpg"},
+    {"name": "outfit", "image": "assets/images/outfit.jpg"},
+    {"name": "shoes", "image": "assets/images/shoes.jpg"},
   ];
 
   @override
@@ -25,11 +26,14 @@ class CategoriesTab extends StatelessWidget {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
-        title: Text(AppLocalizations.of(context)!.categories,style:AppStyles.body14MediumBlack),
+        title: Text(
+          AppLocalizations.of(context)!.categories,
+          style: AppStyles.body14MediumBlack,
+        ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_rounded, size: 30.w),
           onPressed: () {
-            context.read<HomeProvider>().changeIndex(0); 
+            context.read<HomeProvider>().changeIndex(0);
           },
         ),
       ),
@@ -56,11 +60,11 @@ class CategoriesTab extends StatelessWidget {
             SizedBox(height: 16.h),
             GridView.builder(
               physics: NeverScrollableScrollPhysics(),
-              shrinkWrap: true, 
+              shrinkWrap: true,
               itemCount: categories.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: 2 / 2, 
+                childAspectRatio: 2 / 2,
                 crossAxisSpacing: 16.w,
                 mainAxisSpacing: 16.h,
               ),
@@ -68,11 +72,14 @@ class CategoriesTab extends StatelessWidget {
                 final category = categories[index];
                 return InkWell(
                   onTap: () {
-                    // Navigator.pushNamed(
-                    //   context,
-                    //   AppRoutes.productDetails,
-                    //   arguments: category,
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProductsScreen(
+                          categoryName: category["name"] ?? "",
+                        ),
+                      ),
+                    );
                   },
                   child: Container(
                     margin: EdgeInsets.all(8.w),

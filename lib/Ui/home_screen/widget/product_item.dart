@@ -1,80 +1,189 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
+import 'package:ecommerce/core/utils/app_routs.dart';
+import 'package:ecommerce/core/providers/favorites_provider.dart';
+import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class ProductTabItem extends StatefulWidget {
-  String image;
-  String title;
-  ProductTabItem({super.key, required this.image, required this.title});
+  final String image;
+  final String title;
+  final String price;
+  final String oldPrice;
+  final List<Color> colors;
+  final String colorsCount;
+
+  const ProductTabItem({
+    super.key,
+    required this.image,
+    required this.title,
+    required this.price,
+    required this.oldPrice,
+    required this.colors,
+    required this.colorsCount,
+  });
 
   @override
   State<ProductTabItem> createState() => _ProductTabItemState();
 }
 
 class _ProductTabItemState extends State<ProductTabItem> {
-  bool isFav = false;
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          
-          Stack(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20.r),
-                child: Image.asset(
-                  widget.image,
-                  width: 160.w,
-                  height: 138.h,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Positioned(
-                top: 8,
-                right: 8,
-                child: InkWell(
-                  onTap: () => setState(() => isFav = !isFav),
-                  child: CircleAvatar(
-                    backgroundColor: AppColors.blackColor,
-                    radius: 14.r,
-                    child: Icon(
-                      isFav ? Icons.favorite : Icons.favorite_border_rounded,
-                      color: AppColors.whiteColor,
-                    ),
+    final favoritesProvider = Provider.of<FavoritesProvider>(context);
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          AppRoutes.productDetails,
+          arguments: {
+            'image': widget.image,
+            'title': widget.title,
+            'price': widget.price,
+            'oldPrice': widget.oldPrice,
+            'colors': widget.colors,
+            'description': AppLocalizations.of(context)!.product_description,
+          },
+        );
+      },
+      child: Container(
+        width: 164.w,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(24.r),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(24.r),
+                  child: Image.asset(
+                    widget.image,
+                    width: 164.w,
+                    height: 140.h,
+                    fit: BoxFit.cover,
                   ),
                 ),
-              ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AutoSizeText(
-                  widget.title,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 4),
-                Text("\$250", style: TextStyle(fontWeight: FontWeight.bold)),
-                SizedBox(width: 8),
-                Text(
-                  "300",
-                  style: TextStyle(
-                    fontSize: 14,
-                    decoration: TextDecoration.lineThrough,
-                    color: Colors.grey,
+                Positioned(
+                  top: 8.h,
+                  right: 8.w,
+                  child: InkWell(
+                    onTap: () {
+                      favoritesProvider.toggleFavorite(
+                        id: widget.title, // Using title as ID for now
+                        title: widget.title,
+                        imageAsset: widget.image,
+                        price: double.parse(widget.price.replaceAll('\$', '')),
+                        oldPrice: double.parse(
+                          widget.oldPrice.replaceAll('\$', ''),
+                        ),
+                        colors: widget.colors,
+                        colorsCount: widget.colorsCount,
+                      );
+                    },
+                    child: Container(
+                      width: 28.w,
+                      height: 28.h,
+                      decoration: const BoxDecoration(
+                        color: Colors.black,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        favoritesProvider.isFavorite(widget.title)
+                            ? Icons.favorite
+                            : Icons.favorite_border_rounded,
+                        color: favoritesProvider.isFavorite(widget.title)
+                            ? AppColors.redColor
+                            : AppColors.whiteColor,
+                        size: 18.sp,
+                      ),
+                    ),
                   ),
                 ),
               ],
             ),
-          ),
-        ],
+            Padding(
+              padding: EdgeInsets.all(8.r),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Colors row
+                  Row(
+                    children: [
+                      ...List.generate(
+                        widget.colors.length > 3 ? 3 : widget.colors.length,
+                        (index) => Padding(
+                          padding: EdgeInsets.only(right: 4.w),
+                          child: Container(
+                            width: 16.w,
+                            height: 16.h,
+                            decoration: BoxDecoration(
+                              color: widget.colors[index],
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: Colors.white,
+                                width: 1.sp,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      if (widget.colors.length > 3)
+                        Text(
+                          widget.colorsCount,
+                          style: GoogleFonts.plusJakartaSans(
+                            fontSize: 10.sp,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey,
+                          ),
+                        ),
+                    ],
+                  ),
+                  SizedBox(height: 8.h),
+                  // Title
+                  Text(
+                    widget.title,
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  SizedBox(height: 4.h),
+                  // Prices
+                  Row(
+                    children: [
+                      Text(
+                        widget.price,
+                        style: GoogleFonts.plusJakartaSans(
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black,
+                        ),
+                      ),
+                      SizedBox(width: 8.w),
+                      Text(
+                        widget.oldPrice,
+                        style: GoogleFonts.plusJakartaSans(
+                          fontSize: 10.sp,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey,
+                          decoration: TextDecoration.lineThrough,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:ecommerce/Ui/home_screen/widget/custom_elevated_button.dart';
 import 'package:ecommerce/Ui/home_screen/widget/custom_text_field.dart';
+import 'package:ecommerce/Ui/home_screen/widget/custom_label.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
 import 'package:ecommerce/core/utils/validators.dart';
@@ -20,7 +21,10 @@ class ContactUs extends StatelessWidget {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
-        title: Text(AppLocalizations.of(context)!.contact_us,style:AppStyles.body14MediumBlack),
+        title: Text(
+          AppLocalizations.of(context)!.contact_us,
+          style: AppStyles.body14MediumBlack,
+        ),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -52,9 +56,9 @@ class ContactUs extends StatelessWidget {
                   validator: AppValidators.validateFullName,
                 ),
                 SizedBox(height: 20.h),
-                Text(
-                  AppLocalizations.of(context)!.phone_number,
-                  style: AppStyles.body14MediumBlack,
+                CustomLabel(
+                  text: AppLocalizations.of(context)!.phone_number,
+                  isRequired: true,
                 ),
                 SizedBox(height: 10.h),
                 CustomTextField(
@@ -67,9 +71,9 @@ class ContactUs extends StatelessWidget {
                   validator: AppValidators.validatePhoneNumber,
                 ),
                 SizedBox(height: 20.h),
-                Text(
-                  AppLocalizations.of(context)!.email_address,
-                  style: AppStyles.body14MediumBlack,
+                CustomLabel(
+                  text: AppLocalizations.of(context)!.email_address,
+                  isRequired: true,
                 ),
                 SizedBox(height: 10.h),
                 CustomTextField(
@@ -82,9 +86,9 @@ class ContactUs extends StatelessWidget {
                   keyBoardType: TextInputType.emailAddress,
                 ),
                 SizedBox(height: 20.h),
-                Text(
-                  AppLocalizations.of(context)!.message,
-                  style: AppStyles.body14MediumBlack,
+                CustomLabel(
+                  text: AppLocalizations.of(context)!.message,
+                  isRequired: true,
                 ),
                 SizedBox(height: 10.h),
                 CustomTextField(

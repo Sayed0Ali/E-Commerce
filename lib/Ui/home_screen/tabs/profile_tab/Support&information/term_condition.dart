@@ -26,11 +26,11 @@ class TermCondition extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-                        Text('1-Terms & Conditions', style: AppStyles.heading24BoldBlack),
+                        Text(AppLocalizations.of(context)!.terms_conditions_title, style: AppStyles.heading24BoldBlack),
 
             SizedBox(height: 8.h),
             Text(
-              'Welcome to QuickMart! These Terms and Conditions ("Terms") govern your use of our e-commerce app. By accessing or using QuickMart, you agree to be bound by these Terms. Please read them carefully before proceeding.',
+              AppLocalizations.of(context)!.terms_conditions_content,
               style: AppStyles.reguler14Gray,
             ),
           ],

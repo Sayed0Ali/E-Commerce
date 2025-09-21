@@ -2,10 +2,10 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/Support&information/privacy_policy.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/Support&information/term_condition.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/account&mangment/change_password.dart';
-import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/languge_bottom_sheet/home_provider.dart';
+import 'package:ecommerce/core/providers/home_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/languge_bottom_sheet/languge_bottom_sheet.dart';
-import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/Contact_Us.dart';
+import 'package:ecommerce/core/widgets/languge_bottom_sheet.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/contact_us.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/order/order_screen.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/payment_method.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/shipping_adderss.dart';
@@ -46,7 +46,10 @@ class ProfaileTab extends StatelessWidget {
             ),
             IconButton(
               onPressed: () {
-                final provider = Provider.of<HomeProvider>(context, listen: false);
+                final provider = Provider.of<HomeProvider>(
+                  context,
+                  listen: false,
+                );
                 provider.changeIndex(0); // Reset to home tab
                 Navigator.pushReplacementNamed(context, AppRoutes.loginRoute);
               },

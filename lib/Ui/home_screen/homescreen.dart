@@ -1,10 +1,9 @@
 import 'package:ecommerce/Ui/home_screen/tabs/categories_tab/categories_tab.dart';
-import 'package:ecommerce/Ui/home_screen/tabs/favorite_tab/favorite_tab.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/favorite_tab/wish_list.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/home_tab/home_tab.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/my_cart_tab/my_cart_tab.dart';
-import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/languge_bottom_sheet/home_provider.dart';
+import 'package:ecommerce/core/providers/home_provider.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/profaile_tab.dart';
-import 'package:ecommerce/core/utils/app_assets.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -41,40 +40,50 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: (index) {
           provider.changeIndex(index);
         },
-        selectedItemColor: AppColors.blackColor,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        selectedItemColor: AppColors.primaryColor,
         unselectedItemColor: Colors.grey,
-        selectedFontSize: 12.sp,
-        unselectedFontSize: 12.sp,
+        selectedLabelStyle: TextStyle(
+          fontSize: 12.sp,
+          fontWeight: FontWeight.bold,
+          color: AppColors.primaryColor,
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontSize: 10.sp,
+          fontWeight: FontWeight.normal,
+          color: Colors.grey,
+        ),
         items: [
           buildBottomNavitems(
             index: 0,
             labelName: AppLocalizations.of(context)!.home,
-            iconName: AppAssets.iconHomeUnselected,
-            iconSelectedName: AppAssets.iconHomeSelected,
+            icon: Icons.home_outlined,
+            selectedIcon: Icons.home,
           ),
           buildBottomNavitems(
             index: 1,
             labelName: AppLocalizations.of(context)!.categories,
-            iconName: AppAssets.iconCategoryUnselected,
-            iconSelectedName: AppAssets.iconCategorySelected,
+            icon: Icons.category_outlined,
+            selectedIcon: Icons.category,
           ),
           buildBottomNavitems(
             index: 2,
             labelName: AppLocalizations.of(context)!.my_cart,
-            iconName: AppAssets.iconShoppingCartUnselected,
-            iconSelectedName: AppAssets.iconShoppingCart,
+            icon: Icons.shopping_cart_outlined,
+            selectedIcon: Icons.shopping_cart,
           ),
           buildBottomNavitems(
             index: 3,
             labelName: AppLocalizations.of(context)!.wishlist,
-            iconName: AppAssets.iconHeartUnselected,
-            iconSelectedName: AppAssets.iconHeartSelected,
+            icon: Icons.favorite_outline,
+            selectedIcon: Icons.favorite,
           ),
           buildBottomNavitems(
             index: 4,
             labelName: AppLocalizations.of(context)!.profile,
-            iconName: AppAssets.iconProfileUnselected,
-            iconSelectedName: AppAssets.iconProfileSelected,
+            icon: Icons.person_outline,
+            selectedIcon: Icons.person,
           ),
         ],
       ),
@@ -83,27 +92,25 @@ class _HomeScreenState extends State<HomeScreen> {
 
   BottomNavigationBarItem buildBottomNavitems({
     required int index,
-    required String iconName,
-    required String iconSelectedName,
     required String labelName,
+    required IconData icon,
+    required IconData selectedIcon,
   }) {
     final provider = Provider.of<HomeProvider>(context, listen: false);
     final bool isSelected = provider.currentIndex == index;
 
     return BottomNavigationBarItem(
-      icon: CircleAvatar(
-        radius: 22.r,
-        backgroundColor: isSelected ? AppColors.transparentColor : Colors.white,
-        child: Center(
-          child: Image.asset(
-            isSelected ? iconSelectedName : iconName,
-            width: 24.w,
-            height: 24.w,
-            fit: BoxFit.contain,
-          ),
+      icon: Padding(
+        padding: EdgeInsets.only(bottom: 4.h),
+        child: Icon(
+          isSelected ? selectedIcon : icon,
+          color: isSelected ? AppColors.primaryColor : Colors.grey,
+          size: 24.sp,
         ),
       ),
       label: labelName,
+      backgroundColor: Colors.white,
     );
   }
 }
+

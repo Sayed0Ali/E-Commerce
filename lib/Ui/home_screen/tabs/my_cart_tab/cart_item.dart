@@ -8,16 +8,20 @@ class CartItemCard extends StatefulWidget {
   final VoidCallback? onIncrement;
   final VoidCallback? onDecrement;
   final VoidCallback? onRemove;
+  final bool showQuantityControls;
+
   const CartItemCard({
     Key? key,
     required this.product,
     this.onIncrement,
     this.onDecrement,
     this.onRemove,
+    this.showQuantityControls = true,
   }) : super(key: key);
   @override
   State<CartItemCard> createState() => _CartItemCardState();
 }
+
 class _CartItemCardState extends State<CartItemCard> {
   bool isChecked = false;
   @override
@@ -67,22 +71,13 @@ class _CartItemCardState extends State<CartItemCard> {
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isChecked = !isChecked;
-                            });
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 6.w),
-                            child: Icon(
-                              Icons.check_box,
-                              color: isChecked
-                                  ? AppColors.primaryColor
-                                  : AppColors.gray400,
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 6.w),
+                          child: Icon(
+                            Icons.check_box,
+                            color: AppColors.primaryColor,
 
-                              size: 20.sp,
-                            ),
+                            size: 20.sp,
                           ),
                         ),
                       ],
@@ -111,15 +106,14 @@ class _CartItemCardState extends State<CartItemCard> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        QuantityControl(
-                          quantity: widget.product.quantity,
-                          onIncrement: widget.onIncrement,
-                          onDecrement: widget.onDecrement,
-                        ),
+                        if (widget.showQuantityControls)
+                          QuantityControl(
+                            quantity: widget.product.quantity,
+                            onIncrement: widget.onIncrement,
+                            onDecrement: widget.onDecrement,
+                          ),
                         GestureDetector(
-                          onTap: () {
-                            widget.onRemove!();
-                          },
+                          onTap: widget.onRemove,
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 6.w),
                             child: Icon(

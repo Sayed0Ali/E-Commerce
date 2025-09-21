@@ -2,6 +2,7 @@ import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/o
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/order/custom_tab_bar.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/order/on_going_tab.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
+import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 class OrdersScreen extends StatelessWidget {
@@ -14,7 +15,7 @@ class OrdersScreen extends StatelessWidget {
         backgroundColor: AppColors.whiteColor,
         appBar: AppBar(
           backgroundColor: AppColors.whiteColor,
-          title: Text('Order History,'),
+          title: Text(AppLocalizations.of(context)!.order_history),
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);

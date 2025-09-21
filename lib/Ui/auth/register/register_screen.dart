@@ -2,6 +2,7 @@ import 'package:ecommerce/Ui/auth/register/email_verfaication.dart';
 import 'package:ecommerce/Ui/auth/login/login_screen.dart';
 import 'package:ecommerce/Ui/home_screen/widget/custom_elevated_button.dart';
 import 'package:ecommerce/Ui/home_screen/widget/custom_text_field.dart';
+import 'package:ecommerce/Ui/home_screen/widget/custom_label.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
 import 'package:ecommerce/core/utils/validators.dart';
@@ -76,9 +77,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ],
                   ),
                   SizedBox(height: 20.h),
-                  Text(
-                    AppLocalizations.of(context)!.full_name,
-                    style: AppStyles.body14MediumBlack,
+                  CustomLabel(
+                    text: AppLocalizations.of(context)!.full_name,
+                    isRequired: true,
                   ),
                   SizedBox(height: 10.h),
                   CustomTextField(
@@ -92,9 +93,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
 
                   SizedBox(height: 20.h),
-                  Text(
-                    AppLocalizations.of(context)!.email_address,
-                    style: AppStyles.body14MediumBlack,
+                  CustomLabel(
+                    text: AppLocalizations.of(context)!.email_address,
+                    isRequired: true,
                   ),
                   SizedBox(height: 10.h),
                   CustomTextField(
@@ -107,9 +108,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     keyBoardType: TextInputType.emailAddress,
                   ),
                   SizedBox(height: 20.h),
-                  Text(
-                    AppLocalizations.of(context)!.password,
-                    style: AppStyles.body14MediumBlack,
+                  CustomLabel(
+                    text: AppLocalizations.of(context)!.password,
+                    isRequired: true,
                   ),
                   SizedBox(height: 10.h),
                   CustomTextField(
