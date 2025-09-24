@@ -13,6 +13,7 @@ import 'package:ecommerce/core/utils/app_assets.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_routs.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
+import 'package:ecommerce/core/utils/page_transitions.dart';
 import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -90,9 +91,10 @@ class ProfaileTab extends StatelessWidget {
                 title: AppLocalizations.of(context)!.shipping_address,
                 icon: Icons.local_shipping_outlined,
                 onTap: () {
-                  Navigator.push(
+                  PageTransitions.navigateWithSlide(
                     context,
-                    MaterialPageRoute(builder: (context) => ShippingAdderss()),
+                    ShippingAdderss(),
+                    animationType: AnimationType.slide,
                   );
                 },
               ),
@@ -100,9 +102,10 @@ class ProfaileTab extends StatelessWidget {
                 title: AppLocalizations.of(context)!.payment_method,
                 icon: Icons.payment_outlined,
                 onTap: () {
-                  Navigator.push(
+                  PageTransitions.navigateWithSlide(
                     context,
-                    MaterialPageRoute(builder: (context) => PaymentMethod()),
+                    PaymentMethod(),
+                    animationType: AnimationType.slide,
                   );
                 },
               ),
@@ -111,9 +114,10 @@ class ProfaileTab extends StatelessWidget {
                 title: AppLocalizations.of(context)!.order_history,
                 icon: Icons.history_edu,
                 onTap: () {
-                  Navigator.push(
+                  PageTransitions.navigateWithSlide(
                     context,
-                    MaterialPageRoute(builder: (context) => OrdersScreen()),
+                    OrdersScreen(),
+                    animationType: AnimationType.slide,
                   );
                 },
               ),
@@ -122,9 +126,10 @@ class ProfaileTab extends StatelessWidget {
                 title: AppLocalizations.of(context)!.contact_us,
                 icon: Icons.perm_contact_calendar_outlined,
                 onTap: () {
-                  Navigator.push(
+                  PageTransitions.navigateWithSlide(
                     context,
-                    MaterialPageRoute(builder: (context) => ContactUs()),
+                    ContactUs(),
+                    animationType: AnimationType.slide,
                   );
                 },
               ),
@@ -140,9 +145,10 @@ class ProfaileTab extends StatelessWidget {
                 title: AppLocalizations.of(context)!.privacy_policy,
                 icon: Icons.privacy_tip_outlined,
                 onTap: () {
-                  Navigator.push(
+                  PageTransitions.navigateWithSlide(
                     context,
-                    MaterialPageRoute(builder: (context) => PrivacyPolicy()),
+                    PrivacyPolicy(),
+                    animationType: AnimationType.slide,
                   );
                 },
               ),
@@ -151,9 +157,10 @@ class ProfaileTab extends StatelessWidget {
                 title: AppLocalizations.of(context)!.terms_conditions,
                 icon: Icons.note_alt,
                 onTap: () {
-                  Navigator.push(
+                  PageTransitions.navigateWithSlide(
                     context,
-                    MaterialPageRoute(builder: (context) => TermCondition()),
+                    TermCondition(),
+                    animationType: AnimationType.slide,
                   );
                 },
               ),
@@ -169,9 +176,10 @@ class ProfaileTab extends StatelessWidget {
                 title: AppLocalizations.of(context)!.change_password,
                 icon: Icons.lock_outline,
                 onTap: () {
-                  Navigator.push(
+                  PageTransitions.navigateWithSlide(
                     context,
-                    MaterialPageRoute(builder: (context) => ChangePassword()),
+                    ChangePassword(),
+                    animationType: AnimationType.slide,
                   );
                 },
               ),

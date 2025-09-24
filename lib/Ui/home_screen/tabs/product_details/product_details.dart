@@ -252,7 +252,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                           }).toList(),
                         ),
                         SizedBox(height: 8.h),
-
                         Text(
                           'Size',
                           style: GoogleFonts.plusJakartaSans(
@@ -352,8 +351,6 @@ class _ProductDetailsState extends State<ProductDetails> {
               ),
             ),
           ),
-
-          // Bottom Bar
           Container(
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 30.h),
             decoration: BoxDecoration(

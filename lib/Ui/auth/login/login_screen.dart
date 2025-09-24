@@ -1,11 +1,12 @@
-import 'package:ecommerce/Ui/auth/login/forget_password/confirmation_email.dart';
+import 'package:ecommerce/Ui/auth/login/forget_password/email_verfaication_login.dart';
 import 'package:ecommerce/Ui/auth/register/register_screen.dart';
 import 'package:ecommerce/Ui/home_screen/homescreen.dart';
+import 'package:ecommerce/core/utils/app_colors.dart';
+import 'package:ecommerce/core/utils/app_styles.dart';
+import 'package:ecommerce/core/utils/page_transitions.dart';
 import 'package:ecommerce/Ui/home_screen/widget/custom_elevated_button.dart';
 import 'package:ecommerce/Ui/home_screen/widget/custom_text_field.dart';
 import 'package:ecommerce/Ui/home_screen/widget/custom_label.dart';
-import 'package:ecommerce/core/utils/app_colors.dart';
-import 'package:ecommerce/core/utils/app_styles.dart';
 import 'package:ecommerce/core/utils/validators.dart';
 import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -65,11 +66,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       TextButton(
                         onPressed: () {
-                          Navigator.push(
+                          PageTransitions.navigateWithSlide(
                             context,
-                            MaterialPageRoute(
-                              builder: (context) => RegisterScreen(),
-                            ),
+                            RegisterScreen(),
+                            animationType: AnimationType.slide,
                           );
                         },
                         child: Text(
@@ -121,11 +121,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       TextButton(
                         onPressed: () {
-                          Navigator.push(
+                          PageTransitions.navigateWithSlide(
                             context,
-                            MaterialPageRoute(
-                              builder: (context) => ConfirmationEmail(),
-                            ),
+                            EmailVerfaicationLogin(),
+                            animationType: AnimationType.slide,
                           );
                         },
                         child: Text(
@@ -144,7 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       if (formKey.currentState?.validate() == true) {
                         Navigator.pushAndRemoveUntil(
                           context,
-                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                          PageTransitions.slideTransition(page: HomeScreen()),
                           (route) => false, // Remove all previous routes
                         );
                       }

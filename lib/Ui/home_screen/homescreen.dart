@@ -42,16 +42,16 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         showSelectedLabels: true,
         showUnselectedLabels: true,
-        selectedItemColor: AppColors.primaryColor,
+        selectedItemColor: AppColors.blackColor,
         unselectedItemColor: Colors.grey,
         selectedLabelStyle: TextStyle(
           fontSize: 12.sp,
           fontWeight: FontWeight.bold,
-          color: AppColors.primaryColor,
+          color: AppColors.blackColor,
         ),
         unselectedLabelStyle: TextStyle(
           fontSize: 10.sp,
-          fontWeight: FontWeight.normal,
+          fontWeight: FontWeight.bold,
           color: Colors.grey,
         ),
         items: [
@@ -113,4 +113,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-

@@ -1,11 +1,9 @@
 import 'package:ecommerce/core/providers/home_provider.dart';
 import 'package:ecommerce/Ui/home_screen/widget/custom_elevated_button.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
-import 'package:ecommerce/core/utils/app_routs.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
 class EmptyOrSuccessState extends StatelessWidget {
@@ -26,7 +24,7 @@ class EmptyOrSuccessState extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false, // هذا يخفي السهم
+        automaticallyImplyLeading: false, 
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),

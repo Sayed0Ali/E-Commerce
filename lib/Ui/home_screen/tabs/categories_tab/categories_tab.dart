@@ -3,6 +3,7 @@ import 'package:ecommerce/core/providers/home_provider.dart';
 import 'package:ecommerce/Ui/home_screen/widget/custom_text_field.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
+import 'package:ecommerce/core/utils/page_transitions.dart';
 import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -38,22 +39,27 @@ class CategoriesTab extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(8.h),
+        padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 16.h),
         child: Column(
           children: [
             CustomTextField(
+              //controller: _searchController,
               hintText: AppLocalizations.of(context)!.search,
-              hintStyle: AppStyles.menuItemStyle,
-              borderColor: AppColors.gray300,
-              suffixIcon: Icon(
-                Icons.format_align_center_outlined,
+              hintStyle: AppStyles.menuItemStyle.copyWith(
                 color: AppColors.grayColor,
-                size: 30.sp,
+              ),
+              borderColor: AppColors.gray300,
+              suffixIcon: GestureDetector(
+                child: Icon(
+                  Icons.tune,
+                  color: AppColors.grayColor,
+                  size: 24.sp,
+                ),
               ),
               prefixIcon: Icon(
                 Icons.search,
                 color: AppColors.grayColor,
-                size: 30.sp,
+                size: 24.sp,
               ),
               borderSize: 1.0,
             ),
@@ -65,20 +71,19 @@ class CategoriesTab extends StatelessWidget {
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 2 / 2,
-                crossAxisSpacing: 16.w,
-                mainAxisSpacing: 16.h,
+                crossAxisSpacing: 8.w,
+                mainAxisSpacing: 8.h,
               ),
               itemBuilder: (context, index) {
                 final category = categories[index];
                 return InkWell(
                   onTap: () {
-                    Navigator.push(
+                    PageTransitions.navigateWithSlide(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => ProductsScreen(
-                          categoryName: category["name"] ?? "",
-                        ),
+                      ProductsScreen(
+                        categoryName: category["name"] ?? "",
                       ),
+                      animationType: AnimationType.slide,
                     );
                   },
                   child: Container(

@@ -7,6 +7,7 @@ import 'package:ecommerce/core/utils/app_assets.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_routs.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
+import 'package:ecommerce/core/utils/page_transitions.dart';
 import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,6 +37,25 @@ final List<Map<String, String>> allProducts = [
 ];
 
 class _HomeTabState extends State<HomeTab> {
+  String _getCategoryKey(String displayName) {
+    switch (displayName) {
+      case "T-shirt":
+        return "t_shirt";
+      case "Shirt":
+        return "shirt";
+      case "Pants":
+        return "pants";
+      case "Jacket":
+        return "jacket";
+      case "Outfit":
+        return "outfit";
+      case "Shoes":
+        return "shoes";
+      default:
+        return displayName.toLowerCase().replaceAll("-", "_");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -186,12 +206,12 @@ class _HomeTabState extends State<HomeTab> {
           final category = categories[index];
           return InkWell(
             onTap: () {
-              Navigator.push(
+              PageTransitions.navigateWithSlide(
                 context,
-                MaterialPageRoute(
-                  builder: (context) =>
-                      ProductsScreen(categoryName: category["name"] ?? ""),
+                ProductsScreen(
+                  categoryName: _getCategoryKey(category["name"] ?? ""),
                 ),
+                animationType: AnimationType.slide,
               );
             },
             child: CategoryBrandItem(

@@ -1,8 +1,12 @@
 import 'package:ecommerce/Ui/home_screen/tabs/categories_tab/ProductsCategoryScreen.dart';
+import 'package:ecommerce/core/providers/home_provider.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
+import 'package:ecommerce/core/utils/page_transitions.dart';
+import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 class ProductsScreen extends StatelessWidget {
   final String categoryName;
@@ -151,14 +155,13 @@ class ProductsScreen extends StatelessWidget {
             final product = products[index];
             return InkWell(
               onTap: () {
-                Navigator.push(
+                PageTransitions.navigateWithSlide(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => ProductsCategoryScreen(
-                      categoryName: product["name"],
-                      products: [product], // Pass the current product
-                    ),
+                  ProductsCategoryScreen(
+                    categoryName: categoryName,
+                    products: products,
                   ),
+                  animationType: AnimationType.slide,
                 );
               },
               child: Container(

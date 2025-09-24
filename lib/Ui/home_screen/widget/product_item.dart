@@ -1,6 +1,8 @@
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_routs.dart';
+import 'package:ecommerce/core/utils/page_transitions.dart';
 import 'package:ecommerce/core/providers/favorites_provider.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/product_details/product_details.dart';
 import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -35,17 +37,17 @@ class _ProductTabItemState extends State<ProductTabItem> {
     final favoritesProvider = Provider.of<FavoritesProvider>(context);
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(
+        PageTransitions.navigateWithSlide(
           context,
-          AppRoutes.productDetails,
-          arguments: {
-            'image': widget.image,
-            'title': widget.title,
-            'price': widget.price,
-            'oldPrice': widget.oldPrice,
-            'colors': widget.colors,
-            'description': AppLocalizations.of(context)!.product_description,
-          },
+          ProductDetails(
+            image: widget.image,
+            title: widget.title,
+            price: widget.price,
+            oldPrice: widget.oldPrice,
+            colors: widget.colors,
+            description: 'High quality product with excellent features.',
+          ),
+          animationType: AnimationType.slide,
         );
       },
       child: Container(
