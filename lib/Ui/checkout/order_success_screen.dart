@@ -9,11 +9,11 @@ class OrderSuccessScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return EmptyOrSuccessState(
-      imagePath: AppAssets.passSuccess,
+      
+      imagePath: AppAssets.order_success,
       title: AppLocalizations.of(context)!.order_placed_successfully,
       subtitle: AppLocalizations.of(context)!.thank_you_message,
       buttonText: AppLocalizations.of(context)!.continue_shopping,
-    
     );
   }
 }

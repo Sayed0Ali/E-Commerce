@@ -85,5 +85,12 @@ class AppValidators {
     }
     return null;
   }
+  static String? validateDropdown(String? value, String fieldName) {
+  if (value == null || value.isEmpty) {
+    return 'Please select $fieldName';
+  }
+  return null;
+}
+
 }
 

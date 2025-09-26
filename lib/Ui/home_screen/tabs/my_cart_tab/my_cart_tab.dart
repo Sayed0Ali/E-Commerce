@@ -65,6 +65,9 @@ class _MyCartTabState extends State<MyCartTab> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0,
+
+        surfaceTintColor: Colors.transparent,
         title: Text(
           AppLocalizations.of(context)!.my_cart,
           style: AppStyles.body14MediumBlack,
@@ -81,13 +84,11 @@ class _MyCartTabState extends State<MyCartTab> {
         actions: [
           TextButton(
             onPressed: () {
-               showModalBottomSheet(
-                              context: context,
-                              backgroundColor: Colors.transparent,
-                              builder: (context) => VoucherCodeBottomSheet(
-                              
-                              ),
-                            );
+              showModalBottomSheet(
+                context: context,
+                backgroundColor: Colors.transparent,
+                builder: (context) => VoucherCodeBottomSheet(),
+              );
             },
             child: Text(
               AppLocalizations.of(context)!.voucher_code,
@@ -104,7 +105,11 @@ class _MyCartTabState extends State<MyCartTab> {
           children: [
             Expanded(
               child: products.isEmpty
-                  ? Center(child: Text(AppLocalizations.of(context)!.your_cart_is_empty))
+                  ? Center(
+                      child: Text(
+                        AppLocalizations.of(context)!.your_cart_is_empty,
+                      ),
+                    )
                   : ListView.separated(
                       padding: EdgeInsets.symmetric(
                         horizontal: 12.w,
@@ -140,7 +145,10 @@ class _MyCartTabState extends State<MyCartTab> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(AppLocalizations.of(context)!.order_info, style: AppStyles.body16black),
+                  Text(
+                    AppLocalizations.of(context)!.order_info,
+                    style: AppStyles.body16black,
+                  ),
                   SizedBox(height: 16.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -174,7 +182,10 @@ class _MyCartTabState extends State<MyCartTab> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(AppLocalizations.of(context)!.total, style: AppStyles.body14SemiBoldBlack),
+                      Text(
+                        AppLocalizations.of(context)!.total,
+                        style: AppStyles.body14SemiBoldBlack,
+                      ),
                       Text(
                         '\$${totalPrice.toStringAsFixed(2)}',
                         style: AppStyles.body14SemiBoldBlack,
@@ -188,16 +199,17 @@ class _MyCartTabState extends State<MyCartTab> {
             Padding(
               padding: EdgeInsets.fromLTRB(16.w, 0, 16.w, 16.h),
               child: CustomElevatedButton(
-                text: '${AppLocalizations.of(context)!.checkout} (${products.length})',
-                backGroundColor: products.isNotEmpty 
-                    ? AppColors.blackColor 
+                text:
+                    '${AppLocalizations.of(context)!.checkout} (${products.length})',
+                backGroundColor: products.isNotEmpty
+                    ? AppColors.blackColor
                     : AppColors.gray300,
                 textStyle: AppStyles.body14SemiBoldWhite.copyWith(
-                  color: products.isNotEmpty 
-                      ? Colors.white 
-                      : AppColors.gray500,
+                  color: products.isNotEmpty ? Colors.white : AppColors.gray500,
                 ),
-                onButtonClicked: products.isNotEmpty ? _navigateToCheckout : null,
+                onButtonClicked: products.isNotEmpty
+                    ? _navigateToCheckout
+                    : null,
               ),
             ),
           ],
@@ -233,12 +245,16 @@ class _MyCartTabState extends State<MyCartTab> {
       shippingCost: 0.0,
       total: totalPrice,
       itemCount: products.length,
+      products: products,
     );
 
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => CheckoutScreen(orderInfo: orderInfo),
+        builder: (context) => CheckoutScreen(
+          orderInfo: orderInfo,
+          products: products, // تم تمرير المنتجات هنا
+        ),
       ),
     );
   }

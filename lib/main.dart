@@ -32,6 +32,7 @@ void main() {
     ),
   );
 }
+
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
@@ -60,7 +61,9 @@ class MainApp extends StatelessWidget {
           AppRoutes.allBrandsRoute: (context) => BrandScreen(),
           AppRoutes.loginRoute: (context) => LoginScreen(),
           AppRoutes.productDetails: (context) {
-            final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+            final args =
+                ModalRoute.of(context)!.settings.arguments
+                    as Map<String, dynamic>;
             return ProductDetails(
               image: args['image'] as String,
               title: args['title'] as String,

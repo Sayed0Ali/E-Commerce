@@ -51,7 +51,7 @@ class ProfaileTab extends StatelessWidget {
                   context,
                   listen: false,
                 );
-                provider.changeIndex(0); // Reset to home tab
+                provider.changeIndex(0);
                 Navigator.pushReplacementNamed(context, AppRoutes.loginRoute);
               },
               icon: Icon(
@@ -65,133 +65,143 @@ class ProfaileTab extends StatelessWidget {
         backgroundColor: AppColors.primaryColor,
         elevation: 0,
       ),
-      body: Container(
-        margin: EdgeInsets.only(top: 25.h),
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: AppColors.whiteColor,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(25),
-            topRight: Radius.circular(25),
+      body: Stack(
+        children: [
+          // الخلفية البيضاء
+          Container(
+            margin: EdgeInsets.only(top: 25.h),
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: AppColors.whiteColor,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(25),
+                topRight: Radius.circular(25),
+              ),
+            ),
           ),
-        ),
-        child: Padding(
-          padding: EdgeInsets.all(16.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 10.h),
-              Text(
-                AppLocalizations.of(context)!.personal_information,
-                style: AppStyles.labelStyle,
-              ),
-              SizedBox(height: 10.h),
 
-              buildRowItem(
-                title: AppLocalizations.of(context)!.shipping_address,
-                icon: Icons.local_shipping_outlined,
-                onTap: () {
-                  PageTransitions.navigateWithSlide(
-                    context,
-                    ShippingAdderss(),
-                    animationType: AnimationType.slide,
-                  );
-                },
+          // المحتوى مع Scroll
+          Padding(
+            padding: EdgeInsets.all(16.w),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 20.h),
+                  Text(
+                    AppLocalizations.of(context)!.personal_information,
+                    style: AppStyles.labelStyle,
+                  ),
+                  SizedBox(height: 10.h),
+            
+                  buildRowItem(
+                    title: AppLocalizations.of(context)!.shipping_address,
+                    icon: Icons.local_shipping_outlined,
+                    onTap: () {
+                      PageTransitions.navigateWithSlide(
+                        context,
+                        ShippingAdderss(),
+                        animationType: AnimationType.slide,
+                      );
+                    },
+                  ),
+                  buildRowItem(
+                    title: AppLocalizations.of(context)!.payment_method,
+                    icon: Icons.payment_outlined,
+                    onTap: () {
+                      PageTransitions.navigateWithSlide(
+                        context,
+                        PaymentMethod(),
+                        animationType: AnimationType.slide,
+                      );
+                    },
+                  ),
+            
+                  buildRowItem(
+                    title: AppLocalizations.of(context)!.order_history,
+                    icon: Icons.history_edu,
+                    onTap: () {
+                      PageTransitions.navigateWithSlide(
+                        context,
+                        OrdersScreen(),
+                        animationType: AnimationType.slide,
+                      );
+                    },
+                  ),
+            
+                  buildRowItem(
+                    title: AppLocalizations.of(context)!.contact_us,
+                    icon: Icons.perm_contact_calendar_outlined,
+                    onTap: () {
+                      PageTransitions.navigateWithSlide(
+                        context,
+                        ContactUs(),
+                        animationType: AnimationType.slide,
+                      );
+                    },
+                  ),
+            
+                  SizedBox(height: 10.h),
+                  Text(
+                    AppLocalizations.of(context)!.support_information,
+                    style: AppStyles.labelStyle,
+                  ),
+                  SizedBox(height: 10.h),
+            
+                  buildRowItem(
+                    title: AppLocalizations.of(context)!.privacy_policy,
+                    icon: Icons.privacy_tip_outlined,
+                    onTap: () {
+                      PageTransitions.navigateWithSlide(
+                        context,
+                        PrivacyPolicy(),
+                        animationType: AnimationType.slide,
+                      );
+                    },
+                  ),
+            
+                  buildRowItem(
+                    title: AppLocalizations.of(context)!.terms_conditions,
+                    icon: Icons.note_alt,
+                    onTap: () {
+                      PageTransitions.navigateWithSlide(
+                        context,
+                        TermCondition(),
+                        animationType: AnimationType.slide,
+                      );
+                    },
+                  ),
+            
+                  SizedBox(height: 10.h),
+                  Text(
+                    AppLocalizations.of(context)!.account_management,
+                    style: AppStyles.labelStyle,
+                  ),
+                  SizedBox(height: 10.h),
+            
+                  buildRowItem(
+                    title: AppLocalizations.of(context)!.change_password,
+                    icon: Icons.lock_outline,
+                    onTap: () {
+                      PageTransitions.navigateWithSlide(
+                        context,
+                        ChangePassword(),
+                        animationType: AnimationType.slide,
+                      );
+                    },
+                  ),
+            
+                  buildRowItem(
+                    title: AppLocalizations.of(context)!.change_language,
+                    icon: Icons.language_outlined,
+                    onTap: () => showLangugeBottomSheet(context),
+                  ),
+                  SizedBox(height: 30.h),
+                ],
               ),
-              buildRowItem(
-                title: AppLocalizations.of(context)!.payment_method,
-                icon: Icons.payment_outlined,
-                onTap: () {
-                  PageTransitions.navigateWithSlide(
-                    context,
-                    PaymentMethod(),
-                    animationType: AnimationType.slide,
-                  );
-                },
-              ),
-
-              buildRowItem(
-                title: AppLocalizations.of(context)!.order_history,
-                icon: Icons.history_edu,
-                onTap: () {
-                  PageTransitions.navigateWithSlide(
-                    context,
-                    OrdersScreen(),
-                    animationType: AnimationType.slide,
-                  );
-                },
-              ),
-
-              buildRowItem(
-                title: AppLocalizations.of(context)!.contact_us,
-                icon: Icons.perm_contact_calendar_outlined,
-                onTap: () {
-                  PageTransitions.navigateWithSlide(
-                    context,
-                    ContactUs(),
-                    animationType: AnimationType.slide,
-                  );
-                },
-              ),
-
-              SizedBox(height: 10.h),
-              Text(
-                AppLocalizations.of(context)!.support_information,
-                style: AppStyles.labelStyle,
-              ),
-              SizedBox(height: 10.h),
-
-              buildRowItem(
-                title: AppLocalizations.of(context)!.privacy_policy,
-                icon: Icons.privacy_tip_outlined,
-                onTap: () {
-                  PageTransitions.navigateWithSlide(
-                    context,
-                    PrivacyPolicy(),
-                    animationType: AnimationType.slide,
-                  );
-                },
-              ),
-
-              buildRowItem(
-                title: AppLocalizations.of(context)!.terms_conditions,
-                icon: Icons.note_alt,
-                onTap: () {
-                  PageTransitions.navigateWithSlide(
-                    context,
-                    TermCondition(),
-                    animationType: AnimationType.slide,
-                  );
-                },
-              ),
-
-              SizedBox(height: 10.h),
-              Text(
-                AppLocalizations.of(context)!.account_management,
-                style: AppStyles.labelStyle,
-              ),
-              SizedBox(height: 10.h),
-
-              buildRowItem(
-                title: AppLocalizations.of(context)!.change_password,
-                icon: Icons.lock_outline,
-                onTap: () {
-                  PageTransitions.navigateWithSlide(
-                    context,
-                    ChangePassword(),
-                    animationType: AnimationType.slide,
-                  );
-                },
-              ),
-
-              buildRowItem(
-                title: AppLocalizations.of(context)!.change_language,
-                icon: Icons.language_outlined,
-                onTap: () => showLangugeBottomSheet(context),
-              ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -221,7 +231,7 @@ class ProfaileTab extends StatelessWidget {
             ),
           ],
         ),
-        Divider(thickness: 1, color: Colors.grey.shade200),
+        Divider(thickness: 1.sp, color: Colors.grey.shade200),
       ],
     );
   }

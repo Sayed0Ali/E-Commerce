@@ -1,4 +1,6 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -204,6 +206,25 @@ class _ProductDetailsState extends State<ProductDetails> {
                             ),
                           ],
                         ),
+                        Row(
+  children: [
+    RatingBarIndicator(
+      rating: 4.5, // التقييم
+      itemBuilder: (context, index) => Icon(
+        Icons.star,
+        color: Colors.amber,
+      ),
+      itemCount: 5,
+      itemSize: 14.sp,
+      direction: Axis.horizontal,
+    ),
+    SizedBox(width: 8),
+    Text(
+      "4.5 (2,495 reviews)",
+      style: TextStyle(color: AppColors.blackColor, fontSize: 12.sp),
+    ),
+  ],
+),
                         SizedBox(height: 8.h),
                         ReadMoreText(
                           widget.description,
@@ -376,7 +397,34 @@ class _ProductDetailsState extends State<ProductDetails> {
                     text: 'Add To Cart',
                     backGroundColor: AppColors.blackColor,
                     textStyle: AppStyles.body14SemiBoldWhite,
-                    onButtonClicked: () {},
+                    onButtonClicked: () {
+                      Flushbar(
+                        flushbarPosition: FlushbarPosition.TOP,
+                        message: "The product has been added to your cart",
+                        icon: Icon(
+                          Icons.check_circle,
+                          color: AppColors.primaryColor,
+                        ),
+                        duration: Duration(seconds: 3),
+                        borderRadius: BorderRadius.circular(12.r),
+                        margin: EdgeInsets.symmetric(
+                          horizontal: 10.w,
+                          vertical: 8.h,
+                        ),
+
+                        backgroundColor: AppColors.whiteColor,
+                        messageColor: AppColors.blackColor,
+                        mainButton: TextButton(
+                          onPressed: () {
+                            // Navigate to cart
+                          },
+                          child: Text(
+                            "View Cart",
+                            style: TextStyle(color: AppColors.primaryColor),
+                          ),
+                        ),
+                      )..show(context);
+                    },
                   ),
                 ),
               ],

@@ -29,7 +29,7 @@ class _CartItemCardState extends State<CartItemCard> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 6),
       child: Container(
-        height: 120.h,
+        height: 125.h,
         decoration: BoxDecoration(
           color: AppColors.whiteColor,
           borderRadius: BorderRadius.circular(12.r),
@@ -60,6 +60,7 @@ class _CartItemCardState extends State<CartItemCard> {
                   children: [
                     Row(
                       children: [
+                        
                         Expanded(
                           child: Text(
                             widget.product.title,

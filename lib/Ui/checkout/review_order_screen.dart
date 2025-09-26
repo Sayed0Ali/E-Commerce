@@ -1,7 +1,9 @@
+import 'package:ecommerce/Ui/checkout/checkout_items_screen.dart';
 import 'package:ecommerce/core/models/checkout_models.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
 import 'package:ecommerce/Ui/home_screen/widget/custom_elevated_button.dart';
+import 'package:ecommerce/core/utils/page_transitions.dart';
 import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -55,7 +57,22 @@ class ReviewOrderScreen extends StatelessWidget {
           '${AppLocalizations.of(context)!.items} (${checkoutData.orderInfo.itemCount})',
           style: AppStyles.body16black,
         ),
-        Icon(Icons.arrow_forward_ios, size: 25.sp, color: AppColors.blackColor),
+        IconButton(
+          onPressed: () {
+            context.slideToPage(
+              CheckoutItemsScreen(
+                cartItems: checkoutData.orderInfo.products,
+                itemCount: checkoutData.orderInfo.itemCount,
+              ),
+              animationType: AnimationType.slide,
+            );
+          },
+          icon: Icon(
+            Icons.arrow_forward_ios,
+            size: 25.sp,
+            color: AppColors.blackColor,
+          ),
+        ),
       ],
     );
   }
@@ -153,7 +170,6 @@ class ReviewOrderScreen extends StatelessWidget {
           style: AppStyles.body16black,
         ),
         SizedBox(height: 16.h),
-
         Column(
           children: [
             _buildOrderInfoRow(
@@ -161,14 +177,11 @@ class ReviewOrderScreen extends StatelessWidget {
               '\$${checkoutData.orderInfo.subtotal.toStringAsFixed(2)}',
             ),
             SizedBox(height: 8.h),
-
             _buildOrderInfoRow(
               AppLocalizations.of(context)!.shipping_cost,
               '\$${checkoutData.orderInfo.shippingCost.toStringAsFixed(2)}',
             ),
-
             SizedBox(height: 16.h),
-
             _buildOrderInfoRow(
               AppLocalizations.of(context)!.total,
               '\$${checkoutData.orderInfo.total.toStringAsFixed(2)}',

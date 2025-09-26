@@ -1,3 +1,4 @@
+import 'package:ecommerce/Ui/home_screen/widget/CustomDropdownField.dart';
 import 'package:ecommerce/core/models/checkout_models.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
@@ -73,35 +74,56 @@ class _ShippingInfoScreenState extends State<ShippingInfoScreen> {
                       controller: _fullNameController,
                       label: AppLocalizations.of(context)!.full_name,
                       isRequired: true,
+                      keyboardType: TextInputType.name,
+                      validator: AppValidators.validateFullName,
                     ),
+
                     SizedBox(height: 16.h),
 
-                    _buildPhoneField(),
+                    _buildTextField(
+                      controller: _phoneController,
+                      label: AppLocalizations.of(context)!.phone_number,
+                      isRequired: true,
+                      keyboardType: TextInputType.phone,
+                      validator: AppValidators.validatePhoneNumber,
+                    ),
+
                     SizedBox(height: 16.h),
 
-                    _buildDropdownField(
-                      value: _selectedProvince,
+                    CustomDropdownField<String>(
+                      hintText: AppLocalizations.of(context)!.select_province,
+                      value: _selectedProvince.isEmpty
+                          ? null
+                          : _selectedProvince,
                       items: _provinces,
-                      label: AppLocalizations.of(context)!.select_province,
                       onChanged: (value) =>
-                          setState(() => _selectedProvince = value!),
+                          setState(() => _selectedProvince = value ?? ''),
+                      validator: (value) =>
+                          AppValidators.validateDropdown(value, 'province'),
                     ),
+
                     SizedBox(height: 16.h),
 
-                    _buildDropdownField(
-                      value: _selectedCity,
+                    CustomDropdownField<String>(
+                      hintText: AppLocalizations.of(context)!.select_city,
+                      value: _selectedCity.isEmpty ? null : _selectedCity,
                       items: _cities,
-                      label: AppLocalizations.of(context)!.select_city,
                       onChanged: (value) =>
-                          setState(() => _selectedCity = value!),
+                          setState(() => _selectedCity = value ?? ''),
+                      validator: (value) =>
+                          AppValidators.validateDropdown(value, 'city'),
                     ),
+
                     SizedBox(height: 16.h),
 
                     _buildTextField(
                       controller: _streetAddressController,
                       label: AppLocalizations.of(context)!.street_address,
                       isRequired: true,
+                      keyboardType: TextInputType.streetAddress,
+                      validator: AppValidators.validateAddress,
                     ),
+
                     SizedBox(height: 16.h),
 
                     _buildTextField(
@@ -109,12 +131,12 @@ class _ShippingInfoScreenState extends State<ShippingInfoScreen> {
                       label: AppLocalizations.of(context)!.postal_code,
                       isRequired: true,
                       keyboardType: TextInputType.number,
+                      validator: AppValidators.validatePostalCode,
                     ),
                   ],
                 ),
               ),
             ),
-
             SizedBox(height: 16.h),
             CustomElevatedButton(
               text: AppLocalizations.of(context)!.save,
@@ -133,6 +155,7 @@ class _ShippingInfoScreenState extends State<ShippingInfoScreen> {
     required String label,
     bool isRequired = false,
     TextInputType keyboardType = TextInputType.text,
+    String? Function(String?)? validator,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -146,98 +169,7 @@ class _ShippingInfoScreenState extends State<ShippingInfoScreen> {
           borderColor: AppColors.gray300,
           filledColor: AppColors.whiteColor,
           style: AppStyles.body14MediumBlack,
-          validator:AppValidators.validateFullName
-        ),
-      ],
-    );
-  }
-
-  Widget _buildPhoneField() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomLabel(text: AppLocalizations.of(context)!.phone_number),
-        SizedBox(height: 8.h),
-        Row(
-          children: [
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 16.h),
-              decoration: BoxDecoration(
-                border: Border.all(color: AppColors.gray300),
-                borderRadius: BorderRadius.circular(8.r),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text('🇪🇬', style: TextStyle(fontSize: 16.sp)),
-                  SizedBox(width: 8.w),
-                  DropdownButton<String>(
-                    value: _selectedCountryCode,
-                    underline: const SizedBox(),
-                    items: ['+20', '+1', '+44', '+33'].map((code) {
-                      return DropdownMenuItem(value: code, child: Text(code));
-                    }).toList(),
-                    onChanged: (value) =>
-                        setState(() => _selectedCountryCode = value!),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(width: 8.w),
-            Expanded(
-              child: CustomTextField(
-                controller: _phoneController,
-                keyBoardType: TextInputType.phone,
-                hintText: 'Phone number',
-                borderColor: AppColors.gray300,
-                filledColor: AppColors.whiteColor,
-                style: AppStyles.body14MediumBlack,
-                validator:AppValidators.validatePhoneNumber
-              ),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-
-  Widget _buildDropdownField({
-    required String value,
-    required List<String> items,
-    required String label,
-    required Function(String?) onChanged,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomLabel(text: label),
-        SizedBox(height: 8.h),
-        DropdownButtonFormField<String>(
-          value: value.isEmpty ? null : value,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8.r),
-              borderSide: BorderSide(color: AppColors.gray300),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8.r),
-              borderSide: BorderSide(color: AppColors.gray300),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8.r),
-              borderSide: BorderSide(color: AppColors.primaryColor),
-            ),
-          ),
-          items: items.map((item) {
-            return DropdownMenuItem(value: item, child: Text(item));
-          }).toList(),
-          onChanged: onChanged,
-          validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'Please select $label';
-            }
-            return null;
-          },
+          validator: validator,
         ),
       ],
     );

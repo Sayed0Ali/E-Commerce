@@ -1,3 +1,5 @@
+import 'package:ecommerce/Ui/home_screen/tabs/my_cart_tab/my_cart_tab.dart';
+
 class ShippingInfo {
   final String fullName;
   final String phoneNumber;
@@ -48,12 +50,14 @@ class OrderInfo {
   final double shippingCost;
   final double total;
   final int itemCount;
+   final List<CartProduct> products;
 
   OrderInfo({
     required this.subtotal,
     required this.shippingCost,
     required this.total,
     required this.itemCount,
+       required this.products,
   });
 }
 

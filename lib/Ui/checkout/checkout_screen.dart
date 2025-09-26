@@ -1,3 +1,4 @@
+import 'package:ecommerce/Ui/home_screen/tabs/my_cart_tab/my_cart_tab.dart';
 import 'package:ecommerce/core/models/checkout_models.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
@@ -12,7 +13,7 @@ import 'order_success_screen.dart';
 class CheckoutScreen extends StatefulWidget {
   final OrderInfo orderInfo;
 
-  const CheckoutScreen({super.key, required this.orderInfo});
+  const CheckoutScreen({super.key, required this.orderInfo, required List<CartProduct> products});
 
   @override
   State<CheckoutScreen> createState() => _CheckoutScreenState();
@@ -30,14 +31,25 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.whiteColor,
-      body: SafeArea(
-        child: Column(
-          children: [
-            _buildHeader(),
-            Expanded(child: _buildCurrentStep()),
-          ],
+    return WillPopScope(
+      onWillPop: () async {
+        if (currentStep > 0) {
+          setState(() {
+            currentStep--;
+          });
+          return false; // Prevent default back behavior
+        }
+        return true; // Allow default back behavior when on first step
+      },
+      child: Scaffold(
+        backgroundColor: AppColors.whiteColor,
+        body: SafeArea(
+          child: Column(
+            children: [
+              _buildHeader(),
+              Expanded(child: _buildCurrentStep()),
+            ],
+          ),
         ),
       ),
     );
@@ -51,7 +63,15 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           Row(
             children: [
               IconButton(
-                onPressed: () => Navigator.pop(context),
+                onPressed: () {
+                  if (currentStep > 0) {
+                    setState(() {
+                      currentStep--;
+                    });
+                  } else {
+                    Navigator.pop(context);
+                  }
+                },
                 icon: Icon(Icons.arrow_back_rounded, size: 30.w),
               ),
               Expanded(
@@ -73,9 +93,12 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
   Widget _buildProgressIndicator() {
     final steps = [
-      {'title': AppLocalizations.of(context)!.shipping, 'icon': Icons.local_shipping},
-      {'title': AppLocalizations.of(context)!.payment, 'icon': Icons.credit_card},
-      {'title': AppLocalizations.of(context)!.review, 'icon': Icons.check},
+      {
+        'title': AppLocalizations.of(context)!.shipping,
+        'icon': Icons.local_shipping,
+      },
+      {'title': AppLocalizations.of(context)!.payment, 'icon': Icons.payment},
+      {'title': AppLocalizations.of(context)!.review, 'icon': Icons.reviews},
     ];
 
     // We generate a list like: [step0, divider, step1, divider, step2]
@@ -88,15 +111,12 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              width: 40.w,
-              height: 40.h,
-              decoration: BoxDecoration(
-                color: isActive ? AppColors.primaryColor : AppColors.gray300,
-                shape: BoxShape.circle,
-              ),
-              child: Icon(step['icon'] as IconData, color: Colors.white, size: 20.sp),
+            Icon(
+              step['icon'] as IconData,
+              color: isActive ? AppColors.primaryColor : AppColors.gray300,
+              size: 30.sp,
             ),
+
             SizedBox(height: 8.h),
             SizedBox(
               width: 70.w,

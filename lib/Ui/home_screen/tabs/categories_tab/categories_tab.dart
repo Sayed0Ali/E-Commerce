@@ -39,7 +39,7 @@ class CategoriesTab extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 16.h),
+        padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
         child: Column(
           children: [
             CustomTextField(
@@ -80,9 +80,7 @@ class CategoriesTab extends StatelessWidget {
                   onTap: () {
                     PageTransitions.navigateWithSlide(
                       context,
-                      ProductsScreen(
-                        categoryName: category["name"] ?? "",
-                      ),
+                      ProductsScreen(categoryName: category["name"] ?? ""),
                       animationType: AnimationType.slide,
                     );
                   },
@@ -92,17 +90,18 @@ class CategoriesTab extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.transparent,
                       borderRadius: BorderRadius.circular(12.r),
-                      border: Border.all(color: AppColors.gray300, width: 1.5),
+                      border: Border.all(color: AppColors.gray200, width: 1.w),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        SizedBox(
-                          height: 100.h,
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(12.r),
                           child: Image.asset(
                             category["image"] ?? "",
                             fit: BoxFit.cover,
                             width: double.infinity,
+                            height: 100.h,
                           ),
                         ),
                         SizedBox(height: 8.h),
