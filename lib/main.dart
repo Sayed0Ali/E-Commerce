@@ -15,6 +15,7 @@ import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/profaile_tab.dart';
 import 'package:ecommerce/core/utils/app_routs.dart';
 import 'package:ecommerce/core/utils/app_thems.dart';
 import 'package:ecommerce/core/route_generator.dart';
+import 'package:ecommerce/introduction_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -46,7 +47,7 @@ class MainApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.homeRoute,
+home: OnboardingScreen(),
         onGenerateRoute: RouteGenerator.generateRoute,
         routes: {
           AppRoutes.homeRoute: (context) => HomeScreen(),

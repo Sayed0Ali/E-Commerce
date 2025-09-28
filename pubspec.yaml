@@ -24,6 +24,8 @@ dependencies:
   pin_code_fields: ^8.0.1
   another_flushbar: ^1.12.32
   flutter_rating_bar: ^4.0.1
+  introduction_screen: ^4.0.0
+
 
 dev_dependencies:
   flutter_native_splash: ^2.4.6

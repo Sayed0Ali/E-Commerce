@@ -207,24 +207,25 @@ class _ProductDetailsState extends State<ProductDetails> {
                           ],
                         ),
                         Row(
-  children: [
-    RatingBarIndicator(
-      rating: 4.5, // التقييم
-      itemBuilder: (context, index) => Icon(
-        Icons.star,
-        color: Colors.amber,
-      ),
-      itemCount: 5,
-      itemSize: 14.sp,
-      direction: Axis.horizontal,
-    ),
-    SizedBox(width: 8),
-    Text(
-      "4.5 (2,495 reviews)",
-      style: TextStyle(color: AppColors.blackColor, fontSize: 12.sp),
-    ),
-  ],
-),
+                          children: [
+                            RatingBarIndicator(
+                              rating: 4.5, 
+                              itemBuilder: (context, index) =>
+                                  Icon(Icons.star, color: Colors.amber),
+                              itemCount: 5,
+                              itemSize: 14.sp,
+                              direction: Axis.horizontal,
+                            ),
+                            SizedBox(width: 8),
+                            Text(
+                              "4.5 (2,495 reviews)",
+                              style: TextStyle(
+                                color: AppColors.blackColor,
+                                fontSize: 12.sp,
+                              ),
+                            ),
+                          ],
+                        ),
                         SizedBox(height: 8.h),
                         ReadMoreText(
                           widget.description,

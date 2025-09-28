@@ -67,7 +67,6 @@ class ProfaileTab extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          // الخلفية البيضاء
           Container(
             margin: EdgeInsets.only(top: 25.h),
             width: double.infinity,
@@ -80,7 +79,6 @@ class ProfaileTab extends StatelessWidget {
             ),
           ),
 
-          // المحتوى مع Scroll
           Padding(
             padding: EdgeInsets.all(16.w),
             child: SingleChildScrollView(
@@ -93,7 +91,7 @@ class ProfaileTab extends StatelessWidget {
                     style: AppStyles.labelStyle,
                   ),
                   SizedBox(height: 10.h),
-            
+
                   buildRowItem(
                     title: AppLocalizations.of(context)!.shipping_address,
                     icon: Icons.local_shipping_outlined,
@@ -116,7 +114,7 @@ class ProfaileTab extends StatelessWidget {
                       );
                     },
                   ),
-            
+
                   buildRowItem(
                     title: AppLocalizations.of(context)!.order_history,
                     icon: Icons.history_edu,
@@ -128,7 +126,7 @@ class ProfaileTab extends StatelessWidget {
                       );
                     },
                   ),
-            
+
                   buildRowItem(
                     title: AppLocalizations.of(context)!.contact_us,
                     icon: Icons.perm_contact_calendar_outlined,
@@ -140,14 +138,14 @@ class ProfaileTab extends StatelessWidget {
                       );
                     },
                   ),
-            
+
                   SizedBox(height: 10.h),
                   Text(
                     AppLocalizations.of(context)!.support_information,
                     style: AppStyles.labelStyle,
                   ),
                   SizedBox(height: 10.h),
-            
+
                   buildRowItem(
                     title: AppLocalizations.of(context)!.privacy_policy,
                     icon: Icons.privacy_tip_outlined,
@@ -159,7 +157,7 @@ class ProfaileTab extends StatelessWidget {
                       );
                     },
                   ),
-            
+
                   buildRowItem(
                     title: AppLocalizations.of(context)!.terms_conditions,
                     icon: Icons.note_alt,
@@ -171,14 +169,14 @@ class ProfaileTab extends StatelessWidget {
                       );
                     },
                   ),
-            
+
                   SizedBox(height: 10.h),
                   Text(
                     AppLocalizations.of(context)!.account_management,
                     style: AppStyles.labelStyle,
                   ),
                   SizedBox(height: 10.h),
-            
+
                   buildRowItem(
                     title: AppLocalizations.of(context)!.change_password,
                     icon: Icons.lock_outline,
@@ -190,7 +188,7 @@ class ProfaileTab extends StatelessWidget {
                       );
                     },
                   ),
-            
+
                   buildRowItem(
                     title: AppLocalizations.of(context)!.change_language,
                     icon: Icons.language_outlined,
