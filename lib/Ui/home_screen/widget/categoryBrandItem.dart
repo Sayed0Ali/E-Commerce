@@ -16,7 +16,8 @@ class CategoryBrandItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(8.w),
-      width: 100.w,
+      width: 76.w,
+      height: 60.h,
 
       decoration: BoxDecoration(
         color: Colors.white,
@@ -57,7 +58,7 @@ class CategoryBrandItem extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w500,
-                  color: Colors.black87,
+                  color:AppColors.blackColor,
                 ),
               ),
             ),

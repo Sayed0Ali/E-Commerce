@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_routs.dart';
+import 'package:ecommerce/core/utils/app_styles.dart';
 import 'package:ecommerce/core/utils/page_transitions.dart';
 import 'package:ecommerce/core/providers/favorites_provider.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/product_details/product_details.dart';
@@ -51,9 +52,10 @@ class _ProductTabItemState extends State<ProductTabItem> {
         );
       },
       child: Container(
-        width: 164.w,
+        width: 160.w,
+        height: 227.h,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.whiteColor,
           borderRadius: BorderRadius.circular(24.r),
         ),
         child: Column(
@@ -65,8 +67,8 @@ class _ProductTabItemState extends State<ProductTabItem> {
                   borderRadius: BorderRadius.circular(24.r),
                   child: Image.asset(
                     widget.image,
-                    width: 164.w,
-                    height: 140.h,
+                    width: 160.w,
+                    height: 138.h,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -145,39 +147,26 @@ class _ProductTabItemState extends State<ProductTabItem> {
                         ),
                     ],
                   ),
-                  SizedBox(height: 8.h),
+                  SizedBox(height: 4.h),
                   // Title
                   Text(
                     widget.title,
-                    style: GoogleFonts.plusJakartaSans(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black,
-                    ),
+                    style:AppStyles.body14MediumBlack,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
                   SizedBox(height: 4.h),
                   // Prices
-                  Row(
+                  Column(
                     children: [
                       Text(
-                        widget.price,
-                        style: GoogleFonts.plusJakartaSans(
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black,
-                        ),
+                        '\$ ${widget.price}',
+                      style: AppStyles.body12SemiBoldBlack ,
                       ),
                       SizedBox(width: 8.w),
                       Text(
-                        widget.oldPrice,
-                        style: GoogleFonts.plusJakartaSans(
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.grey,
-                          decoration: TextDecoration.lineThrough,
-                        ),
+                      '\$ ${  widget.oldPrice}',
+                        style:AppStyles.body10RegularLineThrough
                       ),
                     ],
                   ),

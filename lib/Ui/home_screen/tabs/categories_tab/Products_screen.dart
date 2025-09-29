@@ -122,6 +122,23 @@ class ProductsScreen extends StatelessWidget {
             "image": "assets/images/shoes.jpg",
           },
         ];
+      case "flash_sale":
+       return [
+          {
+            "name": "Sport Shoes",
+            "price": "699 EGP",
+            "image": "assets/images/shoes.jpg",
+          },
+             {
+            "name": "Summer Outfit",
+            "price": "799 EGP",
+            "image": "assets/images/outfit.jpg",
+          }, {
+            "name": "Sport Jacket",
+            "price": "699 EGP",
+            "image": "assets/images/jacket.jpg",
+          },
+        ];
       default:
         return [];
     }

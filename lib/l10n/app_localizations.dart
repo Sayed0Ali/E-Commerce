@@ -227,7 +227,7 @@ abstract class AppLocalizations {
   /// No description provided for @see_all.
   ///
   /// In en, this message translates to:
-  /// **'See All'**
+  /// **'SEE ALL'**
   String get see_all;
 
   /// No description provided for @fashion.

@@ -22,7 +22,7 @@ class NotificationsTab extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: Text(AppLocalizations.of(context)!.no_new_notifications),
+        child: Text('No new notifications'),
       ),
     );
   }

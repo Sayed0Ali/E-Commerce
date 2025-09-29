@@ -72,7 +72,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get brands => 'Brands';
 
   @override
-  String get see_all => 'See All';
+  String get see_all => 'SEE ALL';
 
   @override
   String get fashion => 'Fashion';

@@ -42,12 +42,6 @@ class AppStyles {
   );
   //==========================================================
 
-  static TextStyle body14MediumBlack = GoogleFonts.plusJakartaSans(
-    fontSize: 14.sp,
-    fontWeight: FontWeight.w500,
-    color: AppColors.blackColor,
-  );
-
   static TextStyle hint12RegularText = GoogleFonts.plusJakartaSans(
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,
@@ -134,4 +128,37 @@ class AppStyles {
     fontWeight: FontWeight.w500,
     color: AppColors.blackColor,
   );
+  ///////////////////////////////
+ 
+static TextStyle body12RegularBlack = GoogleFonts.plusJakartaSans(
+  fontSize: 12.sp,
+  fontWeight: FontWeight.w400, // Regular
+  color: AppColors.blackColor,
+  height: 1.0, // line-height 100%
+  letterSpacing: 0.06, // 0.5% of 12px
+);
+static TextStyle body14MediumBlack = GoogleFonts.plusJakartaSans(
+  fontSize: 14.sp,
+  fontWeight: FontWeight.w500, // Medium
+  color: AppColors.blackColor,
+  height: 1.5, // line-height 150%
+  letterSpacing: 0.07, // 0.5% of 14px
+);
+
+static TextStyle body12SemiBoldBlack = GoogleFonts.plusJakartaSans(
+  fontSize: 12.sp,
+  fontWeight: FontWeight.w600, // SemiBold
+  color: AppColors.blackColor,
+  height: 1.0, // line-height 100%
+  letterSpacing: 0.06, // 0.5% of 12px
+);
+static TextStyle body10RegularLineThrough = GoogleFonts.plusJakartaSans(
+  fontSize: 10.sp,
+  fontWeight: FontWeight.w400, // Regular
+  color: AppColors.gray300,
+  height: 1.0, // line-height 100%
+  letterSpacing: 0.15, // 1.5% of 10px
+  decoration: TextDecoration.lineThrough,
+);
+
 }

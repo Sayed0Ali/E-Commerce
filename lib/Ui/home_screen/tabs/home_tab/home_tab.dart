@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/categories_tab/Products_screen.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/home_tab/disCount_card.dart';
 import 'package:ecommerce/core/providers/home_provider.dart';
 import 'package:ecommerce/Ui/home_screen/widget/categoryBrandItem.dart';
 import 'package:ecommerce/Ui/home_screen/widget/product_item.dart';
@@ -12,6 +13,7 @@ import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:slide_countdown/slide_countdown.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -34,6 +36,14 @@ final List<Map<String, String>> allProducts = [
   {"title": "Denim Jacket", "image": "assets/images/jacket.jpg"},
   {"title": "Sport Shoes", "image": "assets/images/shoes.jpg"},
   {"title": "Classic Pants", "image": "assets/images/pants.jpg"},
+];
+final List<String> images = [
+  "assets/images/t-shrit.jpg",
+  "assets/images/jacket.jpg",
+  "assets/images/shoes.jpg",
+  "assets/images/pants.jpg",
+  "assets/images/jacket.jpg",
+  "assets/images/shoes.jpg",
 ];
 
 class _HomeTabState extends State<HomeTab> {
@@ -139,7 +149,56 @@ class _HomeTabState extends State<HomeTab> {
                 ),
                 buildCategories(),
 
-                SizedBox(height: 24.h),
+                SizedBox(height: 8.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Flash Sale', style: AppStyles.bold18Jakarta),
+                    SlideCountdownSeparated(
+                      duration: Duration(days: 1),
+                      style: AppStyles.body14SemiBoldBlack,
+                      slideAnimationCurve: Curves.easeInOut,
+                      icon: Icon(
+                        Icons.timer_sharp,
+                        color: AppColors.primaryColor,
+                        size: 30.sp,
+                      ),
+                      separator: '',
+                      decoration: BoxDecoration(
+                        color: AppColors.primaryColor.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(8.r),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 8.h),
+                GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                   
+                    childAspectRatio: 1,
+                  ),
+                  itemCount: images.length,
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                          onTap: () {
+        PageTransitions.navigateWithSlide(
+          context,
+          ProductsScreen(
+            categoryName: "flash_sale", // ثابت أو ممكن تربطه بالـ index
+          ),
+          animationType: AnimationType.slide,
+        );
+      },
+                      child: DiscountCard(
+                        image: images[index],
+                        discountText: "-20%",
+                      ),
+                    );
+                  },
+                ),
               ],
             ),
           ),
@@ -230,14 +289,14 @@ class _HomeTabState extends State<HomeTab> {
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: products.length,
-        separatorBuilder: (context, index) => SizedBox(width: 12.w),
+        separatorBuilder: (context, index) => SizedBox(width: 8.w),
         itemBuilder: (context, index) {
           final product = products[index];
           return ProductTabItem(
             image: product['image']!,
             title: product['title']!,
-            price: "\$15.25",
-            oldPrice: "\$20.00",
+            price: "15.25",
+            oldPrice: "20.00",
             colors: [Colors.black, Colors.grey, Colors.blue],
             colorsCount: "All 4 Colors",
           );
