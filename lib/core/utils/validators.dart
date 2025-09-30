@@ -12,6 +12,7 @@ class AppValidators {
     }
     return null;
   }
+  
 
   static String? validatePassword(String? value) {
     RegExp passwordRegex = RegExp(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$');

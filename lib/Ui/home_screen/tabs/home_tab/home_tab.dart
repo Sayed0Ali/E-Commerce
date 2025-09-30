@@ -22,6 +22,8 @@ class HomeTab extends StatefulWidget {
   State<HomeTab> createState() => _HomeTabState();
 }
 
+int _currentIndex = 0;
+
 final List<Map<String, String>> categories = [
   {"name": "T-shirt", "image": "assets/images/t-shrit.jpg"},
   {"name": "Shirt", "image": "assets/images/shirt.jpg"},
@@ -177,21 +179,19 @@ class _HomeTabState extends State<HomeTab> {
                   physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
-                   
+
                     childAspectRatio: 1,
                   ),
                   itemCount: images.length,
                   itemBuilder: (context, index) {
                     return InkWell(
-                          onTap: () {
-        PageTransitions.navigateWithSlide(
-          context,
-          ProductsScreen(
-            categoryName: "flash_sale", // ثابت أو ممكن تربطه بالـ index
-          ),
-          animationType: AnimationType.slide,
-        );
-      },
+                      onTap: () {
+                        PageTransitions.navigateWithSlide(
+                          context,
+                          ProductsScreen(categoryName: "Flash Sale"),
+                          animationType: AnimationType.slide,
+                        );
+                      },
                       child: DiscountCard(
                         image: images[index],
                         discountText: "-20%",
@@ -208,21 +208,55 @@ class _HomeTabState extends State<HomeTab> {
   }
 
   Widget _buildAnnouncement({required List<String> images}) {
-    return CarouselSlider(
-      items: images.map((url) {
-        return ClipRRect(
-          borderRadius: BorderRadius.circular(20.r),
-          child: Image.asset(url, fit: BoxFit.cover, width: double.infinity),
-        );
-      }).toList(),
-      options: CarouselOptions(
-        height: 190,
-        autoPlay: true,
-        autoPlayInterval: const Duration(seconds: 3),
-        viewportFraction: 1,
-        enlargeCenterPage: true,
-        enableInfiniteScroll: true,
-      ),
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      children: [
+        CarouselSlider(
+          items: images.map((url) {
+            return ClipRRect(
+              borderRadius: BorderRadius.circular(20.r),
+              child: Image.asset(
+                url,
+                fit: BoxFit.cover,
+                width: double.infinity,
+              ),
+            );
+          }).toList(),
+          options: CarouselOptions(
+            height: 190,
+            autoPlay: true,
+            autoPlayInterval: const Duration(seconds: 3),
+            viewportFraction: 1,
+            enlargeCenterPage: true,
+            enableInfiniteScroll: true,
+            onPageChanged: (index, reason) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+          ),
+        ),
+        Positioned(
+          bottom: 10.h,
+          right: 10.w,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(images.length, (index) {
+              return Container(
+                margin: EdgeInsets.symmetric(horizontal: 4.w),
+                width: _currentIndex == index ? 16.w : 8.w,
+                height: 8.h,
+                decoration: BoxDecoration(
+                  color: _currentIndex == index
+                      ? AppColors.primaryColor
+                      : AppColors.gray300,
+                  borderRadius: BorderRadius.circular(8.r),
+                ),
+              );
+            }),
+          ),
+        ),
+      ],
     );
   }
 
@@ -298,7 +332,7 @@ class _HomeTabState extends State<HomeTab> {
             price: "15.25",
             oldPrice: "20.00",
             colors: [Colors.black, Colors.grey, Colors.blue],
-            colorsCount: "All 4 Colors",
+            colorsCount: "All 7 Colors",
           );
         },
       ),

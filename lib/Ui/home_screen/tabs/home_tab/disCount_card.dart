@@ -15,14 +15,14 @@ class DiscountCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 4,
-
+    
       shape: RoundedRectangleBorder(
         side: BorderSide(color: AppColors.whiteColor, width: 8.w),
         borderRadius: BorderRadius.circular(9.r),
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(30.r),
-
+    
         child: Stack(
           children: [
           
@@ -33,7 +33,7 @@ class DiscountCard extends StatelessWidget {
               width: 109.w,
               height: 114.h,
             ),
-
+    
             Positioned(
               top: 8.h,
               right: 8.w,

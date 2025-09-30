@@ -1,4 +1,10 @@
 import 'package:another_flushbar/flushbar.dart';
+import 'package:ecommerce/Ui/home_screen/homescreen.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/my_cart_tab/my_cart_tab.dart';
+import 'package:ecommerce/core/providers/add_to_cart_provider.dart';
+import 'package:ecommerce/core/providers/home_provider.dart';
+import 'package:ecommerce/core/utils/app_routs.dart';
+import 'package:ecommerce/core/utils/page_transitions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -156,7 +162,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             dotHeight: 8.h,
 
                             dotWidth: 8.w,
-                            activeDotColor: Colors.black,
+                            activeDotColor: AppColors.blackColor,
                             dotColor: Colors.grey.shade300,
                           ),
                         ),
@@ -209,7 +215,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                         Row(
                           children: [
                             RatingBarIndicator(
-                              rating: 4.5, 
+                              rating: 4.5,
                               itemBuilder: (context, index) =>
                                   Icon(Icons.star, color: Colors.amber),
                               itemCount: 5,
@@ -236,7 +242,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           trimExpandedText: 'Read less',
                           style: GoogleFonts.plusJakartaSans(
                             fontSize: 14.sp,
-                            color: Colors.grey[600],
+                            color:AppColors.gray500,
                             height: 1.5,
                           ),
                         ),
@@ -399,6 +405,12 @@ class _ProductDetailsState extends State<ProductDetails> {
                     backGroundColor: AppColors.blackColor,
                     textStyle: AppStyles.body14SemiBoldWhite,
                     onButtonClicked: () {
+                 // 1. أضيف المنتج للسلة
+  final cartProvider = Provider.of<CartProvider>(context, listen: false);
+
+  cartProvider.addToCart(
+    id: '', title:  widget.title, imageAsset:widget.image, price: double.tryParse(widget.price.replaceAll('\$', '')) ?? 0.0, oldPrice: 1, colors: [], colorsCount: '',
+  );
                       Flushbar(
                         flushbarPosition: FlushbarPosition.TOP,
                         message: "The product has been added to your cart",
@@ -417,7 +429,16 @@ class _ProductDetailsState extends State<ProductDetails> {
                         messageColor: AppColors.blackColor,
                         mainButton: TextButton(
                           onPressed: () {
+            
                             // Navigate to cart
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              PageTransitions.slideTransition(
+                                page: HomeScreen(),
+                              ),
+                              (route) => false,
+                            );
+                            context.read<HomeProvider>().changeIndex(2);
                           },
                           child: Text(
                             "View Cart",

@@ -26,6 +26,7 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   introduction_screen: ^4.0.0
   slide_countdown: ^2.0.2
+  
 
 
 dev_dependencies:

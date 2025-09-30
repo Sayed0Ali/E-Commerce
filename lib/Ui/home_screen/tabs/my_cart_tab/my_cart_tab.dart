@@ -139,7 +139,6 @@ class _MyCartTabState extends State<MyCartTab> {
                       itemCount: products.length,
                     ),
             ),
-            // Order Info
             Container(
               padding: EdgeInsets.all(16.w),
               child: Column(
@@ -195,7 +194,6 @@ class _MyCartTabState extends State<MyCartTab> {
                 ],
               ),
             ),
-            // Checkout Button
             Padding(
               padding: EdgeInsets.fromLTRB(16.w, 0, 16.w, 16.h),
               child: CustomElevatedButton(
@@ -205,7 +203,7 @@ class _MyCartTabState extends State<MyCartTab> {
                     ? AppColors.blackColor
                     : AppColors.gray300,
                 textStyle: AppStyles.body14SemiBoldWhite.copyWith(
-                  color: products.isNotEmpty ? Colors.white : AppColors.gray500,
+                  color: products.isNotEmpty ? AppColors.whiteColor : AppColors.gray500,
                 ),
                 onButtonClicked: products.isNotEmpty
                     ? _navigateToCheckout
@@ -216,7 +214,7 @@ class _MyCartTabState extends State<MyCartTab> {
         ),
       ),
     );
-  }
+    }
 
   double get totalPrice =>
       products.fold(0.0, (sum, p) => sum + p.price * p.quantity);
@@ -251,10 +249,8 @@ class _MyCartTabState extends State<MyCartTab> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => CheckoutScreen(
-          orderInfo: orderInfo,
-          products: products, // تم تمرير المنتجات هنا
-        ),
+        builder: (context) =>
+            CheckoutScreen(orderInfo: orderInfo, products: products),
       ),
     );
   }

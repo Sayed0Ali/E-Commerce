@@ -1,12 +1,9 @@
 import 'package:ecommerce/Ui/home_screen/tabs/categories_tab/ProductsCategoryScreen.dart';
-import 'package:ecommerce/core/providers/home_provider.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
 import 'package:ecommerce/core/utils/page_transitions.dart';
-import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
 
 class ProductsScreen extends StatelessWidget {
   final String categoryName;
@@ -122,18 +119,19 @@ class ProductsScreen extends StatelessWidget {
             "image": "assets/images/shoes.jpg",
           },
         ];
-      case "flash_sale":
-       return [
+      case "Flash Sale":
+        return [
           {
             "name": "Sport Shoes",
             "price": "699 EGP",
             "image": "assets/images/shoes.jpg",
           },
-             {
+          {
             "name": "Summer Outfit",
             "price": "799 EGP",
             "image": "assets/images/outfit.jpg",
-          }, {
+          },
+          {
             "name": "Sport Jacket",
             "price": "699 EGP",
             "image": "assets/images/jacket.jpg",

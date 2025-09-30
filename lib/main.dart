@@ -1,6 +1,7 @@
 import 'package:ecommerce/Ui/auth/login/login_screen.dart';
 import 'package:ecommerce/Ui/auth/register/register_screen.dart';
 import 'package:ecommerce/Ui/auth/register/email_verfaication.dart';
+import 'package:ecommerce/core/providers/add_to_cart_provider.dart';
 import 'package:ecommerce/core/providers/favorites_provider.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/categories_tab/categories_tab.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/home_tab/brand.dart';
@@ -27,6 +28,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => AppLangugeProvider()),
         ChangeNotifierProvider(create: (_) => HomeProvider()),
         ChangeNotifierProvider(create: (_) => FavoritesProvider()),
+        ChangeNotifierProvider(create: (_) => CartProvider()),
       ],
       child: const MainApp(),
     ),
@@ -39,7 +41,6 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var LanguageProvider = Provider.of<AppLangugeProvider>(context);
-
     return ScreenUtilInit(
       designSize: const Size(360, 800),
       minTextAdapt: true,
