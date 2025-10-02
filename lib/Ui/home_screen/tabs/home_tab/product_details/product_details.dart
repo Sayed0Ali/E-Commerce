@@ -3,7 +3,6 @@ import 'package:ecommerce/Ui/home_screen/homescreen.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/my_cart_tab/my_cart_tab.dart';
 import 'package:ecommerce/core/providers/add_to_cart_provider.dart';
 import 'package:ecommerce/core/providers/home_provider.dart';
-import 'package:ecommerce/core/utils/app_routs.dart';
 import 'package:ecommerce/core/utils/page_transitions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -163,7 +162,7 @@ class _ProductDetailsState extends State<ProductDetails> {
 
                             dotWidth: 8.w,
                             activeDotColor: AppColors.blackColor,
-                            dotColor: Colors.grey.shade300,
+                            dotColor: AppColors.gray300,
                           ),
                         ),
                       ),
@@ -175,6 +174,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        chipsRow(),
                         // Title and Price
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -182,10 +182,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             Expanded(
                               child: Text(
                                 widget.title,
-                                style: GoogleFonts.plusJakartaSans(
-                                  fontSize: 20.sp,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                                style: AppStyles.heading18Bold,
                               ),
                             ),
 
@@ -193,20 +190,12 @@ class _ProductDetailsState extends State<ProductDetails> {
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Text(
-                                  widget.price,
-                                  style: GoogleFonts.plusJakartaSans(
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                                  '\$ ${widget.price}',
+                                  style: AppStyles.heading18Bold,
                                 ),
                                 Text(
-                                  widget.oldPrice,
-                                  style: GoogleFonts.plusJakartaSans(
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.grey,
-                                    decoration: TextDecoration.lineThrough,
-                                  ),
+                                  ' \$${widget.oldPrice}',
+                                  style: AppStyles.grey14RegularLineThrough,
                                 ),
                               ],
                             ),
@@ -225,10 +214,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             SizedBox(width: 8),
                             Text(
                               "4.5 (2,495 reviews)",
-                              style: TextStyle(
-                                color: AppColors.blackColor,
-                                fontSize: 12.sp,
-                              ),
+                              style: AppStyles.smallSemiBold,
                             ),
                           ],
                         ),
@@ -236,26 +222,26 @@ class _ProductDetailsState extends State<ProductDetails> {
                         ReadMoreText(
                           widget.description,
                           trimLines: 3,
+                          lessStyle: AppStyles.body14Regular150.copyWith(
+                            color: AppColors.primaryColor,
+                          ),
+                          moreStyle: AppStyles.body14Regular150.copyWith(
+                            color: AppColors.primaryColor,
+                          ),
                           colorClickableText: AppColors.primaryColor,
                           trimMode: TrimMode.Line,
                           trimCollapsedText: 'Read more',
                           trimExpandedText: 'Read less',
-                          style: GoogleFonts.plusJakartaSans(
-                            fontSize: 14.sp,
-                            color:AppColors.gray500,
-                            height: 1.5,
-                          ),
+
+                          style: AppStyles.body14Regular150,
                         ),
-                        SizedBox(height: 8.h),
+                        SizedBox(height: 12.h),
                         // Colors
                         Text(
                           'Color',
-                          style: GoogleFonts.plusJakartaSans(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w600,
-                          ),
+                          style:AppStyles.body12SemiBold100
                         ),
-                        SizedBox(height: 8.h),
+                        SizedBox(height: 12.h),
                         Row(
                           children: widget.colors.map((color) {
                             return GestureDetector(
@@ -279,13 +265,10 @@ class _ProductDetailsState extends State<ProductDetails> {
                             );
                           }).toList(),
                         ),
-                        SizedBox(height: 8.h),
+                        SizedBox(height: 12.h),
                         Text(
                           'Size',
-                          style: GoogleFonts.plusJakartaSans(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w600,
-                          ),
+                          style: AppStyles.body12SemiBold100
                         ),
                         SizedBox(height: 8.h),
                         Row(
@@ -325,7 +308,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           }).toList(),
                         ),
 
-                        SizedBox(height: 24.h),
+                        SizedBox(height: 12.h),
 
                         // Quantity
                         Text(
@@ -379,11 +362,8 @@ class _ProductDetailsState extends State<ProductDetails> {
               ),
             ),
           ),
-          Container(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 30.h),
-            decoration: BoxDecoration(
-              // color: Colors.white,
-            ),
             child: Row(
               children: [
                 // Buy Now Button
@@ -398,19 +378,32 @@ class _ProductDetailsState extends State<ProductDetails> {
                   ),
                 ),
                 SizedBox(width: 16.w),
-                // Add To Cart Button
+            
                 Expanded(
                   child: CustomElevatedButton(
                     text: 'Add To Cart',
                     backGroundColor: AppColors.blackColor,
                     textStyle: AppStyles.body14SemiBoldWhite,
                     onButtonClicked: () {
-                 // 1. أضيف المنتج للسلة
-  final cartProvider = Provider.of<CartProvider>(context, listen: false);
-
-  cartProvider.addToCart(
-    id: '', title:  widget.title, imageAsset:widget.image, price: double.tryParse(widget.price.replaceAll('\$', '')) ?? 0.0, oldPrice: 1, colors: [], colorsCount: '',
-  );
+                      final cartProvider = Provider.of<CartProvider>(
+                        context,
+                        listen: false,
+                      );
+            
+                      cartProvider.addToCart(
+                        CartProduct(
+                          id: '',
+                          title: widget.title,
+                          imageAsset: widget.image,
+                          price:
+                              double.tryParse(
+                                widget.price.replaceAll('\$', ''),
+                              ) ??
+                              0.0,
+                          quantity: quantity,
+                        ),
+                      );
+            
                       Flushbar(
                         flushbarPosition: FlushbarPosition.TOP,
                         message: "The product has been added to your cart",
@@ -424,13 +417,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                           horizontal: 10.w,
                           vertical: 8.h,
                         ),
-
                         backgroundColor: AppColors.whiteColor,
                         messageColor: AppColors.blackColor,
                         mainButton: TextButton(
                           onPressed: () {
-            
-                            // Navigate to cart
+                            // Navigate to home and switch to cart tab
                             Navigator.pushAndRemoveUntil(
                               context,
                               PageTransitions.slideTransition(
@@ -454,6 +445,49 @@ class _ProductDetailsState extends State<ProductDetails> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget chipsRow() {
+    return Row(
+      children: [
+        Chip(
+          label: Text(
+            'Top Rated',
+            style: GoogleFonts.plusJakartaSans(
+              fontSize: 10.sp, // إذا بتستخدم ScreenUtil
+              fontWeight: FontWeight.w600,
+              height: 1.0,
+              letterSpacing: 0.15,
+              color: AppColors.whiteColor,
+              // 1.5% of 10px ≈ 0.15
+            ),
+          ),
+          backgroundColor: const Color(0xFF1F8BDA),
+          padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 6.h),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.r),
+          ),
+        ),
+        SizedBox(width: 8.w),
+        Chip(
+          label: Text(
+            'Free Shipping',
+            style: GoogleFonts.plusJakartaSans(
+              fontSize: 10.sp,
+              fontWeight: FontWeight.w600,
+              height: 1.0,
+              letterSpacing: 0.15,
+              color: AppColors.whiteColor,
+            ),
+          ),
+          backgroundColor: const Color(0xFF08E488),
+          padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 6.h),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.r),
+          ),
+        ),
+      ],
     );
   }
 }

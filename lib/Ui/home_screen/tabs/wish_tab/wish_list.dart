@@ -1,10 +1,10 @@
-import 'package:ecommerce/Ui/home_screen/tabs/favorite_tab/wish_list_product.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/wish_tab/wish_list_product.dart';
 import 'package:ecommerce/core/providers/home_provider.dart';
 import 'package:ecommerce/core/providers/favorites_provider.dart';
 import 'package:ecommerce/Ui/home_screen/widget/empty_or_succcess_state.dart';
 import 'package:ecommerce/core/utils/app_assets.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
-import 'package:ecommerce/core/widgets/delete_bottom_sheet.dart';
+import 'package:ecommerce/Ui/home_screen/widget/bottom_sheet_widgets/delete_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/my_cart_tab/my_cart_tab.dart';

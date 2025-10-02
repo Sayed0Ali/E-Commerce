@@ -42,6 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -144,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Navigator.pushAndRemoveUntil(
                           context,
                           PageTransitions.slideTransition(page: HomeScreen()),
-                          (route) => false, // Remove all previous routes
+                          (route) => false,
                         );
                       }
                     },
@@ -154,6 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     backGroundColor: AppColors.whiteColor,
                     text: AppLocalizations.of(context)!.login_with_google,
                     onButtonClicked: () {},
+
                     textStyle: AppStyles.body14SemiBoldBlack,
                   ),
                 ],

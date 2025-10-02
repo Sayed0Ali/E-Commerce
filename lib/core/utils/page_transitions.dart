@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 
-enum AnimationType {
-  slide,
-  fade,
-  scale,
-  slideFromBottom,
-}
+enum AnimationType { slide, fade, scale, slideFromBottom }
 
 class PageTransitions {
-  // Slide transition from right to left
   static PageRouteBuilder<T> slideTransition<T extends Object?>({
     required Widget page,
     RouteSettings? settings,
@@ -26,48 +20,32 @@ class PageTransitions {
           case AnimationType.slide:
             return SlideTransition(
               position: Tween<Offset>(
-                begin: const Offset(1.0, 0.0), // من اليمين
+                begin: const Offset(1.0, 0.0),
                 end: Offset.zero,
-              ).animate(CurvedAnimation(
-                parent: animation,
-                curve: curve,
-              )),
+              ).animate(CurvedAnimation(parent: animation, curve: curve)),
               child: child,
             );
 
           case AnimationType.slideFromBottom:
             return SlideTransition(
               position: Tween<Offset>(
-                begin: const Offset(0.0, 1.0), // من الأسفل
+                begin: const Offset(0.0, 1.0),
                 end: Offset.zero,
-              ).animate(CurvedAnimation(
-                parent: animation,
-                curve: curve,
-              )),
+              ).animate(CurvedAnimation(parent: animation, curve: curve)),
               child: child,
             );
 
           case AnimationType.fade:
-            return FadeTransition(
-              opacity: animation,
-              child: child,
-            );
+            return FadeTransition(opacity: animation, child: child);
 
           case AnimationType.scale:
             return ScaleTransition(
               scale: Tween<double>(
                 begin: 0.8,
                 end: 1.0,
-              ).animate(CurvedAnimation(
-                parent: animation,
-                curve: curve,
-              )),
-              child: FadeTransition(
-                opacity: animation,
-                child: child,
-              ),
+              ).animate(CurvedAnimation(parent: animation, curve: curve)),
+              child: FadeTransition(opacity: animation, child: child),
             );
-
         }
       },
     );
@@ -80,10 +58,7 @@ class PageTransitions {
     AnimationType animationType = AnimationType.slide,
     bool replace = false,
   }) {
-    final route = slideTransition<T>(
-      page: page,
-      animationType: animationType,
-    );
+    final route = slideTransition<T>(page: page, animationType: animationType);
 
     if (replace) {
       return Navigator.pushReplacement(context, route);
@@ -110,7 +85,6 @@ class PageTransitions {
   }
 }
 
-// Extension للـ BuildContext عشان نسهل الاستخدام
 extension NavigationExtension on BuildContext {
   Future<T?> slideToPage<T extends Object?>(
     Widget page, {

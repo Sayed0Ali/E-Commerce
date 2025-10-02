@@ -1,6 +1,7 @@
 import 'package:ecommerce/Ui/auth/login/login_screen.dart';
 import 'package:ecommerce/Ui/auth/register/register_screen.dart';
 import 'package:ecommerce/Ui/auth/register/email_verfaication.dart';
+import 'package:ecommerce/Ui/onboarding/introduction_screen.dart';
 import 'package:ecommerce/core/providers/add_to_cart_provider.dart';
 import 'package:ecommerce/core/providers/favorites_provider.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/categories_tab/categories_tab.dart';
@@ -9,7 +10,7 @@ import 'package:ecommerce/Ui/home_screen/tabs/home_tab/home_tab.dart';
 import 'package:ecommerce/Ui/home_screen/homescreen.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/home_tab/notitfications.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/home_tab/search_tab.dart';
-import 'package:ecommerce/Ui/home_screen/tabs/product_details/product_details.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/home_tab/product_details/product_details.dart';
 import 'package:ecommerce/core/providers/app_languge_provider.dart';
 import 'package:ecommerce/core/providers/home_provider.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/profaile_tab.dart';
@@ -47,7 +48,7 @@ class MainApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
+        home: OnboardingScreen(),
         onGenerateRoute: RouteGenerator.generateRoute,
         routes: {
           AppRoutes.homeRoute: (context) => HomeScreen(),

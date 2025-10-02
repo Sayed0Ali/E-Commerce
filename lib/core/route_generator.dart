@@ -1,4 +1,4 @@
-import 'package:ecommerce/Ui/home_screen/tabs/product_details/product_details.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/home_tab/product_details/product_details.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/l10n/app_localizations.dart';
 import 'utils/app_routs.dart';
@@ -15,7 +15,7 @@ class RouteGenerator {
             price: args['price'] as String,
             oldPrice: args['oldPrice'] as String,
             colors: args['colors'] as List<Color>,
-            description: args['description'] as String,
+            description: args['description'] as String, 
           ),
         );
       default:

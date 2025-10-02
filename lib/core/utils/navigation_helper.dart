@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'page_transitions.dart';
 
 /// Global Navigation Helper
-/// استخدم ده في كل المشروع للـ navigation مع slide animation
+
 class NavigationHelper {
   // Private constructor
   NavigationHelper._();
-  
+
   /// Navigate to page with slide animation
   static Future<T?> slideTo<T extends Object?>(
     BuildContext context,
@@ -71,7 +71,6 @@ class NavigationHelper {
   }
 }
 
-/// Extension على BuildContext للاستخدام السهل
 extension NavigationExtensions on BuildContext {
   /// Navigate with slide animation
   Future<T?> slideTo<T extends Object?>(Widget page) {

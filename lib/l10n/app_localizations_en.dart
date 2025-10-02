@@ -476,4 +476,34 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get product_description =>
       'Constructed with high-quality materials, this product ensures a comfortable and secure fit. The soft and flexible material is gentle on the skin, making it ideal for everyday use. Features include adjustable settings, durable construction, and a sleek modern design that complements any style.';
+
+  @override
+  String get exploreProductsTitle => 'Explore a wide range of products';
+
+  @override
+  String get exploreProductsDesc =>
+      'Explore a wide range of products at your fingertips. my market offers an extensive collection to suit your needs.';
+
+  @override
+  String get exclusiveOffersTitle => 'Unlock exclusive offers and discounts';
+
+  @override
+  String get exclusiveOffersDesc =>
+      'Get access to limited-time deals and special promotions available only to our valued customers.';
+
+  @override
+  String get securePaymentsTitle => 'Safe and secure payments';
+
+  @override
+  String get securePaymentsDesc =>
+      'QuickMart employs industry-leading encryption and trusted payment gateways to safeguard your financial information.';
+
+  @override
+  String get skipForNow => 'Skip for now';
+
+  @override
+  String get next => 'Next';
+
+  @override
+  String get getStarted => 'Get Started';
 }

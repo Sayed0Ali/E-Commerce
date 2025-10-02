@@ -475,4 +475,34 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get product_description =>
       'مصنوع من مواد عالية الجودة، يضمن هذا المنتج ملاءمة مريحة وآمنة. المادة الناعمة والمرنة لطيفة على البشرة، مما يجعلها مثالية للاستخدام اليومي. تشمل الميزات إعدادات قابلة للتعديل، وبناء متين، وتصميم عصري أنيق يكمل أي أسلوب.';
+
+  @override
+  String get exploreProductsTitle => 'استكشف مجموعة واسعة من المنتجات';
+
+  @override
+  String get exploreProductsDesc =>
+      'استكشف مجموعة متنوعة من المنتجات في متناول يدك. يقدم ماي ماركت تشكيلة واسعة لتلبية احتياجاتك.';
+
+  @override
+  String get exclusiveOffersTitle => 'احصل على عروض وخصومات حصرية';
+
+  @override
+  String get exclusiveOffersDesc =>
+      'استمتع بصفقات محدودة المدة وعروض خاصة متاحة فقط لعملائنا المميزين.';
+
+  @override
+  String get securePaymentsTitle => 'مدفوعات آمنة ومضمونة';
+
+  @override
+  String get securePaymentsDesc =>
+      'يستخدم كويك مارت أحدث تقنيات التشفير وبوابات دفع موثوقة لحماية بياناتك المالية.';
+
+  @override
+  String get skipForNow => 'تخطي الآن';
+
+  @override
+  String get next => 'التالي';
+
+  @override
+  String get getStarted => 'ابدأ الآن';
 }

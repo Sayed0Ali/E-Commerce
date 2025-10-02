@@ -3,6 +3,7 @@ import 'package:ecommerce/Ui/home_screen/widget/custom_elevated_button.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
 import 'package:ecommerce/Ui/home_screen/homescreen.dart';
+import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
@@ -52,7 +53,10 @@ class _EmailVerfaicationState extends State<EmailVerfaication> {
     );
     return Scaffold(
       appBar: AppBar(
-        title: Text('Verfication Email', style: AppStyles.body14MediumBlack),
+        title: Text(
+          AppLocalizations.of(context)!.email_verification,
+          style: AppStyles.body14MediumBlack,
+        ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_rounded, size: 30.w),
           onPressed: () {
@@ -66,12 +70,12 @@ class _EmailVerfaicationState extends State<EmailVerfaication> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              'Email Verfaication',
+              AppLocalizations.of(context)!.email_verification,
               style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10.h),
             Text(
-              "Enter the verification code sent to your email",
+              AppLocalizations.of(context)!.enter_verification_code_sent,
               style: TextStyle(fontSize: 14.sp, color: Colors.grey),
             ),
             SizedBox(height: 20.h),
@@ -84,11 +88,14 @@ class _EmailVerfaicationState extends State<EmailVerfaication> {
             SizedBox(height: 10.h),
             TextButton(
               onPressed: () {},
-              child: Text("Resend Code", style: AppStyles.medium14Praimary),
+              child: Text(
+                AppLocalizations.of(context)!.resend_code,
+                style: AppStyles.medium14Praimary,
+              ),
             ),
             SizedBox(height: 10.h),
             CustomElevatedButton(
-              text: 'Proceed',
+              text: AppLocalizations.of(context)!.proceed,
               onButtonClicked: () {
                 if (pinController.text.length == pinLength) {
                   Navigator.pushAndRemoveUntil(

@@ -1,10 +1,8 @@
 import 'package:ecommerce/core/utils/app_colors.dart';
-import 'package:ecommerce/core/utils/app_routs.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
 import 'package:ecommerce/core/utils/page_transitions.dart';
 import 'package:ecommerce/core/providers/favorites_provider.dart';
-import 'package:ecommerce/Ui/home_screen/tabs/product_details/product_details.dart';
-import 'package:ecommerce/l10n/app_localizations.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/home_tab/product_details/product_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -46,7 +44,8 @@ class _ProductTabItemState extends State<ProductTabItem> {
             price: widget.price,
             oldPrice: widget.oldPrice,
             colors: widget.colors,
-            description: 'High quality product with excellent features.',
+            description:
+                'High quality product with excellent features.High quality product with excellent features.High quality product with excellent features.High quality product with excellent features.High quality product with excellent features.High quality product with excellent features.High quality product with excellent features.High quality product with excellent features.High quality product with excellent features.High quality product with excellent features.',
           ),
           animationType: AnimationType.slide,
         );
@@ -78,7 +77,7 @@ class _ProductTabItemState extends State<ProductTabItem> {
                   child: InkWell(
                     onTap: () {
                       favoritesProvider.toggleFavorite(
-                        id: widget.title, // Using title as ID for now
+                        id: widget.title,
                         title: widget.title,
                         imageAsset: widget.image,
                         price: double.parse(widget.price.replaceAll('\$', '')),
@@ -151,7 +150,7 @@ class _ProductTabItemState extends State<ProductTabItem> {
                   // Title
                   Text(
                     widget.title,
-                    style:AppStyles.body14MediumBlack,
+                    style: AppStyles.body14MediumBlack,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -161,12 +160,12 @@ class _ProductTabItemState extends State<ProductTabItem> {
                     children: [
                       Text(
                         '\$ ${widget.price}',
-                      style: AppStyles.body12SemiBoldBlack ,
+                        style: AppStyles.body12SemiBoldBlack,
                       ),
                       SizedBox(width: 8.w),
                       Text(
-                      '\$ ${  widget.oldPrice}',
-                        style:AppStyles.body10RegularLineThrough
+                        '\$ ${widget.oldPrice}',
+                        style: AppStyles.body10RegularLineThrough,
                       ),
                     ],
                   ),

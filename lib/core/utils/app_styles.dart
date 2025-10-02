@@ -17,12 +17,6 @@ class AppStyles {
     color: AppColors.whiteColor,
   );
 
-  // static TextStyle light14SearchHint = GoogleFonts.poppins(
-  //   fontSize: 14,
-  //   fontWeight: FontWeight.w300,
-  //   color: AppColors.searchHintColor,
-  // );
-
   static TextStyle light16White = GoogleFonts.poppins(
     fontSize: 16,
     fontWeight: FontWeight.w300,
@@ -129,36 +123,73 @@ class AppStyles {
     color: AppColors.blackColor,
   );
   ///////////////////////////////
- 
-static TextStyle body12RegularBlack = GoogleFonts.plusJakartaSans(
-  fontSize: 12.sp,
-  fontWeight: FontWeight.w400, // Regular
-  color: AppColors.blackColor,
-  height: 1.0, // line-height 100%
-  letterSpacing: 0.06, // 0.5% of 12px
-);
-static TextStyle body14MediumBlack = GoogleFonts.plusJakartaSans(
-  fontSize: 14.sp,
-  fontWeight: FontWeight.w500, // Medium
-  color: AppColors.blackColor,
-  height: 1.5, // line-height 150%
-  letterSpacing: 0.07, // 0.5% of 14px
-);
 
-static TextStyle body12SemiBoldBlack = GoogleFonts.plusJakartaSans(
-  fontSize: 12.sp,
-  fontWeight: FontWeight.w600, // SemiBold
-  color: AppColors.blackColor,
-  height: 1.0, // line-height 100%
-  letterSpacing: 0.06, // 0.5% of 12px
-);
-static TextStyle body10RegularLineThrough = GoogleFonts.plusJakartaSans(
-  fontSize: 10.sp,
-  fontWeight: FontWeight.w400, // Regular
-  color: AppColors.gray300,
-  height: 1.0, // line-height 100%
-  letterSpacing: 0.15, // 1.5% of 10px
-  decoration: TextDecoration.lineThrough,
-);
+  static TextStyle body12RegularBlack = GoogleFonts.plusJakartaSans(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w400, // Regular
+    color: AppColors.blackColor,
+    height: 1.0, // line-height 100%
+    letterSpacing: 0.06, // 0.5% of 12px
+  );
+  static TextStyle body14MediumBlack = GoogleFonts.plusJakartaSans(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w500, // Medium
+    color: AppColors.blackColor,
+    height: 1.5, // line-height 150%
+    letterSpacing: 0.07, // 0.5% of 14px
+  );
 
+  static TextStyle body12SemiBoldBlack = GoogleFonts.plusJakartaSans(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w600, // SemiBold
+    color: AppColors.blackColor,
+    height: 1.0, // line-height 100%
+    letterSpacing: 0.06, // 0.5% of 12px
+  );
+  static TextStyle body10RegularLineThrough = GoogleFonts.plusJakartaSans(
+    fontSize: 10.sp,
+    fontWeight: FontWeight.w400, // Regular
+    color: AppColors.gray300,
+    height: 1.0, // line-height 100%
+    letterSpacing: 0.15, // 1.5% of 10px
+    decoration: TextDecoration.lineThrough,
+  );
+  static TextStyle heading18Bold = GoogleFonts.plusJakartaSans(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w700,
+    color: AppColors.blackColor, // غيّر اللون لو تحب
+    height: 1.0,
+    letterSpacing: 0.045, // 0.25% of 18px ≈ 0.045
+    // مفيش هن
+    //ا خاصية text-
+  );
+  static TextStyle grey14RegularLineThrough = GoogleFonts.plusJakartaSans(
+    fontSize: 14.sp, // استخدم 14.0 لو مش بتستخدم ScreenUtil
+    fontWeight: FontWeight.w400, // Regular
+    color: AppColors.gray500, // غيّر اللون لو عندك قيمة أخرى
+    height: 1.5, // line-height: 150%
+    letterSpacing: 0.07, // 0.5% of 14px = 0.07
+    decoration: TextDecoration.lineThrough,
+  );
+  static TextStyle smallSemiBold = GoogleFonts.plusJakartaSans(
+    fontSize: 10.sp, // استخدم 10.0 لو مش بتستخدم ScreenUtil
+    fontWeight: FontWeight.w600,
+    height: 1.0, // line-height: 100%
+    letterSpacing: 0.15, // 1.5% of 10px = 0.15
+    color: AppColors.blackColor, // اضف اللون اللي تريده هنا
+  );
+  static TextStyle body14Regular150 = GoogleFonts.plusJakartaSans(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+    height: 1.5,
+    letterSpacing: 0.07,
+    color: AppColors.gray500,
+  );
+  static TextStyle body12SemiBold100 = GoogleFonts.plusJakartaSans(
+  fontSize: 12.sp,
+  fontWeight: FontWeight.w600,
+  height: 1.0,
+  letterSpacing: 0.06,
+  color: AppColors.blackColor
+);
 }

@@ -7,6 +7,7 @@ import 'package:ecommerce/core/utils/page_transitions.dart';
 import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingSlide {
   final String image;
@@ -31,35 +32,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
-  final List<OnboardingSlide> _slides = [
-    OnboardingSlide(
-      image: "assets/images/01 Online Shopping 2.png",
-      title: 'Explore a wide range of products',
-      description:
-          'Explore a wide range of products at your fingertips. my market offers an extensive collection to suit your needs.',
-    ),
-    OnboardingSlide(
-      image: "assets/images/01 Online Shopping 5.png",
-      title: 'Unlock exclusive offers and discounts',
-      description:
-          'Get access to limited-time deals and special promotions available only to our valued customers.',
-    ),
-    OnboardingSlide(
-      image: "assets/images/01 Online Shopping 4.png",
-      title: 'Safe and secure payments',
-      description:
-          'QuickMart employs industry-leading encryption and trusted payment gateways to safeguard your financial information.',
-    ),
-  ];
-
   void _onPageChanged(int page) {
     setState(() {
       _currentPage = page;
     });
   }
 
-  void _onContinue() {
-    if (_currentPage < _slides.length - 1) {
+  void _onContinue(int slidesLength) {
+    if (_currentPage < slidesLength - 1) {
       _pageController.nextPage(
         duration: const Duration(milliseconds: 400),
         curve: Curves.easeIn,
@@ -69,11 +49,28 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final List<OnboardingSlide> _slides = [
+      OnboardingSlide(
+        image: "assets/images/01 Online Shopping 2.png",
+        title: AppLocalizations.of(context)!.exploreProductsTitle,
+        description: AppLocalizations.of(context)!.exploreProductsDesc,
+      ),
+      OnboardingSlide(
+        image: "assets/images/01 Online Shopping 5.png",
+        title: AppLocalizations.of(context)!.exclusiveOffersTitle,
+        description: AppLocalizations.of(context)!.exclusiveOffersDesc,
+      ),
+      OnboardingSlide(
+        image: "assets/images/01 Online Shopping 4.png",
+        title: AppLocalizations.of(context)!.securePaymentsTitle,
+        description: AppLocalizations.of(context)!.securePaymentsDesc,
+      ),
+    ];
     return Scaffold(
       body: Stack(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 40.h),
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 45.h),
             child: Container(
               height: 408.h,
               width: 328.w,
@@ -140,7 +137,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 ),
-                child: Text('Skip for now', style: AppStyles.medium18HeadLine),
+                child: Text(
+                  AppLocalizations.of(context)!.skipForNow,
+                  style: AppStyles.medium18HeadLine,
+                ),
               ),
             )
           else if (_currentPage == 1)
@@ -177,8 +177,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     ),
-                    child: const Text(
-                      'Skip for now',
+                    child: Text(
+                      AppLocalizations.of(context)!.skipForNow,
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
@@ -212,10 +212,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 children: [
                   if (_currentPage < _slides.length - 1)
                     CustomElevatedButton(
-                      text: "Next",
+                      text: AppLocalizations.of(context)!.next,
                       backGroundColor: AppColors.blackColor,
                       textStyle: AppStyles.body14SemiBoldWhite,
-                      onButtonClicked: _onContinue,
+                      onButtonClicked: () => _onContinue(_slides.length),
                     )
                   else
                     Row(
@@ -237,13 +237,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         SizedBox(width: 16.w),
                         Expanded(
                           child: CustomElevatedButton(
-                            text: "Get Started",
-                            backGroundColor: Colors.black,
+                            text: AppLocalizations.of(context)!.getStarted,
+                            backGroundColor: AppColors.blackColor,
                             textStyle: AppStyles.body14SemiBoldWhite,
                             onButtonClicked: () {
                               PageTransitions.navigateWithSlide(
                                 context,
-                                RegisterScreen(),
+                                LoginScreen(),
                                 animationType: AnimationType.slide,
                               );
                             },
@@ -252,11 +252,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ],
                     ),
                   SizedBox(height: 20.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(
-                      _slides.length,
-                      (index) => buildDot(index),
+                  SmoothPageIndicator(
+                    controller: _pageController,
+                    count: _slides.length,
+                    effect: ExpandingDotsEffect(
+                      dotHeight: 8.h,
+                      dotWidth: 8.w,
+                      spacing: 8.w,
+                      activeDotColor: AppColors.primaryColor,
+                      dotColor: AppColors.gray300,
                     ),
                   ),
                 ],
@@ -264,20 +268,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget buildDot(int index) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 4.w),
-      height: 8.h,
-      width: 8.w,
-      decoration: BoxDecoration(
-        color: _currentPage == index
-            ? AppColors.primaryColor
-            : AppColors.gray300,
-        borderRadius: BorderRadius.circular(4.r),
       ),
     );
   }

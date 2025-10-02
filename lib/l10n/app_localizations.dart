@@ -1015,6 +1015,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Constructed with high-quality materials, this product ensures a comfortable and secure fit. The soft and flexible material is gentle on the skin, making it ideal for everyday use. Features include adjustable settings, durable construction, and a sleek modern design that complements any style.'**
   String get product_description;
+
+  /// No description provided for @exploreProductsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore a wide range of products'**
+  String get exploreProductsTitle;
+
+  /// No description provided for @exploreProductsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore a wide range of products at your fingertips. my market offers an extensive collection to suit your needs.'**
+  String get exploreProductsDesc;
+
+  /// No description provided for @exclusiveOffersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock exclusive offers and discounts'**
+  String get exclusiveOffersTitle;
+
+  /// No description provided for @exclusiveOffersDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Get access to limited-time deals and special promotions available only to our valued customers.'**
+  String get exclusiveOffersDesc;
+
+  /// No description provided for @securePaymentsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Safe and secure payments'**
+  String get securePaymentsTitle;
+
+  /// No description provided for @securePaymentsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'QuickMart employs industry-leading encryption and trusted payment gateways to safeguard your financial information.'**
+  String get securePaymentsDesc;
+
+  /// No description provided for @skipForNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip for now'**
+  String get skipForNow;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @getStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Started'**
+  String get getStarted;
 }
 
 class _AppLocalizationsDelegate

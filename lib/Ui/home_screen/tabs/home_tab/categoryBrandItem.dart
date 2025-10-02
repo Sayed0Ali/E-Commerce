@@ -48,7 +48,7 @@ class CategoryBrandItem extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 4.h),
+          //  SizedBox(height: 1.h),
             Flexible(
               child: Text(
                 title,

@@ -9,15 +9,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ConfirmationEmail extends StatelessWidget {
-   ConfirmationEmail({super.key});
- final TextEditingController mailController = TextEditingController(
+  ConfirmationEmail({super.key});
+  final TextEditingController mailController = TextEditingController(
     text: 'hend@gmail.com',
   );
-    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
         title: Text(
@@ -75,7 +76,6 @@ class ConfirmationEmail extends StatelessWidget {
                 text: AppLocalizations.of(context)!.send,
                 onButtonClicked: () {
                   register();
-                 
                 },
                 backGroundColor: AppColors.blackColor,
                 textStyle: AppStyles.body14SemiBoldWhite,
@@ -86,7 +86,8 @@ class ConfirmationEmail extends StatelessWidget {
       ),
     );
   }
-   void register() {
+
+  void register() {
     if (formKey.currentState?.validate() == true) {
       Navigator.push(
         formKey.currentContext!,

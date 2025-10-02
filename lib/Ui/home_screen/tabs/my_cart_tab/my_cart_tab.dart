@@ -1,9 +1,10 @@
 import 'package:ecommerce/Ui/home_screen/tabs/my_cart_tab/cart_item.dart';
+import 'package:ecommerce/core/providers/add_to_cart_provider.dart';
 import 'package:ecommerce/core/providers/home_provider.dart';
-import 'package:ecommerce/core/widgets/delete_bottom_sheet.dart';
+import 'package:ecommerce/Ui/home_screen/widget/bottom_sheet_widgets/delete_bottom_sheet.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
-import 'package:ecommerce/core/widgets/voucher_code_bottom_sheet.dart';
+import 'package:ecommerce/Ui/home_screen/widget/bottom_sheet_widgets/voucher_code_bottom_sheet.dart';
 import 'package:ecommerce/core/models/checkout_models.dart';
 import 'package:ecommerce/Ui/checkout/checkout_screen.dart';
 import 'package:ecommerce/Ui/home_screen/widget/custom_elevated_button.dart';
@@ -45,29 +46,25 @@ class MyCartTab extends StatefulWidget {
 class _MyCartTabState extends State<MyCartTab> {
   late List<CartProduct> products;
   static const double fixedPrice = 250.0;
+
   @override
   void initState() {
     super.initState();
-    final takeCount = 5;
-    products = List.generate(categories.take(takeCount).length, (index) {
-      final item = categories[index];
-      return CartProduct(
-        id: 'p$index',
-        title: item['name'] ?? 'Product',
-        imageAsset: item['image'] ?? '',
-        price: fixedPrice,
-        quantity: 1,
-      );
-    });
+  
+    products = [];
   }
 
   @override
   Widget build(BuildContext context) {
+
+    final cartProvider = Provider.of<CartProvider>(context);
+
+    products = cartProvider.items;
+
     return Scaffold(
       appBar: AppBar(
         scrolledUnderElevation: 0,
-
-        surfaceTintColor: Colors.transparent,
+        surfaceTintColor: AppColors.transparentColor,
         title: Text(
           AppLocalizations.of(context)!.my_cart,
           style: AppStyles.body14MediumBlack,
@@ -108,6 +105,7 @@ class _MyCartTabState extends State<MyCartTab> {
                   ? Center(
                       child: Text(
                         AppLocalizations.of(context)!.your_cart_is_empty,
+                        style: AppStyles.body16black,
                       ),
                     )
                   : ListView.separated(
@@ -203,7 +201,9 @@ class _MyCartTabState extends State<MyCartTab> {
                     ? AppColors.blackColor
                     : AppColors.gray300,
                 textStyle: AppStyles.body14SemiBoldWhite.copyWith(
-                  color: products.isNotEmpty ? AppColors.whiteColor : AppColors.gray500,
+                  color: products.isNotEmpty
+                      ? AppColors.whiteColor
+                      : AppColors.gray500,
                 ),
                 onButtonClicked: products.isNotEmpty
                     ? _navigateToCheckout
@@ -214,27 +214,27 @@ class _MyCartTabState extends State<MyCartTab> {
         ),
       ),
     );
-    }
+  }
 
   double get totalPrice =>
       products.fold(0.0, (sum, p) => sum + p.price * p.quantity);
 
   void _increment(int index) {
-    setState(() {
-      products[index].quantity++;
-    });
+    final cartProvider = Provider.of<CartProvider>(context, listen: false);
+    cartProvider.incrementAt(index);
+    setState(() {});
   }
 
   void _decrement(int index) {
-    setState(() {
-      if (products[index].quantity > 1) products[index].quantity--;
-    });
+    final cartProvider = Provider.of<CartProvider>(context, listen: false);
+    cartProvider.decrementAt(index);
+    setState(() {});
   }
 
   void _remove(int index) {
-    setState(() {
-      products.removeAt(index);
-    });
+    final cartProvider = Provider.of<CartProvider>(context, listen: false);
+    cartProvider.removeAt(index);
+    setState(() {});
   }
 
   void _navigateToCheckout() {

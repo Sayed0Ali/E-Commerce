@@ -154,5 +154,17 @@
   "order_placed_successfully": "Your order has been placed successfully",
   "thank_you_message": "Thank you for choosing us! Feel free to continue shopping and explore our wide range of products. Happy Shopping!",
   "continue_shopping": "Continue Shopping",
-  "product_description": "Constructed with high-quality materials, this product ensures a comfortable and secure fit. The soft and flexible material is gentle on the skin, making it ideal for everyday use. Features include adjustable settings, durable construction, and a sleek modern design that complements any style."
+  "product_description": "Constructed with high-quality materials, this product ensures a comfortable and secure fit. The soft and flexible material is gentle on the skin, making it ideal for everyday use. Features include adjustable settings, durable construction, and a sleek modern design that complements any style.",
+  "exploreProductsTitle": "Explore a wide range of products",
+  "exploreProductsDesc": "Explore a wide range of products at your fingertips. my market offers an extensive collection to suit your needs.",
+  
+  "exclusiveOffersTitle": "Unlock exclusive offers and discounts",
+  "exclusiveOffersDesc": "Get access to limited-time deals and special promotions available only to our valued customers.",
+  
+  "securePaymentsTitle": "Safe and secure payments",
+  "securePaymentsDesc": "QuickMart employs industry-leading encryption and trusted payment gateways to safeguard your financial information.",
+
+  "skipForNow": "Skip for now",
+  "next": "Next",
+  "getStarted": "Get Started"
 }

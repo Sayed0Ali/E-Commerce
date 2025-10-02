@@ -58,9 +58,9 @@ class CheckoutItemsScreen extends StatelessWidget {
                         return CartItemCard(
                           product: item,
                           showQuantityControls:
-                              true, // تعطيل أزرار التحكم في الكمية
-                          onRemove: null, // تعطيل زر الحذف
-                          // إخفاء أيقونة الشيك
+                              true, 
+                          onRemove: null, 
+                          
                         );
                       },
                       separatorBuilder: (context, index) =>

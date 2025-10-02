@@ -55,6 +55,14 @@ class _ShippingInfoScreenState extends State<ShippingInfoScreen> {
     'Mohandessin',
     'Sheikh Zayed',
   ];
+  @override
+  void dispose() {
+    _fullNameController.dispose();
+    _phoneController.dispose();
+    _streetAddressController.dispose();
+    _postalCodeController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,8 +106,10 @@ class _ShippingInfoScreenState extends State<ShippingInfoScreen> {
                       items: _provinces,
                       onChanged: (value) =>
                           setState(() => _selectedProvince = value ?? ''),
-                      validator: (value) =>
-                          AppValidators.validateDropdown(value, 'province'),
+                      validator: (value) => AppValidators.validateDropdown(
+                        value,
+                        AppLocalizations.of(context)!.select_province,
+                      ),
                     ),
 
                     SizedBox(height: 16.h),
@@ -110,8 +120,10 @@ class _ShippingInfoScreenState extends State<ShippingInfoScreen> {
                       items: _cities,
                       onChanged: (value) =>
                           setState(() => _selectedCity = value ?? ''),
-                      validator: (value) =>
-                          AppValidators.validateDropdown(value, 'city'),
+                      validator: (value) => AppValidators.validateDropdown(
+                        value,
+                        AppLocalizations.of(context)!.select_city,
+                      ),
                     ),
 
                     SizedBox(height: 16.h),

@@ -2,7 +2,7 @@ import 'package:ecommerce/Ui/home_screen/widget/custom_text_field.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_routs.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
-import 'package:ecommerce/core/widgets/search_filter_bottom_sheet.dart';
+import 'package:ecommerce/Ui/home_screen/widget/bottom_sheet_widgets/search_filter_bottom_sheet.dart';
 import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

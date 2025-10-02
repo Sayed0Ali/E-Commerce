@@ -4,7 +4,7 @@ import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/Support&information/te
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/account&mangment/change_password.dart';
 import 'package:ecommerce/core/providers/home_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:ecommerce/core/widgets/languge_bottom_sheet.dart';
+import 'package:ecommerce/Ui/home_screen/widget/bottom_sheet_widgets/languge_bottom_sheet.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/contact_us.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/order/order_screen.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/profile_tab/personal_information/payment_method.dart';

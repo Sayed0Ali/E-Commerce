@@ -1,5 +1,4 @@
 import 'package:ecommerce/Ui/home_screen/tabs/my_cart_tab/my_cart_tab.dart';
-import 'package:ecommerce/core/providers/add_to_cart_provider.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -61,7 +60,6 @@ class _CartItemCardState extends State<CartItemCard> {
                   children: [
                     Row(
                       children: [
-                        
                         Expanded(
                           child: Text(
                             widget.product.title,
