@@ -10,9 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ConfirmationEmail extends StatelessWidget {
   ConfirmationEmail({super.key});
-  final TextEditingController mailController = TextEditingController(
-    text: 'hend@gmail.com',
-  );
+  final TextEditingController mailController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override

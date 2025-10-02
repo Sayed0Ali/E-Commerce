@@ -1,4 +1,6 @@
+import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomKeypad extends StatelessWidget {
   final void Function(String) onKeyTap;
@@ -11,9 +13,9 @@ class CustomKeypad extends StatelessWidget {
       itemCount: 12,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
-        mainAxisSpacing: 8,
-        crossAxisSpacing: 8,
-        childAspectRatio: 1.3,
+        mainAxisSpacing: 17,
+        crossAxisSpacing: 17,
+        childAspectRatio: 1.5,
       ),
       itemBuilder: (context, index) {
         String value;
@@ -28,14 +30,14 @@ class CustomKeypad extends StatelessWidget {
         }
         return ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.grey.shade100,
+            backgroundColor: AppColors.gray50,
             foregroundColor: Colors.black,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
           ),
           onPressed: () => onKeyTap(value),
-          child: Text(value, style: const TextStyle(fontSize: 20)),
+          child: Text(value, style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.bold)),
         );
       },
     );

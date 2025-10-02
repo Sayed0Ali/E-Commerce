@@ -108,7 +108,7 @@ class _EmailVerfaicationState extends State<EmailVerfaication> {
               backGroundColor: AppColors.blackColor,
               textStyle: AppStyles.body14SemiBoldWhite,
             ),
-            SizedBox(height: 50.h),
+            SizedBox(height: 70.h),
             Expanded(child: CustomKeypad(onKeyTap: _onKeyTap)),
           ],
         ),

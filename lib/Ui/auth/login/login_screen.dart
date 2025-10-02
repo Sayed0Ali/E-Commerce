@@ -1,3 +1,4 @@
+import 'package:ecommerce/Ui/auth/login/forget_password/confirmation_email.dart';
 import 'package:ecommerce/Ui/auth/login/forget_password/email_verfaication_login.dart';
 import 'package:ecommerce/Ui/auth/register/register_screen.dart';
 import 'package:ecommerce/Ui/home_screen/homescreen.dart';
@@ -20,13 +21,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
-  final TextEditingController mailController = TextEditingController(
-   
-  );
-  final TextEditingController passwordController = TextEditingController(
-  
-  );
+  final TextEditingController mailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
@@ -100,6 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 10.h),
                   CustomTextField(
+
                     borderColor: AppColors.primaryColor,
                     keyBoardType: TextInputType.visiblePassword,
                     controller: passwordController,
@@ -107,6 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     validator: AppValidators.validatePassword,
                     style: AppStyles.hint12RegularText,
                     filledColor: AppColors.whiteColor,
+
                     isPassword: true,
                     suffixIcon: Icon(
                       Icons.visibility_outlined,
@@ -121,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         onPressed: () {
                           PageTransitions.navigateWithSlide(
                             context,
-                            EmailVerfaicationLogin(),
+                            ConfirmationEmail(),
                             animationType: AnimationType.slide,
                           );
                         },

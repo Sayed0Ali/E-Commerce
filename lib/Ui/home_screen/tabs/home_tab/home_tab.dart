@@ -188,7 +188,7 @@ class _HomeTabState extends State<HomeTab> {
                       onTap: () {
                         PageTransitions.navigateWithSlide(
                           context,
-                          ProductsScreen(categoryName: AppLocalizations.of(context)!.skipForNow),
+                          ProductsScreen(categoryName: AppLocalizations.of(context)!.flash_sale),
                           animationType: AnimationType.slide,
                         );
                       },

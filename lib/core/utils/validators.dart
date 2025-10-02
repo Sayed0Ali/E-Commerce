@@ -14,15 +14,12 @@ class AppValidators {
   }
 
   static String? validatePassword(String? value) {
-    // Regex: At least 1 uppercase, 1 lowercase, 1 digit, 1 special char, min 8 length
-    RegExp passwordRegex = RegExp(
-      r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$',
-    );
+    RegExp passwordRegex = RegExp(r'^.{6,}$');
 
     if (value == null || value.trim().isEmpty) {
       return 'This field is required';
     } else if (!passwordRegex.hasMatch(value)) {
-      return 'Password must be at least 8 characters, include uppercase, lowercase, number, and special character';
+      return 'Password must be at least 6 characters';
     }
     return null;
   }
