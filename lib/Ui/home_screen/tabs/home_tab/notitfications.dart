@@ -13,7 +13,7 @@ class NotificationsTab extends StatelessWidget {
        backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
-        title: Text(AppLocalizations.of(context)!.no_new_notifications),
+        title: Text(AppLocalizations.of(context)!.notifications),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_rounded, size: 30.w),
           onPressed: () {
@@ -22,7 +22,7 @@ class NotificationsTab extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: Text('No new notifications'),
+        child: Text(AppLocalizations.of(context)!.no_new_notifications),
       ),
     );
   }

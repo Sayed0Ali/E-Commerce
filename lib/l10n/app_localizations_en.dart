@@ -506,4 +506,23 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get getStarted => 'Get Started';
+
+  @override
+  String get flash_sale => 'Flash Sale';
+
+  @override
+  String get wishlist_empty_title => 'Your wishlist is empty';
+
+  @override
+  String get wishlist_empty_subtitle =>
+      'Tap heart button to start saving your favorite items.';
+
+  @override
+  String get wishlist_empty_button => 'Explore Categories';
+
+  @override
+  String get notifications => 'Notifications';
+
+  @override
+  String get resent_search => 'RECENT SEARCH';
 }

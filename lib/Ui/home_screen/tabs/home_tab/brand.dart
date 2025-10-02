@@ -1,4 +1,3 @@
-
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/core/utils/app_routs.dart';
 import 'package:ecommerce/core/utils/app_styles.dart';
@@ -7,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BrandScreen extends StatelessWidget {
-   BrandScreen({super.key});
+  BrandScreen({super.key});
 
   final List<Map<String, String>> categories = [
     {"name": "T-shirt", "image": "assets/images/t-shrit.jpg"},
@@ -24,7 +23,10 @@ class BrandScreen extends StatelessWidget {
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
-        title: Text(AppLocalizations.of(context)!.brands,style:AppStyles.body14MediumBlack),
+        title: Text(
+          AppLocalizations.of(context)!.brands,
+          style: AppStyles.body14MediumBlack,
+        ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_rounded, size: 30.w),
           onPressed: () {
@@ -36,17 +38,15 @@ class BrandScreen extends StatelessWidget {
         padding: EdgeInsets.all(8.h),
         child: Column(
           children: [
-           
             SizedBox(height: 16.h),
 
-          
             GridView.builder(
               physics: NeverScrollableScrollPhysics(),
-              shrinkWrap: true, 
+              shrinkWrap: true,
               itemCount: categories.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: 2 / 2, 
+                childAspectRatio: 2 / 2,
                 crossAxisSpacing: 16.w,
                 mainAxisSpacing: 16.h,
               ),

@@ -48,7 +48,6 @@ class CategoryBrandItem extends StatelessWidget {
                 ),
               ),
             ),
-          //  SizedBox(height: 1.h),
             Flexible(
               child: Text(
                 title,
@@ -58,7 +57,7 @@ class CategoryBrandItem extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w500,
-                  color:AppColors.blackColor,
+                  color: AppColors.blackColor,
                 ),
               ),
             ),

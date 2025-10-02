@@ -167,7 +167,16 @@
 
   "skipForNow": "تخطي الآن",
   "next": "التالي",
-  "getStarted": "ابدأ الآن"
+  "getStarted": "ابدأ الآن",
+
+  "flash_sale": "تخفيضات سريعة"
+,
+  "wishlist_empty_title": "قائمة الرغبات الخاصة بك فارغة",
+  "wishlist_empty_subtitle": "اضغط على زر القلب لبدء حفظ عناصر المفضلة لديك.",
+  "wishlist_empty_button": "استكشف الفئات"
+,  "notifications":"اشعارات",
+"resent_search": "عمليات البحث الأخيرة"
+
 
 
 }

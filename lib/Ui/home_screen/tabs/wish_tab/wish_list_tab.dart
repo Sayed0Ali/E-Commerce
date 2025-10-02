@@ -5,6 +5,7 @@ import 'package:ecommerce/Ui/home_screen/widget/empty_or_succcess_state.dart';
 import 'package:ecommerce/core/utils/app_assets.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
 import 'package:ecommerce/Ui/home_screen/widget/bottom_sheet_widgets/delete_bottom_sheet.dart';
+import 'package:ecommerce/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/my_cart_tab/my_cart_tab.dart';
@@ -42,8 +43,8 @@ class FavoriteTab extends StatelessWidget {
                   )
                 : null,
             title: favorites.isNotEmpty
-                ? const Text(
-                    'Wishlist',
+                ? Text(
+                    AppLocalizations.of(context)!.wishlist,
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 20,
@@ -53,12 +54,15 @@ class FavoriteTab extends StatelessWidget {
                 : null,
           ),
           body: favorites.isEmpty
-              ? const EmptyOrSuccessState(
+              ? EmptyOrSuccessState(
                   imagePath: AppAssets.onLineShoppingImage,
-                  title: 'Your wishlist is empty',
-                  subtitle:
-                      'Tap heart button to start saving your favorite items.',
-                  buttonText: 'Explore Categories',
+                  title: AppLocalizations.of(context)!.wishlist_empty_title,
+                  subtitle: AppLocalizations.of(
+                    context,
+                  )!.wishlist_empty_subtitle,
+                  buttonText: AppLocalizations.of(
+                    context,
+                  )!.wishlist_empty_button,
                 )
               : ListView.builder(
                   padding: const EdgeInsets.symmetric(
@@ -74,14 +78,12 @@ class FavoriteTab extends StatelessWidget {
 
                     return WishListProduct(
                       product: cartProduct,
-
-                      // showQuantityControls: false,
                       onRemove: () {
                         showModalBottomSheet(
                           context: context,
                           backgroundColor: Colors.transparent,
                           builder: (context) => DeleteBottomSheet(
-                            sourceName: 'wishlist',
+                            sourceName:  AppLocalizations.of(context)!.wishlist,
                             itemCount: 1,
                             onDelete: () => favoritesProvider
                                 .removeFromFavorites(favoriteProduct.id),

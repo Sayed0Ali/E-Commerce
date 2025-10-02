@@ -126,7 +126,6 @@ class WishListProduct extends StatelessWidget {
                           ),
                         ),
 
-                        /// زرار الحذف
                         GestureDetector(
                           onTap: onRemove,
                           child: Padding(

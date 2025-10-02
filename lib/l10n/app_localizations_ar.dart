@@ -505,4 +505,23 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get getStarted => 'ابدأ الآن';
+
+  @override
+  String get flash_sale => 'تخفيضات سريعة';
+
+  @override
+  String get wishlist_empty_title => 'قائمة الرغبات الخاصة بك فارغة';
+
+  @override
+  String get wishlist_empty_subtitle =>
+      'اضغط على زر القلب لبدء حفظ عناصر المفضلة لديك.';
+
+  @override
+  String get wishlist_empty_button => 'استكشف الفئات';
+
+  @override
+  String get notifications => 'اشعارات';
+
+  @override
+  String get resent_search => 'عمليات البحث الأخيرة';
 }

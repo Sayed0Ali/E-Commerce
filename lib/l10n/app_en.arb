@@ -166,5 +166,11 @@
 
   "skipForNow": "Skip for now",
   "next": "Next",
-  "getStarted": "Get Started"
+  "getStarted": "Get Started",
+  "flash_sale":"Flash Sale",
+    "wishlist_empty_title": "Your wishlist is empty",
+  "wishlist_empty_subtitle": "Tap heart button to start saving your favorite items.",
+  "wishlist_empty_button": "Explore Categories",
+  "notifications":"Notifications",
+  "resent_search":"RECENT SEARCH"
 }

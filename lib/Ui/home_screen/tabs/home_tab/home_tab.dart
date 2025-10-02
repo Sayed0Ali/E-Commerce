@@ -155,7 +155,7 @@ class _HomeTabState extends State<HomeTab> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Flash Sale', style: AppStyles.bold18Jakarta),
+                    Text( AppLocalizations.of(context)!.flash_sale, style: AppStyles.bold18Jakarta),
                     SlideCountdownSeparated(
                       duration: Duration(days: 1),
                       style: AppStyles.body14SemiBoldBlack,
@@ -188,7 +188,7 @@ class _HomeTabState extends State<HomeTab> {
                       onTap: () {
                         PageTransitions.navigateWithSlide(
                           context,
-                          ProductsScreen(categoryName: "Flash Sale"),
+                          ProductsScreen(categoryName: AppLocalizations.of(context)!.skipForNow),
                           animationType: AnimationType.slide,
                         );
                       },

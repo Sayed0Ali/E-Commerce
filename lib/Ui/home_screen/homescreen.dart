@@ -1,5 +1,5 @@
 import 'package:ecommerce/Ui/home_screen/tabs/categories_tab/categories_tab.dart';
-import 'package:ecommerce/Ui/home_screen/tabs/wish_tab/wish_list.dart';
+import 'package:ecommerce/Ui/home_screen/tabs/wish_tab/wish_list_tab.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/home_tab/home_tab.dart';
 import 'package:ecommerce/Ui/home_screen/tabs/my_cart_tab/my_cart_tab.dart';
 import 'package:ecommerce/core/providers/home_provider.dart';

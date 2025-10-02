@@ -1069,6 +1069,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Get Started'**
   String get getStarted;
+
+  /// No description provided for @flash_sale.
+  ///
+  /// In en, this message translates to:
+  /// **'Flash Sale'**
+  String get flash_sale;
+
+  /// No description provided for @wishlist_empty_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Your wishlist is empty'**
+  String get wishlist_empty_title;
+
+  /// No description provided for @wishlist_empty_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap heart button to start saving your favorite items.'**
+  String get wishlist_empty_subtitle;
+
+  /// No description provided for @wishlist_empty_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore Categories'**
+  String get wishlist_empty_button;
+
+  /// No description provided for @notifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notifications;
+
+  /// No description provided for @resent_search.
+  ///
+  /// In en, this message translates to:
+  /// **'RECENT SEARCH'**
+  String get resent_search;
 }
 
 class _AppLocalizationsDelegate

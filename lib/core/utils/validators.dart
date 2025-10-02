@@ -12,16 +12,17 @@ class AppValidators {
     }
     return null;
   }
-  
 
   static String? validatePassword(String? value) {
-    RegExp passwordRegex = RegExp(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$');
-    if (value == null) {
+    // Regex: At least 1 uppercase, 1 lowercase, 1 digit, 1 special char, min 8 length
+    RegExp passwordRegex = RegExp(
+      r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$',
+    );
+
+    if (value == null || value.trim().isEmpty) {
       return 'This field is required';
-    } else if (value.trim().isEmpty) {
-      return 'This field is required';
-    } else if (value.length < 8 || !passwordRegex.hasMatch(value)) {
-      return 'Password must be at least 8 characters long and contain letters and numbers';
+    } else if (!passwordRegex.hasMatch(value)) {
+      return 'Password must be at least 8 characters, include uppercase, lowercase, number, and special character';
     }
     return null;
   }
@@ -86,12 +87,11 @@ class AppValidators {
     }
     return null;
   }
+
   static String? validateDropdown(String? value, String fieldName) {
-  if (value == null || value.isEmpty) {
-    return 'Please select $fieldName';
+    if (value == null || value.isEmpty) {
+      return 'Please select $fieldName';
+    }
+    return null;
   }
-  return null;
 }
-
-}
-

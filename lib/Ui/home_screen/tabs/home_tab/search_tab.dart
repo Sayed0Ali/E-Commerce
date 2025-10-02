@@ -52,7 +52,7 @@ class _SearchTabState extends State<SearchTab> {
   List<Widget> _buildRecentSearchSection() {
     return [
       Text(
-        'RECENT SEARCH',
+        AppLocalizations.of(context)!.resent_search,
         style: AppStyles.body14MediumBlack.copyWith(
           color: AppColors.grayColor,
           fontWeight: FontWeight.w600,
@@ -70,7 +70,6 @@ class _SearchTabState extends State<SearchTab> {
             return GestureDetector(
               onTap: () {
                 _searchController.text = _recentSearches[index];
-                // Perform search with this term
               },
               child: Row(
                 children: [
