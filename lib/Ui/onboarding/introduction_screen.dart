@@ -41,7 +41,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   void _onContinue(int slidesLength) {
     if (_currentPage < slidesLength - 1) {
       _pageController.nextPage(
-        duration: const Duration(milliseconds: 400),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.easeIn,
       );
     }
@@ -49,6 +49,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('Screen size: ${MediaQuery.of(context).size}');
+    debugPrint(
+      'ScreenUtil: ${ScreenUtil().screenHeight} x ${ScreenUtil().screenWidth}',
+    );
+
     final List<OnboardingSlide> _slides = [
       OnboardingSlide(
         image: "assets/images/onboarding_11.png",
@@ -223,7 +228,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               },
                             ),
                           ),
-                          SizedBox(height: 24.h),
+                          SizedBox(width: 10.w),
                           Expanded(
                             child: CustomElevatedButton(
                               text: AppLocalizations.of(context)!.getStarted,
