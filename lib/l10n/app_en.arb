@@ -172,5 +172,15 @@
   "wishlist_empty_subtitle": "Tap heart button to start saving your favorite items.",
   "wishlist_empty_button": "Explore Categories",
   "notifications":"Notifications",
-  "resent_search":"RECENT SEARCH"
+  "resent_search":"RECENT SEARCH",
+   "fieldRequired": "This field is required",
+  "invalidEmail": "Please enter a valid email address",
+  "passwordLength": "Password must be at least 6 characters",
+  "passwordMismatch": "Passwords do not match",
+  "usernameLength": "Username must be at least 3 characters long and can contain letters, numbers, and underscores",
+  "invalidPhoneNumber": "Please enter a valid phone number",
+  "phoneLength": "Phone number must be 11 digits long",
+  "addressLength": "Address must be at least 3 characters long",
+  "invalidPostalCode": "Please enter a valid postal code (4–10 digits)",
+  "selectField": "Please select {fieldName}"
 }

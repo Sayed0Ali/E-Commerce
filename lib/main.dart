@@ -31,13 +31,15 @@ void main() {
         ChangeNotifierProvider(create: (_) => FavoritesProvider()),
         ChangeNotifierProvider(create: (_) => CartProvider()),
       ],
-      child: const MainApp(),
+      child: MainApp(),
     ),
   );
 }
 
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+  MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +47,7 @@ class MainApp extends StatelessWidget {
 
     return ScreenUtilInit(
       designSize: const Size(360, 800),
-      // دي مقاسات تصميمك (غيّرها لو UI مختلف)
+
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
@@ -79,13 +81,15 @@ class MainApp extends StatelessWidget {
               );
             },
           },
+          navigatorKey: navigatorKey,
+
           locale: Locale(languageProvider.appLanguage),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           theme: AppThems.lightTheme,
         );
       },
-      child: OnboardingScreen(), // دي الشاشة الأولية اللي هتظهر
+      child: OnboardingScreen(),
     );
   }
 }

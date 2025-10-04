@@ -525,4 +525,38 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get resent_search => 'RECENT SEARCH';
+
+  @override
+  String get fieldRequired => 'This field is required';
+
+  @override
+  String get invalidEmail => 'Please enter a valid email address';
+
+  @override
+  String get passwordLength => 'Password must be at least 6 characters';
+
+  @override
+  String get passwordMismatch => 'Passwords do not match';
+
+  @override
+  String get usernameLength =>
+      'Username must be at least 3 characters long and can contain letters, numbers, and underscores';
+
+  @override
+  String get invalidPhoneNumber => 'Please enter a valid phone number';
+
+  @override
+  String get phoneLength => 'Phone number must be 11 digits long';
+
+  @override
+  String get addressLength => 'Address must be at least 3 characters long';
+
+  @override
+  String get invalidPostalCode =>
+      'Please enter a valid postal code (4–10 digits)';
+
+  @override
+  String selectField(Object fieldName) {
+    return 'Please select $fieldName';
+  }
 }

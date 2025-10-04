@@ -1105,6 +1105,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'RECENT SEARCH'**
   String get resent_search;
+
+  /// No description provided for @fieldRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'This field is required'**
+  String get fieldRequired;
+
+  /// No description provided for @invalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address'**
+  String get invalidEmail;
+
+  /// No description provided for @passwordLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters'**
+  String get passwordLength;
+
+  /// No description provided for @passwordMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get passwordMismatch;
+
+  /// No description provided for @usernameLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Username must be at least 3 characters long and can contain letters, numbers, and underscores'**
+  String get usernameLength;
+
+  /// No description provided for @invalidPhoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid phone number'**
+  String get invalidPhoneNumber;
+
+  /// No description provided for @phoneLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone number must be 11 digits long'**
+  String get phoneLength;
+
+  /// No description provided for @addressLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Address must be at least 3 characters long'**
+  String get addressLength;
+
+  /// No description provided for @invalidPostalCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid postal code (4–10 digits)'**
+  String get invalidPostalCode;
+
+  /// No description provided for @selectField.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select {fieldName}'**
+  String selectField(Object fieldName);
 }
 
 class _AppLocalizationsDelegate

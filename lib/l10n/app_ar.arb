@@ -175,7 +175,18 @@
   "wishlist_empty_subtitle": "اضغط على زر القلب لبدء حفظ عناصر المفضلة لديك.",
   "wishlist_empty_button": "استكشف الفئات"
 ,  "notifications":"اشعارات",
-"resent_search": "عمليات البحث الأخيرة"
+"resent_search": "عمليات البحث الأخيرة",
+  "fieldRequired": "هذه الخانة مطلوبة",
+  "invalidEmail": "من فضلك أدخل بريد إلكتروني صالح",
+  "passwordLength": "يجب أن تكون كلمة السر على الأقل 6 أحرف",
+  "passwordMismatch": "كلمات المرور غير متطابقة",
+  "usernameLength": "يجب أن يكون اسم المستخدم على الأقل 3 أحرف ويمكن أن يحتوي على أحرف، أرقام، وشرطات سفلية",
+  "invalidPhoneNumber": "من فضلك أدخل رقم هاتف صالح",
+  "phoneLength": "يجب أن يكون رقم الهاتف 11 رقماً",
+  "addressLength": "يجب أن يكون العنوان على الأقل 3 أحرف",
+  "invalidPostalCode": "من فضلك أدخل رمز بريدي صالح (من 4 إلى 10 أرقام)",
+  "selectField": "من فضلك اختر {fieldName}"
+
 
 
 

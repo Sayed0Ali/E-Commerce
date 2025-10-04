@@ -11,4 +11,4 @@ class AppRoutes {
   static const String notitcationsRoute = 'notitcations';
   static const String searchRoute = 'search';
   static const String allBrandsRoute = 'allBrands';
-}
+}     

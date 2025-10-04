@@ -524,4 +524,38 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get resent_search => 'عمليات البحث الأخيرة';
+
+  @override
+  String get fieldRequired => 'هذه الخانة مطلوبة';
+
+  @override
+  String get invalidEmail => 'من فضلك أدخل بريد إلكتروني صالح';
+
+  @override
+  String get passwordLength => 'يجب أن تكون كلمة السر على الأقل 6 أحرف';
+
+  @override
+  String get passwordMismatch => 'كلمات المرور غير متطابقة';
+
+  @override
+  String get usernameLength =>
+      'يجب أن يكون اسم المستخدم على الأقل 3 أحرف ويمكن أن يحتوي على أحرف، أرقام، وشرطات سفلية';
+
+  @override
+  String get invalidPhoneNumber => 'من فضلك أدخل رقم هاتف صالح';
+
+  @override
+  String get phoneLength => 'يجب أن يكون رقم الهاتف 11 رقماً';
+
+  @override
+  String get addressLength => 'يجب أن يكون العنوان على الأقل 3 أحرف';
+
+  @override
+  String get invalidPostalCode =>
+      'من فضلك أدخل رمز بريدي صالح (من 4 إلى 10 أرقام)';
+
+  @override
+  String selectField(Object fieldName) {
+    return 'من فضلك اختر $fieldName';
+  }
 }
