@@ -24,7 +24,7 @@ class VoucherCodeBottomSheet extends StatelessWidget {
           Text(
             'Voucher Code',
             style: GoogleFonts.plusJakartaSans(
-              fontSize: 18.sp,
+              fontSize: 18,
               fontWeight: FontWeight.w600,
               color: Colors.black,
             ),

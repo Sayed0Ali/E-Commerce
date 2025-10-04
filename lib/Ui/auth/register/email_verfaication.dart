@@ -42,7 +42,7 @@ class _EmailVerfaicationState extends State<EmailVerfaication> {
       width: 50.w,
       height: 56.h,
       textStyle: TextStyle(
-        fontSize: 20.sp,
+        fontSize: 20,
         color: Colors.black,
         fontWeight: FontWeight.bold,
       ),
@@ -71,12 +71,12 @@ class _EmailVerfaicationState extends State<EmailVerfaication> {
           children: [
             Text(
               AppLocalizations.of(context)!.email_verification,
-              style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10.h),
             Text(
               AppLocalizations.of(context)!.enter_verification_code_sent,
-              style: TextStyle(fontSize: 14.sp, color: Colors.grey),
+              style: TextStyle(fontSize: 14, color: Colors.grey),
             ),
             SizedBox(height: 20.h),
             Pinput(

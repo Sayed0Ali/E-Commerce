@@ -56,7 +56,7 @@ class ProfaileTab extends StatelessWidget {
               },
               icon: Icon(
                 Icons.logout_outlined,
-                size: 30.sp,
+                size: 30,
                 color: AppColors.whiteColor,
               ),
             ),
@@ -213,7 +213,7 @@ class ProfaileTab extends StatelessWidget {
       children: [
         Row(
           children: [
-            Icon(icon, size: 20.sp, color: AppColors.grayColor),
+            Icon(icon, size: 20, color: AppColors.grayColor),
             SizedBox(width: 15.w),
             Text(title, style: AppStyles.menuItemStyle),
             const Spacer(),
@@ -223,13 +223,13 @@ class ProfaileTab extends StatelessWidget {
               },
               icon: Icon(
                 Icons.arrow_forward_ios,
-                size: 20.sp,
+                size: 20,
                 color: AppColors.grayColor,
               ),
             ),
           ],
         ),
-        Divider(thickness: 1.sp, color: Colors.grey.shade200),
+        Divider(thickness: 1, color: Colors.grey.shade200),
       ],
     );
   }

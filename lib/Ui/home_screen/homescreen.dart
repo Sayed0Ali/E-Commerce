@@ -45,12 +45,12 @@ class _HomeScreenState extends State<HomeScreen> {
         selectedItemColor: AppColors.blackColor,
         unselectedItemColor: Colors.grey,
         selectedLabelStyle: TextStyle(
-          fontSize: 12.sp,
+          fontSize: 12,
           fontWeight: FontWeight.bold,
           color: AppColors.blackColor,
         ),
         unselectedLabelStyle: TextStyle(
-          fontSize: 10.sp,
+          fontSize: 10,
           fontWeight: FontWeight.bold,
           color: Colors.grey,
         ),
@@ -105,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Icon(
           isSelected ? selectedIcon : icon,
           color: isSelected ? AppColors.primaryColor : AppColors.gray400,
-          size: 24.sp,
+          size: 24,
         ),
       ),
       label: labelName,

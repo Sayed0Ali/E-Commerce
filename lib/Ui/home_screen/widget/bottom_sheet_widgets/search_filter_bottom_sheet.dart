@@ -140,7 +140,7 @@ class _SearchFilterBottomSheetState extends State<SearchFilterBottomSheet> {
                               ? Icon(
                                   Icons.check,
                                   color: AppColors.whiteColor,
-                                  size: 16.sp,
+                                  size: 16,
                                 )
                               : null,
                         ),

@@ -66,7 +66,7 @@ class _ProductsCategoryScreenState extends State<ProductsCategoryScreen> {
         title: Text(
           widget.categoryName,
           style: GoogleFonts.plusJakartaSans(
-            fontSize: 16.sp,
+            fontSize: 16,
             fontWeight: FontWeight.w600,
             color: Colors.black,
           ),
@@ -75,19 +75,19 @@ class _ProductsCategoryScreenState extends State<ProductsCategoryScreen> {
           icon: Icon(
             Icons.arrow_back_ios_new,
             color: Colors.black,
-            size: 20.sp,
+            size: 20,
           ),
           onPressed: () => Navigator.pop(context),
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.search, color: Colors.black, size: 24.sp),
+            icon: Icon(Icons.search, color: Colors.black, size: 24),
             onPressed: () {
               Navigator.pushReplacementNamed(context, AppRoutes.searchRoute);
             },
           ),
           IconButton(
-            icon: Icon(Icons.filter_list, color: Colors.black, size: 24.sp),
+            icon: Icon(Icons.filter_list, color: Colors.black, size: 24),
             onPressed: _showFilterDialog,
           ),
         ],

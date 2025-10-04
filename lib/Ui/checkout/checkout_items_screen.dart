@@ -57,10 +57,8 @@ class CheckoutItemsScreen extends StatelessWidget {
                         final item = cartItems[index];
                         return CartItemCard(
                           product: item,
-                          showQuantityControls:
-                              true, 
-                          onRemove: null, 
-                          
+                          showQuantityControls: true,
+                          onRemove: null,
                         );
                       },
                       separatorBuilder: (context, index) =>

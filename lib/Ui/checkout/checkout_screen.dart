@@ -13,7 +13,11 @@ import 'order_success_screen.dart';
 class CheckoutScreen extends StatefulWidget {
   final OrderInfo orderInfo;
 
-  const CheckoutScreen({super.key, required this.orderInfo, required List<CartProduct> products});
+  const CheckoutScreen({
+    super.key,
+    required this.orderInfo,
+    required List<CartProduct> products,
+  });
 
   @override
   State<CheckoutScreen> createState() => _CheckoutScreenState();
@@ -114,7 +118,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             Icon(
               step['icon'] as IconData,
               color: isActive ? AppColors.primaryColor : AppColors.gray300,
-              size: 30.sp,
+              size: 30,
             ),
 
             SizedBox(height: 8.h),
@@ -124,7 +128,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 step['title'] as String,
                 style: AppStyles.body14MediumBlack.copyWith(
                   color: isActive ? AppColors.primaryColor : AppColors.gray500,
-                  fontSize: 12.sp,
+                  fontSize: 12,
                 ),
                 textAlign: TextAlign.center,
                 overflow: TextOverflow.ellipsis,

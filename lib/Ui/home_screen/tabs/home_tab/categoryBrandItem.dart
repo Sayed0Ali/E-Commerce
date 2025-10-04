@@ -41,7 +41,7 @@ class CategoryBrandItem extends StatelessWidget {
                     color: AppColors.gray300,
                     child: Icon(
                       Icons.image_not_supported,
-                      size: 24.sp,
+                      size: 24,
                       color: Colors.grey,
                     ),
                   ),
@@ -55,7 +55,7 @@ class CategoryBrandItem extends StatelessWidget {
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
-                  fontSize: 12.sp,
+                  fontSize: 12,
                   fontWeight: FontWeight.w500,
                   color: AppColors.blackColor,
                 ),

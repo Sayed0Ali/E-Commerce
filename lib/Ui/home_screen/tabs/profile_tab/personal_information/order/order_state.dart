@@ -36,7 +36,7 @@ class CartProductTile extends StatelessWidget {
             isComplete ? 'Finished' : 'Estimated time: ${state ?? ''}',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 13.sp,
+              fontSize: 13,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -73,20 +73,20 @@ class CartProductTile extends StatelessWidget {
                       title,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 16.sp,
+                        fontSize: 16,
                       ),
                     ),
                     SizedBox(height: 4.h),
                     Text(
                       '\$${price.toStringAsFixed(2)}',
-                      style: TextStyle(fontSize: 14.sp),
+                      style: TextStyle(fontSize: 14),
                     ),
                     SizedBox(height: 4.h),
                     Text(
                       '\$${(price * 1.3).toStringAsFixed(2)}',
 
                       style: TextStyle(
-                        fontSize: 10.sp,
+                        fontSize: 10,
                         decoration: TextDecoration.lineThrough,
 
                         fontWeight: FontWeight.w600,
@@ -96,7 +96,7 @@ class CartProductTile extends StatelessWidget {
                     SizedBox(height: 4.h),
                     Text(
                       'x$quantity',
-                      style: TextStyle(fontSize: 14.sp, color: Colors.grey),
+                      style: TextStyle(fontSize: 14, color: Colors.grey),
                     ),
                   ],
                 ),

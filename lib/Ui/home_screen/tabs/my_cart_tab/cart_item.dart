@@ -64,7 +64,7 @@ class _CartItemCardState extends State<CartItemCard> {
                           child: Text(
                             widget.product.title,
                             style: TextStyle(
-                              fontSize: 16.sp,
+                              fontSize: 16,
                               fontWeight: FontWeight.w600,
                             ),
                             maxLines: 2,
@@ -77,7 +77,7 @@ class _CartItemCardState extends State<CartItemCard> {
                             Icons.check_box,
                             color: AppColors.primaryColor,
 
-                            size: 20.sp,
+                            size: 20,
                           ),
                         ),
                       ],
@@ -86,7 +86,7 @@ class _CartItemCardState extends State<CartItemCard> {
                     Text(
                       '\$${widget.product.price.toStringAsFixed(0)}',
                       style: TextStyle(
-                        fontSize: 14.sp,
+                        fontSize: 14,
                         fontWeight: FontWeight.w600,
                         color: AppColors.blackColor,
                       ),
@@ -96,7 +96,7 @@ class _CartItemCardState extends State<CartItemCard> {
                       style: TextStyle(
                         decoration: TextDecoration.lineThrough,
 
-                        fontSize: 10.sp,
+                        fontSize: 10,
                         fontWeight: FontWeight.w600,
                         color: AppColors.gray500,
                       ),
@@ -119,7 +119,7 @@ class _CartItemCardState extends State<CartItemCard> {
                             child: Icon(
                               Icons.delete_forever_outlined,
                               color: AppColors.redColor,
-                              size: 20.sp,
+                              size: 20,
                             ),
                           ),
                         ),
@@ -149,7 +149,7 @@ class QtyButton extends StatelessWidget {
         width: 25.w,
         height: 25.h,
         alignment: Alignment.center,
-        child: Icon(icon, size: 20.sp, color: Colors.black87),
+        child: Icon(icon, size: 20, color: Colors.black87),
       ),
     );
   }
@@ -183,7 +183,7 @@ class QuantityControl extends StatelessWidget {
           SizedBox(width: 10.w),
           Text(
             quantity.toString(),
-            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
           ),
           SizedBox(width: 10.w),
           QtyButton(icon: Icons.add, onTap: onIncrement),

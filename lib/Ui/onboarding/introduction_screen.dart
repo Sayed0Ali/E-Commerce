@@ -98,13 +98,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         style: AppStyles.bold24Jakarta,
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: 10.h),
+                      SizedBox(height: 16.h),
                       Text(
                         slide.description,
                         style: AppStyles.reguler14Gray,
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: 24.h),
                     ],
                   ),
                 );
@@ -152,7 +151,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           curve: Curves.easeIn,
                         );
                       },
-                      icon: Icon(Icons.keyboard_backspace_sharp, size: 30.sp),
+                      icon: Icon(Icons.keyboard_backspace_sharp, size: 30),
                     ),
                     TextButton(
                       onPressed: () {
@@ -193,7 +192,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       curve: Curves.easeIn,
                     );
                   },
-                  icon: Icon(Icons.keyboard_backspace_sharp, size: 30.sp),
+                  icon: Icon(Icons.keyboard_backspace_sharp, size: 30),
                 ),
               ),
             Positioned(

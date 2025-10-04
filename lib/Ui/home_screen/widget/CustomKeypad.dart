@@ -33,13 +33,13 @@ class CustomKeypad extends StatelessWidget {
             backgroundColor: AppColors.gray50,
             foregroundColor: Colors.black,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
             ),
           ),
           onPressed: () => onKeyTap(value),
           child: Text(
             value,
-            style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
         );
       },

@@ -146,7 +146,7 @@ class ProductsScreen extends StatelessWidget {
         backgroundColor: AppColors.whiteColor,
         title: Text(categoryName, style: AppStyles.body14MediumBlack),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_rounded, size: 30.sp),
+          icon: Icon(Icons.arrow_back_rounded, size: 30),
           onPressed: () => Navigator.pop(context),
         ),
       ),

@@ -53,13 +53,13 @@ class CategoriesTab extends StatelessWidget {
                 child: Icon(
                   Icons.tune,
                   color: AppColors.grayColor,
-                  size: 24.sp,
+                  size: 24,
                 ),
               ),
               prefixIcon: Icon(
                 Icons.search,
                 color: AppColors.grayColor,
-                size: 24.sp,
+                size: 24,
               ),
               borderSize: 1.0,
             ),

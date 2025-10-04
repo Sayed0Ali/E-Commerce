@@ -55,7 +55,7 @@ Widget buildInfoContainer(String language, {bool isSelected = false}) {
     decoration: BoxDecoration(
       border: Border.all(
           color: isSelected ? AppColors.primaryColor : AppColors.grayColor),
-      borderRadius: BorderRadius.circular(8),
+      borderRadius: BorderRadius.circular(8.r),
     ),
     child: Row(
       children: [
