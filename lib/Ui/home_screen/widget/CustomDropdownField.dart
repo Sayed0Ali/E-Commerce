@@ -32,19 +32,19 @@ class CustomDropdownField<T> extends StatelessWidget {
         contentPadding: EdgeInsets.symmetric(vertical: 18.h, horizontal: 16.w),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.r),
-          borderSide: BorderSide(color: AppColors.gray300, width: 1.sp),
+          borderSide: BorderSide(color: AppColors.gray300, width: 1),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.r),
-          borderSide: BorderSide(color: AppColors.primaryColor, width: 1.sp),
+          borderSide: BorderSide(color: AppColors.primaryColor, width: 1),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.r),
-          borderSide: BorderSide(color: AppColors.redColor, width: 1.sp),
+          borderSide: BorderSide(color: AppColors.redColor, width: 1),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.r),
-          borderSide: BorderSide(color: AppColors.redColor, width: 1.sp),
+          borderSide: BorderSide(color: AppColors.redColor, width: 1),
         ),
       ),
 

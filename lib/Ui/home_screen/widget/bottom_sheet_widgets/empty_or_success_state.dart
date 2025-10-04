@@ -33,7 +33,7 @@ class EmptyOrSuccessState extends StatelessWidget {
           Text(
             title,
             style: GoogleFonts.plusJakartaSans(
-              fontSize: 20.sp,
+              fontSize: 20,
               fontWeight: FontWeight.w600,
               color: AppColors.blackColor,
             ),
@@ -45,7 +45,7 @@ class EmptyOrSuccessState extends StatelessWidget {
               description,
               textAlign: TextAlign.center,
               style: GoogleFonts.plusJakartaSans(
-                fontSize: 14.sp,
+                fontSize: 14,
                 color: AppColors.gray500,
               ),
             ),

@@ -29,7 +29,7 @@ class DeleteBottomSheet extends StatelessWidget {
           Text(
             'Delete product from $sourceName',
             style: GoogleFonts.plusJakartaSans(
-              fontSize: 18.sp,
+              fontSize: 18,
               fontWeight: FontWeight.w600,
               color: Colors.black,
             ),
@@ -75,7 +75,7 @@ class DeleteBottomSheet extends StatelessWidget {
                 child: Text(
                   'Cancel',
                   style: GoogleFonts.plusJakartaSans(
-                    fontSize: 16.sp,
+                    fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Colors.black,
                   ),

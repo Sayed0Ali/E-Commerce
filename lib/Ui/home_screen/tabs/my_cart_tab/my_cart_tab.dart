@@ -72,7 +72,7 @@ class _MyCartTabState extends State<MyCartTab> {
         backgroundColor: AppColors.whiteColor,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_rounded),
-          iconSize: 30.sp,
+          iconSize: 30,
           onPressed: () {
             context.read<HomeProvider>().changeIndex(0);
           },

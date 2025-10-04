@@ -101,7 +101,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                 IconButton(
                                   icon: Icon(
                                     Icons.arrow_back_rounded,
-                                    size: 30.sp,
+                                    size: 30,
                                     color: AppColors.blackColor,
                                   ),
                                   onPressed: () => Navigator.pop(context),
@@ -141,7 +141,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                         color: provider.isFavorite(widget.title)
                                             ? AppColors.redColor
                                             : AppColors.whiteColor,
-                                        size: 24.sp,
+                                        size: 24,
                                       ),
                                     ),
                                   ),
@@ -208,7 +208,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                               itemBuilder: (context, index) =>
                                   Icon(Icons.star, color: Colors.amber),
                               itemCount: 5,
-                              itemSize: 14.sp,
+                              itemSize: 14,
                               direction: Axis.horizontal,
                             ),
                             SizedBox(width: 8),
@@ -300,7 +300,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                         ? Colors.white
                                         : Colors.black,
                                     fontWeight: FontWeight.w600,
-                                    fontSize: 12.sp,
+                                    fontSize: 12,
                                   ),
                                 ),
                               ),
@@ -314,7 +314,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                         Text(
                           'Quantity',
                           style: GoogleFonts.plusJakartaSans(
-                            fontSize: 16.sp,
+                            fontSize: 16,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -341,7 +341,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                   quantity.toString(),
                                   textAlign: TextAlign.center,
                                   style: GoogleFonts.plusJakartaSans(
-                                    fontSize: 16.sp,
+                                    fontSize: 16,
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
@@ -455,7 +455,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           label: Text(
             'Top Rated',
             style: GoogleFonts.plusJakartaSans(
-              fontSize: 10.sp, // إذا بتستخدم ScreenUtil
+              fontSize: 10, // إذا بتستخدم ScreenUtil
               fontWeight: FontWeight.w600,
               height: 1.0,
               letterSpacing: 0.15,
@@ -474,7 +474,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           label: Text(
             'Free Shipping',
             style: GoogleFonts.plusJakartaSans(
-              fontSize: 10.sp,
+              fontSize: 10,
               fontWeight: FontWeight.w600,
               height: 1.0,
               letterSpacing: 0.15,

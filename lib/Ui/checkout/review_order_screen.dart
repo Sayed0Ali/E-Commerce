@@ -69,7 +69,7 @@ class ReviewOrderScreen extends StatelessWidget {
           },
           icon: Icon(
             Icons.arrow_forward_ios,
-            size: 25.sp,
+            size: 25,
             color: AppColors.blackColor,
           ),
         ),

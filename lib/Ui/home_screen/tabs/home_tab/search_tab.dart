@@ -84,7 +84,7 @@ class _SearchTabState extends State<SearchTab> {
                     child: Icon(
                       Icons.north_west,
                       color: AppColors.grayColor,
-                      size: 20.sp,
+                      size: 20,
                     ),
                   ),
                 ],
@@ -105,7 +105,7 @@ class _SearchTabState extends State<SearchTab> {
             children: [
               Icon(
                 Icons.search,
-                size: 64.sp,
+                size: 64,
                 color: AppColors.grayColor.withOpacity(0.5),
               ),
               SizedBox(height: 16.h),
@@ -165,13 +165,13 @@ class _SearchTabState extends State<SearchTab> {
                 child: Icon(
                   Icons.format_list_bulleted_rounded,
                   color: AppColors.grayColor,
-                  size: 24.sp,
+                  size: 24,
                 ),
               ),
               prefixIcon: Icon(
                 Icons.search,
                 color: AppColors.grayColor,
-                size: 24.sp,
+                size: 24,
               ),
               borderSize: 1.0,
             ),

@@ -51,7 +51,7 @@ class WishListProduct extends StatelessWidget {
                     Text(
                       product.title,
                       style: TextStyle(
-                        fontSize: 16.sp,
+                        fontSize: 16,
                         fontWeight: FontWeight.w600,
                       ),
                       maxLines: 2,
@@ -66,7 +66,7 @@ class WishListProduct extends StatelessWidget {
                         Text(
                           '\$${product.price.toStringAsFixed(0)}',
                           style: TextStyle(
-                            fontSize: 14.sp,
+                            fontSize: 14,
                             fontWeight: FontWeight.w600,
                             color: AppColors.blackColor,
                           ),
@@ -76,7 +76,7 @@ class WishListProduct extends StatelessWidget {
                           '\$450',
                           style: TextStyle(
                             decoration: TextDecoration.lineThrough,
-                            fontSize: 10.sp,
+                            fontSize: 10,
                             fontWeight: FontWeight.w600,
                             color: AppColors.gray500,
                           ),
@@ -104,14 +104,14 @@ class WishListProduct extends StatelessWidget {
                             children: [
                               Icon(
                                 Icons.remove,
-                                size: 18.sp,
+                                size: 18,
                                 color: AppColors.gray300,
                               ),
                               SizedBox(width: 10.w),
                               Text(
                                 '1',
                                 style: TextStyle(
-                                  fontSize: 16.sp,
+                                  fontSize: 16,
                                   fontWeight: FontWeight.w500,
                                   color: AppColors.gray300,
                                 ),
@@ -119,7 +119,7 @@ class WishListProduct extends StatelessWidget {
                               SizedBox(width: 10.w),
                               Icon(
                                 Icons.add,
-                                size: 18.sp,
+                                size: 18,
                                 color: AppColors.gray300,
                               ),
                             ],
@@ -133,7 +133,7 @@ class WishListProduct extends StatelessWidget {
                             child: Icon(
                               Icons.delete_forever_outlined,
                               color: AppColors.redColor,
-                              size: 22.sp,
+                              size: 22,
                             ),
                           ),
                         ),

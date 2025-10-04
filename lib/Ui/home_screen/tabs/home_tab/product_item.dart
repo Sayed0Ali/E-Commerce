@@ -102,7 +102,7 @@ class _ProductTabItemState extends State<ProductTabItem> {
                         color: favoritesProvider.isFavorite(widget.title)
                             ? AppColors.redColor
                             : AppColors.whiteColor,
-                        size: 18.sp,
+                        size: 18,
                       ),
                     ),
                   ),
@@ -129,7 +129,7 @@ class _ProductTabItemState extends State<ProductTabItem> {
                               shape: BoxShape.circle,
                               border: Border.all(
                                 color: Colors.white,
-                                width: 1.sp,
+                                width: 1,
                               ),
                             ),
                           ),
@@ -139,7 +139,7 @@ class _ProductTabItemState extends State<ProductTabItem> {
                         Text(
                           widget.colorsCount,
                           style: GoogleFonts.plusJakartaSans(
-                            fontSize: 10.sp,
+                            fontSize: 10,
                             fontWeight: FontWeight.w400,
                             color: Colors.grey,
                           ),

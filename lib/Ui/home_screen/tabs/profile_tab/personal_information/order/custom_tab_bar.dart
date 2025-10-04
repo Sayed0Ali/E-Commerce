@@ -24,7 +24,7 @@ class CustomTabBar extends StatelessWidget {
         splashBorderRadius: BorderRadius.circular(12.r),
         labelColor: AppColors.whiteColor,
         unselectedLabelColor: AppColors.blackColor,
-        labelStyle: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
+        labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
         tabs: const [
           Tab(text: "Ongoing"),
           Tab(text: "Completed"),

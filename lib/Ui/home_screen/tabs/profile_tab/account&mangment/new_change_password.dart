@@ -26,7 +26,7 @@ class NewChangePassword extends StatelessWidget {
         ),
          actions: [SizedBox(width: 10.w,),
           Text(AppLocalizations.of(context)!.step_02_02,style: TextStyle(
-          fontSize: 15.sp,color: AppColors.blackColor
+          fontSize: 15,color: AppColors.blackColor
         ),),SizedBox(width: 10.w,),],
       ),
       body: Padding(

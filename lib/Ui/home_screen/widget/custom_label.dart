@@ -20,7 +20,7 @@ class CustomLabel extends StatelessWidget {
         text: text,
         style: AppStyles.body14MediumBlack.copyWith(
           color: AppColors.blackColor,
-          fontSize: 14.sp,
+          fontSize: 14,
           fontWeight: FontWeight.w500,
         ),
         children: [
@@ -30,7 +30,7 @@ class CustomLabel extends StatelessWidget {
               style: TextStyle(
                 color: AppColors.redColor,
                 fontWeight: FontWeight.bold,
-                fontSize: 14.sp,
+                fontSize: 14,
               ),
             ),
         ],

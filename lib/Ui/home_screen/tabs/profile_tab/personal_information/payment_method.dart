@@ -99,8 +99,8 @@ class _PaymentMethodState extends State<PaymentMethod> {
 
   Widget _buildRadioCircle(bool isActive) {
     return Container(
-      width: 25.sp,
-      height: 25.sp,
+      width: 25,
+      height: 25,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         shape: BoxShape.circle,

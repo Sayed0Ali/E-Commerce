@@ -89,7 +89,7 @@ class _HomeTabState extends State<HomeTab> {
                     AppRoutes.searchRoute,
                   );
                 },
-                icon: Icon(Icons.search, size: 30.sp),
+                icon: Icon(Icons.search, size: 30),
               ),
               IconButton(
                 onPressed: () {
@@ -98,7 +98,7 @@ class _HomeTabState extends State<HomeTab> {
                     AppRoutes.notitcationsRoute,
                   );
                 },
-                icon: Icon(Icons.notifications_outlined, size: 30.sp),
+                icon: Icon(Icons.notifications_outlined, size: 30),
               ),
               IconButton(
                 onPressed: () {},
@@ -163,7 +163,7 @@ class _HomeTabState extends State<HomeTab> {
                       icon: Icon(
                         Icons.timer_sharp,
                         color: AppColors.primaryColor,
-                        size: 30.sp,
+                        size: 30,
                       ),
                       separator: '',
                       decoration: BoxDecoration(
