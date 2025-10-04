@@ -47,7 +47,7 @@ class PassordSuccessCreated extends StatelessWidget {
                 Navigator.pushNamedAndRemoveUntil(
                   context, 
                   AppRoutes.loginRoute,
-                  (route) => false, // Remove all previous routes
+                  (route) => false, 
                 );
               },
               backGroundColor: AppColors.blackColor,

@@ -18,15 +18,9 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  final TextEditingController nameController = TextEditingController(
-    text: 'sayed',
-  );
-  final TextEditingController mailController = TextEditingController(
-    text: 'hend@gmail.com',
-  );
-  final TextEditingController passwordController = TextEditingController(
-    text: '1233333333ndkhbh3',
-  );
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController mailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override

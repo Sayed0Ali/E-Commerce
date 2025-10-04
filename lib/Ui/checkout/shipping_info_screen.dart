@@ -177,7 +177,7 @@ class _ShippingInfoScreenState extends State<ShippingInfoScreen> {
         CustomTextField(
           controller: controller,
           keyBoardType: keyboardType,
-          hintText: 'Enter $label',
+          hintText: label,
           borderColor: AppColors.gray300,
           filledColor: AppColors.whiteColor,
           style: AppStyles.body14MediumBlack,

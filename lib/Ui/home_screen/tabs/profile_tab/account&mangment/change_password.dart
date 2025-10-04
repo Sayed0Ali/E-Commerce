@@ -56,7 +56,7 @@ hintText: AppLocalizations.of(context)!.enter_password,              validator: 
             ),
             SizedBox(height: 20.h),
             CustomElevatedButton(
-              text: 'Continue',
+              text: AppLocalizations.of(context)!.s_continue,
               onButtonClicked: () {
                 Navigator.push(
                   context,
