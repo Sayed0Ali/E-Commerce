@@ -19,7 +19,7 @@ class FavoriteTab extends StatelessWidget {
       title: favoriteProduct.title,
       imageAsset: favoriteProduct.imageAsset,
       price: favoriteProduct.price,
-      quantity: 1, // Default quantity for display
+      quantity: 1, 
     );
   }
 
@@ -36,7 +36,10 @@ class FavoriteTab extends StatelessWidget {
             centerTitle: true,
             leading: favorites.isNotEmpty
                 ? IconButton(
-                    icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+                    icon: const Icon(
+                      Icons.arrow_back_ios,
+                      color: AppColors.blackColor,
+                    ),
                     onPressed: () {
                       context.read<HomeProvider>().changeIndex(0);
                     },
@@ -83,7 +86,7 @@ class FavoriteTab extends StatelessWidget {
                           context: context,
                           backgroundColor: Colors.transparent,
                           builder: (context) => DeleteBottomSheet(
-                            sourceName:  AppLocalizations.of(context)!.wishlist,
+                            sourceName: AppLocalizations.of(context)!.wishlist,
                             itemCount: 1,
                             onDelete: () => favoritesProvider
                                 .removeFromFavorites(favoriteProduct.id),

@@ -45,7 +45,6 @@ class MyCartTab extends StatefulWidget {
 
 class _MyCartTabState extends State<MyCartTab> {
   late List<CartProduct> products;
-  static const double fixedPrice = 250.0;
 
   @override
   void initState() {

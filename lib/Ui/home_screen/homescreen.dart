@@ -104,12 +104,12 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: EdgeInsets.only(bottom: 4.h),
         child: Icon(
           isSelected ? selectedIcon : icon,
-          color: isSelected ? AppColors.primaryColor : Colors.grey,
+          color: isSelected ? AppColors.primaryColor : AppColors.gray400,
           size: 24.sp,
         ),
       ),
       label: labelName,
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.whiteColor,
     );
   }
 }

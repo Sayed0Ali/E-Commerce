@@ -37,7 +37,10 @@ class CustomKeypad extends StatelessWidget {
             ),
           ),
           onPressed: () => onKeyTap(value),
-          child: Text(value, style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.bold)),
+          child: Text(
+            value,
+            style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+          ),
         );
       },
     );

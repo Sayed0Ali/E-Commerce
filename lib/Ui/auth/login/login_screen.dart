@@ -1,5 +1,4 @@
 import 'package:ecommerce/Ui/auth/login/forget_password/confirmation_email.dart';
-import 'package:ecommerce/Ui/auth/login/forget_password/email_verfaication_login.dart';
 import 'package:ecommerce/Ui/auth/register/register_screen.dart';
 import 'package:ecommerce/Ui/home_screen/homescreen.dart';
 import 'package:ecommerce/core/utils/app_colors.dart';
