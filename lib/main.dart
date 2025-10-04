@@ -41,46 +41,51 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var LanguageProvider = Provider.of<AppLangugeProvider>(context);
+    var languageProvider = Provider.of<AppLangugeProvider>(context);
+
     return ScreenUtilInit(
       designSize: const Size(360, 800),
+      // دي مقاسات تصميمك (غيّرها لو UI مختلف)
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child) => MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: OnboardingScreen(),
-        onGenerateRoute: RouteGenerator.generateRoute,
-        routes: {
-          AppRoutes.homeRoute: (context) => HomeScreen(),
-          AppRoutes.homeTabRoute: (context) => HomeTab(),
-          AppRoutes.categoryRoute: (context) => CategoriesTab(),
-          AppRoutes.registerRoute: (context) => RegisterScreen(),
-          AppRoutes.searchRoute: (context) => SearchTab(),
-          AppRoutes.registerVerafaicationRoute: (context) =>
-              EmailVerfaication(),
-          AppRoutes.profileRoute: (context) => ProfaileTab(),
-          AppRoutes.notitcationsRoute: (context) => NotificationsTab(),
-          AppRoutes.allBrandsRoute: (context) => BrandScreen(),
-          AppRoutes.loginRoute: (context) => LoginScreen(),
-          AppRoutes.productDetails: (context) {
-            final args =
-                ModalRoute.of(context)!.settings.arguments
-                    as Map<String, dynamic>;
-            return ProductDetails(
-              image: args['image'] as String,
-              title: args['title'] as String,
-              price: args['price'] as String,
-              oldPrice: args['oldPrice'] as String,
-              colors: args['colors'] as List<Color>,
-              description: args['description'] as String,
-            );
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: child,
+          onGenerateRoute: RouteGenerator.generateRoute,
+          routes: {
+            AppRoutes.homeRoute: (context) => HomeScreen(),
+            AppRoutes.homeTabRoute: (context) => HomeTab(),
+            AppRoutes.categoryRoute: (context) => CategoriesTab(),
+            AppRoutes.registerRoute: (context) => RegisterScreen(),
+            AppRoutes.searchRoute: (context) => SearchTab(),
+            AppRoutes.registerVerafaicationRoute: (context) =>
+                EmailVerfaication(),
+            AppRoutes.profileRoute: (context) => ProfaileTab(),
+            AppRoutes.notitcationsRoute: (context) => NotificationsTab(),
+            AppRoutes.allBrandsRoute: (context) => BrandScreen(),
+            AppRoutes.loginRoute: (context) => LoginScreen(),
+            AppRoutes.productDetails: (context) {
+              final args =
+                  ModalRoute.of(context)!.settings.arguments
+                      as Map<String, dynamic>;
+              return ProductDetails(
+                image: args['image'] as String,
+                title: args['title'] as String,
+                price: args['price'] as String,
+                oldPrice: args['oldPrice'] as String,
+                colors: args['colors'] as List<Color>,
+                description: args['description'] as String,
+              );
+            },
           },
-        },
-        locale: Locale(LanguageProvider.appLanguage),
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
-        theme: AppThems.lightTheme,
-      ),
+          locale: Locale(languageProvider.appLanguage),
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          theme: AppThems.lightTheme,
+        );
+      },
+      child: OnboardingScreen(), // دي الشاشة الأولية اللي هتظهر
     );
   }
 }

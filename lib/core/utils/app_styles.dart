@@ -94,13 +94,13 @@ class AppStyles {
   );
 
   static final TextStyle reguler14Gray = GoogleFonts.plusJakartaSans(
-    fontSize: 14.sp,
+    fontSize: 14,
     color: AppColors.gray500,
     fontWeight: FontWeight.w400,
   );
 
   static final TextStyle body14SemiBoldBlack = GoogleFonts.plusJakartaSans(
-    fontSize: 14.sp,
+    fontSize: 14,
     fontWeight: FontWeight.w600,
     color: AppColors.blackColor,
   );
@@ -112,7 +112,7 @@ class AppStyles {
   );
 
   static final TextStyle bold24Jakarta = GoogleFonts.plusJakartaSans(
-    fontSize: 24.sp,
+    fontSize: 24,
     fontWeight: FontWeight.w700,
     color: AppColors.blackColor,
   );
@@ -143,7 +143,7 @@ class AppStyles {
     fontSize: 12.sp,
     fontWeight: FontWeight.w600, // SemiBold
     color: AppColors.blackColor,
-    height: 1.0, // line-height 100%
+    height: 1.0,
     letterSpacing: 0.06, // 0.5% of 12px
   );
   static TextStyle body10RegularLineThrough = GoogleFonts.plusJakartaSans(

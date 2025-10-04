@@ -99,7 +99,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         style: AppStyles.reguler14Gray,
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: 24.h),
                     ],
                   ),
                 );
